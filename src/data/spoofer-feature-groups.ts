@@ -7,7 +7,7 @@ function spooferFeature(name: string, desc: string): ProductFeatureGroup {
 export const SPOOFER_FEATURE_GROUPS: ProductFeatureGroup[] = [
   spooferFeature(
     'Hardware spoofer with cleaner',
-    'Spoofer pass plus cleaner before you sign into Rust on this PC.',
+    'Runs the spoofer pass and the cleaner before you sign into Rust on this PC.',
   ),
   spooferFeature(
     'Disk serial and MAC rotation',
@@ -19,18 +19,18 @@ export const SPOOFER_FEATURE_GROUPS: ProductFeatureGroup[] = [
   ),
   spooferFeature(
     'Compatibility scan',
-    'Checks Windows build, drivers, and security settings first.',
+    'Looks at the Windows build, drivers, and security settings before the pass.',
   ),
   spooferFeature(
     'Verification checklist',
-    'Reboot if needed, confirm green steps, then test a spare account.',
+    'Reboot if the list says to, confirm the green steps, then try a spare account.',
   ),
   spooferFeature(
     'Portal step-by-step workflow',
-    'Each on-screen step follows the portal order.',
+    'The on-screen steps follow the order written in the portal.',
   ),
   spooferFeature(
     'Discord setup support',
-    'Discord help for errors—send your order email and the portal message.',
+    'Discord help when a step errors. Send the order email and the portal message.',
   ),
 ];

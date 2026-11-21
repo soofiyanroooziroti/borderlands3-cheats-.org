@@ -9,10 +9,10 @@ const rustCheatFeaturesHref = `${productPath('rust-cheat')}#features`;
 export const en: Translations = {
   site: {
     name: 'Rust Cheats',
-    domain: 'cheatrust.org',
+    domain: 'cheatsforrust.net',
     title: 'Rust Cheats',
     description:
-      'Rust Cheats for Windows PC with aimbot, player ESP, and loot filters. Compare the cheat, HWID spoofer, and UGC recovery on cheatrust.org.',
+      'Rust Cheats for Windows PC with aimbot, player ESP, and loot filters. Compare the cheat, HWID spoofer, and UGC recovery on cheatsforrust.net.',
     discord: PRIMARY_CHECKOUT_PATH,
   },
   nav: [
@@ -23,6 +23,7 @@ export const en: Translations = {
     { href: '/forum/', label: 'Forum' },
     { href: '/faq/', label: 'FAQ' },
     { href: '/support/', label: 'Support' },
+    { href: '/status/', label: 'Status' },
   ],
   headerNavLabels: {
     home: 'Home',
@@ -32,6 +33,7 @@ export const en: Translations = {
     forum: 'Forum',
     faq: 'FAQ',
     support: 'Help',
+    status: 'Status',
   },
   navMore: 'More',
   navShort: {
@@ -42,6 +44,7 @@ export const en: Translations = {
     forum: 'Forum',
     faq: 'FAQ',
     support: 'Support',
+    status: 'Status',
   },
   hero: {
     status: 'Rust — modules online',
@@ -49,8 +52,8 @@ export const en: Translations = {
     titleLine1: 'Rust Cheats',
     titleLine2: 'Rust Cheats',
     subtitle:
-      'Rust cheats and cheats for Windows PC—aimbot, player ESP, weapon options, and misc options, with instant delivery and Discord support.',
-    ctaPrimary: 'View products',
+      'Rust cheats for Windows PC with aimbot, ESP, no recoil, no spread and 110+ more features, plus Discord support.',
+    ctaPrimary: 'View features',
     ctaDiscord: 'Buy now',
     modesLabel: 'Modes',
     modes: ['Operations', 'Warfare', 'Extraction', 'Ranked'],
@@ -157,7 +160,7 @@ export const en: Translations = {
   },
   whyUs: {
     eyebrow: 'Why us',
-    title: 'Ranked tooling backed by patches—not promises',
+    title: 'Read the build note, then pick one key',
     subtitle:
       'One cheat product, one HWID spoofer, and one UGC recovery workspace. Prices stay $35 monthly or $150 lifetime, and a ban is still possible under EasyAnti-Cheat.',
     usLabel: 'Rust Cheats',
@@ -165,7 +168,7 @@ export const en: Translations = {
     rows: [
       {
         title: 'Patch-day loader updates',
-        desc: 'Check cheatrust.org after a Rust or EAC update before you open the loader.',
+        desc: 'Check cheatsforrust.net after a Rust or EAC update before you open the loader.',
       },
       {
         title: 'Separate aim sliders',
@@ -212,7 +215,7 @@ export const en: Translations = {
     titleHighlight: 'three simple steps',
     intro:
       'Getting started is checkout, the portal loader, then a saved config. Check the site after an EasyAnti-Cheat update before you launch Rust.',
-    ctaPrimary: 'View products',
+    ctaPrimary: 'View features',
     ctaSecondary: 'Setup FAQ',
     ctaPrimaryHref: productBase,
     ctaSecondaryHref: '/faq/',
@@ -247,7 +250,7 @@ export const en: Translations = {
     eyebrow: 'Platform support',
     title: 'Runs on your rig.',
     subtitle: 'Check the site after a Rust or EAC update before you launch.',
-    items: ['Windows 10 & 11', 'Intel or AMD', 'HVCI on', 'Core isolation on', 'TPM on', 'Secure boot on', 'Discord support', 'Config save'],
+    items: ['Windows 10 & 11', 'Intel or AMD', 'HVCI on', 'Core isolation on', 'TPM on', 'Secure boot on'],
   },
   cheats: {
     eyebrow: 'Game cheat',
@@ -351,7 +354,7 @@ export const en: Translations = {
         num: '01',
         phase: 'Before purchase',
         title: 'Check EAC status',
-        desc: 'Read cheatrust.org after a client or EasyAnti-Cheat update before you buy or launch.',
+        desc: 'Read cheatsforrust.net after a client or EasyAnti-Cheat update before you buy or launch.',
       },
       {
         num: '02',
@@ -391,7 +394,7 @@ export const en: Translations = {
         icon: 'users',
         title: 'Chat before checkout',
         desc: 'Ask about the cheat, the spoofer, or UGC before you pay.',
-        linkLabel: 'Start checkout',
+        linkLabel: 'Buy now',
         href: PRIMARY_CHECKOUT_PATH,
       },
       {
@@ -418,7 +421,7 @@ export const en: Translations = {
     ],
     ticketTitle: 'Include in your ticket',
     ticketItems: [
-      { title: 'Order email', desc: 'The address used at checkout on cheatrust.org.' },
+      { title: 'Order email', desc: 'The address used at checkout on cheatsforrust.net.' },
       { title: 'Platform', desc: 'Windows 10 or 11, and whether HVCI, core isolation, TPM, and secure boot are on.' },
       { title: 'Error detail', desc: 'The exact loader message, not a paraphrase.' },
     ],
@@ -431,7 +434,7 @@ export const en: Translations = {
       {
         num: '01',
         q: 'Where do I check if Rust Cheats are online?',
-        a: 'Read cheatrust.org after a Rust or EasyAnti-Cheat update. A banner from yesterday is not a current build.',
+        a: 'Read cheatsforrust.net after a Rust or EasyAnti-Cheat update. A banner from yesterday is not a current build.',
       },
       {
         num: '02',
@@ -461,7 +464,7 @@ export const en: Translations = {
     ],
   },
   footer: {
-    tagline: 'Rust Cheats, HWID spoofer, and UGC recovery for Windows PC. cheatrust.org',
+    tagline: 'Rust Cheats, HWID spoofer, and UGC recovery for Windows PC. cheatsforrust.net',
     explore: 'Explore',
     exploreLinks: [
       { href: '/', label: 'Feature overview', ariaLabel: 'Features', scrollTarget: 'features' },
@@ -481,12 +484,12 @@ export const en: Translations = {
     about: {
       title: 'About this Rust store',
       description:
-        'cheatrust.org sells Rust Cheats, an HWID spoofer, and UGC account recovery for Windows PC, with setup notes and honest ban risk.',
+        'cheatsforrust.net sells Rust Cheats, an HWID spoofer, and UGC account recovery for Windows PC, with setup notes and honest ban risk.',
       sections: [
         {
           heading: 'Who we are',
           paragraphs: [
-            'cheatrust.org is a Windows PC store for Rust Cheats, an HWID spoofer, and UGC account recovery. The cheat is one product: aimbot, ESP, weapon options, misc options, and config options. It is not a ladder of Lite, Pro, and Elite tiers, and it is not a DMA card.',
+            'cheatsforrust.net is a Windows PC store for Rust Cheats, an HWID spoofer, and UGC account recovery. The cheat is one product: aimbot, ESP, weapon options, misc options, and config options. It is not a ladder of Lite, Pro, and Elite tiers, and it is not a DMA card.',
             'Checkout is $35 for 30 days or $150 lifetime on each product. Those prices match across the three cards. A lifetime key on the cheat does not include the spoofer or the recovery workspace. Starting on a month does not promise a credit toward lifetime.',
             'Product names on this site identify what we sell. They are not a claim that the game publisher endorses the software. Delivery is a portal download for Windows 10 or 11. You keep HVCI, core isolation, TPM, and secure boot on, then open the loader only when the site still matches the current client.',
           ],
@@ -511,12 +514,12 @@ export const en: Translations = {
     privacy: {
       title: 'Privacy Policy',
       description:
-        'How cheatrust.org handles analytics, cookies, and contact data.',
+        'How cheatsforrust.net handles analytics, cookies, and contact data.',
       sections: [
         {
           heading: 'Information we collect',
           paragraphs: [
-            'We may collect standard web analytics such as page views, device type, browser, and approximate region through Google Analytics when enabled. Checkout and license delivery happen on external checkout pages. We do not store payment card data on cheatrust.org.',
+            'We may collect standard web analytics such as page views, device type, browser, and approximate region through Google Analytics when enabled. Checkout and license delivery happen on external checkout pages. We do not store payment card data on cheatsforrust.net.',
           ],
         },
         {
@@ -542,12 +545,12 @@ export const en: Translations = {
     terms: {
       title: 'Terms & Conditions',
       description:
-        'Purchase, license, refund, and use terms for products sold on cheatrust.org.',
+        'Purchase, license, refund, and use terms for products sold on cheatsforrust.net.',
       sections: [
         {
           heading: 'Agreement',
           paragraphs: [
-            'Last updated: October 2026. By using cheatrust.org or completing checkout for any product listed here, you agree to these Terms & Conditions and our Privacy Policy.',
+            'Last updated: October 2026. By using cheatsforrust.net or completing checkout for any product listed here, you agree to these Terms & Conditions and our Privacy Policy.',
           ],
         },
         {
@@ -560,7 +563,7 @@ export const en: Translations = {
         {
           heading: 'Checkout and delivery',
           paragraphs: [
-            'Payment and license delivery run on external checkout pages. cheatrust.org does not process or store payment card numbers.',
+            'Payment and license delivery run on external checkout pages. cheatsforrust.net does not process or store payment card numbers.',
             'After purchase, use the portal from your order to download the current loader before you launch Rust. Leave HVCI, core isolation, TPM, and secure boot on.',
           ],
         },
@@ -602,15 +605,15 @@ export const en: Translations = {
     support: {
       title: 'Rust support',
       description:
-        'Loader, HWID spoofer, UGC, and checkout help for cheatrust.org.',
+        'Loader, HWID spoofer, UGC, and checkout help for cheatsforrust.net.',
     },
   },
   ui: {
     skipLink: 'Skip to main content',
-    browseCheats: 'Try Now',
-    browseCheatsMobile: 'Start checkout',
+    browseCheats: 'Buy now',
+    browseCheatsMobile: 'Buy now',
     homeAria: 'Rust Cheats home',
-    checkoutAria: 'Start checkout',
+    checkoutAria: 'Buy now',
     discordAria: 'Buy Rust Cheats',
     menuOpen: 'Open menu',
     menuClose: 'Close menu',

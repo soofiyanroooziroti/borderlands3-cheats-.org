@@ -1,7 +1,8 @@
 ---
 import type { ProductPage } from '../../data/products';
-import Icon from '../icons/Icon.astro';
 import { Badge } from '@/components/starwind/badge';
+import { getLocaleFromAstro, localePath } from '../../i18n';
+import { status, statusBadgeLabel } from '../../data/status';
 
 interface Props {
   product: ProductPage;
@@ -10,11 +11,26 @@ interface Props {
 
 const { product, pageH1 } = Astro.props;
 const heading = pageH1 ?? product.title;
+const locale = getLocaleFromAstro(Astro);
+const isLiveStatus = Boolean(product.badge && /^active$/i.test(product.badge));
+const liveLabel = isLiveStatus ? statusBadgeLabel(status.state) : product.badge;
+const statusHref = localePath('/status/', locale);
 ---
 
 <header class="product-detail-header space-y-4">
   <div class="flex flex-wrap items-center gap-2">
-    <Badge variant="secondary">{product.badge}</Badge>
+    {
+      isLiveStatus ? (
+        <a href={statusHref} class="product-status-link">
+          <Badge variant="secondary" class="gap-1">
+            <span class:list={['product-status-dot', `product-status-dot--${status.state}`]} aria-hidden="true" />
+            {liveLabel}
+          </Badge>
+        </a>
+      ) : (
+        <Badge variant="secondary">{product.badge}</Badge>
+      )
+    }
     {product.variant === 'popular' && <Badge>Popular</Badge>}
     {product.variant === 'limited' && <Badge variant="warning">Limited</Badge>}
     <Badge variant="outline">Rust</Badge>
@@ -23,3 +39,30 @@ const heading = pageH1 ?? product.title;
   <h1 class="max-w-3xl text-3xl font-bold normal-case leading-tight md:text-4xl">{heading}</h1>
   <p class="max-w-2xl text-lg leading-relaxed text-muted-foreground">{product.subtitle || product.desc}</p>
 </header>
+
+<style>
+  .product-status-link {
+    display: inline-flex;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .product-status-dot {
+    width: 0.45rem;
+    height: 0.45rem;
+    flex-shrink: 0;
+    border-radius: 999px;
+  }
+
+  .product-status-dot--green {
+    background: #22c55e;
+  }
+
+  .product-status-dot--blue {
+    background: #3b82f6;
+  }
+
+  .product-status-dot--red {
+    background: #ef4444;
+  }
+</style>

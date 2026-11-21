@@ -22,6 +22,7 @@ const NAV_ICONS: IconName[] = [
   'messageCircle',
   'navFaq',
   'navSupport',
+  'circleCheck',
 ];
 
 const purchaseUrl = checkoutPath('rustCheat');
@@ -29,7 +30,7 @@ const logoAlt = logoAltForPath(Astro.url.pathname);
 const navLinkClass = 'nav-link';
 const drawerId = 'header-menu-drawer';
 
-const NAV_KEYS = ['home', 'products', 'features', 'blog', 'forum', 'faq', 'support'] as const;
+const NAV_KEYS = ['home', 'products', 'features', 'blog', 'forum', 'faq', 'support', 'status'] as const;
 type NavKey = (typeof NAV_KEYS)[number];
 const navShort = t.navShort;
 const navMoreLabel = t.navMore;

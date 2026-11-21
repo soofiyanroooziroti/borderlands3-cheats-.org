@@ -2,15 +2,15 @@
   "steps": [
     {
       "title": "Check status",
-      "desc": "Confirm modules are online on cheatrust.org before you buy—especially after a Rust or EAC update."
+      "desc": "Confirm modules are online on cheatsforrust.net before you buy—especially after a Rust or EAC update."
     },
     {
       "title": "Pick a plan",
       "desc": "Choose monthly or lifetime—same USD pricing on every product in the lineup."
     },
     {
-      "title": "Secure checkout",
-      "desc": "Complete checkout on Zadeyo. Your license unlocks in the portal with instant delivery."
+      "title": "Pay on the portal",
+      "desc": "Finish payment on the portal. The key is delivered right away."
     },
     {
       "title": "Install & verify",
@@ -107,10 +107,10 @@
       }
     ],
     "overview": {
-      "title": "Built for Rust on Windows PC",
+      "title": "Windows rust cheat loader",
       "paragraphs": [
-        "Rust Cheats covers aimbot, ESP, weapon options, misc options, and config options for Windows PC. Updates ship while your key is active, with Discord help for setup.",
-        "Always check availability on cheatrust.org before you launch, especially after an EasyAnti-Cheat (EAC) or client patch."
+        "This rust cheat loader lists aim, visuals, weapon options, misc options, and config options for Windows PC. Updates continue while the key is active. Discord can help with setup.",
+        "Read cheatsforrust.net before you launch, especially after an EasyAnti-Cheat or client patch."
       ]
     },
     "body": [
@@ -131,8 +131,8 @@
         "text": "Monthly $35 USD or lifetime $150 USD. Instant digital delivery worldwide after checkout."
       }
     ],
-    "goodToKnow": "Rust and EasyAnti-Cheat (EAC) update often. Confirm availability on cheatrust.org before you launch. Overlay behavior may differ in menus or spectator views after patches.",
-    "limitations": "Third-party software can violate game terms and lead to bans. You use this software at your own risk. Compatibility can change after game, EAC, or Windows updates without notice.",
+    "goodToKnow": "Rust and EasyAnti-Cheat change often. Read cheatsforrust.net before you launch. After a patch, overlays can look different in menus or while you spectate.",
+    "limitations": "Third-party software can break the game rules and lead to penalties. You accept that risk. A game, EasyAnti-Cheat, or Windows update can change whether the build still runs.",
     "requirements": [
       "Windows 10/11",
       "Intel/AMD",
@@ -161,9 +161,9 @@
       }
     ],
     "overview": {
-      "title": "HWID recovery workflow",
+      "title": "Windows rust hwid ban bypass",
       "paragraphs": [
-        "HWID Spoofer focuses on hardware profile rotation when you need a clean machine context before relaunching Rust after a hardware flag.",
+        "This rust hwid ban bypass rotates the hardware profile when a machine flag is why you need a different PC context before you open Rust again.",
         "Monthly and lifetime USD plans use the same checkout flow as the rest of the lineup."
       ]
     },

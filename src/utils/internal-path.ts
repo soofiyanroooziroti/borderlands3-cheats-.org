@@ -18,8 +18,8 @@ export const LEGACY_PATH_MAP: Record<string, string> = {
   '/cheats/pro/': PRODUCT_CATALOG,
   '/cheats/elite': '/product/rust-cheat/',
   '/cheats/elite/': '/product/rust-cheat/',
-  '/cheats/compare': '/blog/cheap-rust-cheats/',
-  '/cheats/compare/': '/blog/cheap-rust-cheats/',
+  '/cheats/compare': '/blog/rust-cheats-price/',
+  '/cheats/compare/': '/blog/rust-cheats-price/',
   '/contact': '/support/',
   '/contact/': '/support/',
 };

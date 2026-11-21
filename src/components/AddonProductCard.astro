@@ -1,0 +1,53 @@
+---
+import Icon from './icons/Icon.astro';
+import SlideRevealButton from './SlideRevealButton.astro';
+import { Button } from '@/components/starwind/button';
+import { getLocaleFromAstro, getTranslations } from '../i18n';
+import { formatPlanPrice, getProductPlans } from '../data/productPricing';
+
+interface Props {
+  title: string;
+  desc: string;
+  href: string;
+  buyUrl: string;
+  productSlug: string;
+}
+
+const locale = getLocaleFromAstro(Astro);
+const catalog = getTranslations(locale).catalog as Record<string, string>;
+const { title, desc, href, buyUrl, productSlug } = Astro.props;
+
+const plans = getProductPlans(productSlug);
+const monthlyPlan = plans.find((p) => p.id === 'mon') ?? plans[0]!;
+const lifetimePlan = plans.find((p) => p.id === 'lifetime');
+const lifetimeLine = lifetimePlan
+  ? (catalog.orLifetime ?? 'or {amount} lifetime').replace('{amount}', formatPlanPrice(lifetimePlan.priceUsd))
+  : '';
+const buyLabel = catalog.buyNow ?? 'Buy now';
+const viewLabel = catalog.viewDetails ?? 'View details';
+---
+
+<article class="addon-product-card">
+  <div class="addon-product-card__main">
+    <h3 class="addon-product-card__title">
+      <a href={href} class="hover:text-primary">{title}</a>
+    </h3>
+    <p class="addon-product-card__desc">{desc}</p>
+    <div class="addon-product-card__pricing">
+      <p class="addon-product-card__price">
+        {formatPlanPrice(monthlyPlan.priceUsd)}
+        <span class="addon-product-card__price-suffix"> monthly</span>
+      </p>
+      {lifetimeLine && <p class="addon-product-card__price-alt">{lifetimeLine}</p>}
+    </div>
+  </div>
+  <div class="addon-product-card__actions">
+    <SlideRevealButton href={buyUrl} class="addon-product-card__buy slide-reveal-btn rounded-lg">
+      {buyLabel}
+    </SlideRevealButton>
+    <Button as="a" href={href} variant="outline" size="sm" class="addon-product-card__view h-8 justify-center text-xs">
+      {viewLabel}
+      <Icon name="eye" size={14} />
+    </Button>
+  </div>
+</article>

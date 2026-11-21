@@ -5,69 +5,74 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    title: 'Rust Cheats for Windows PC: ESP, Aimbot & Weapon Options',
+    title: 'Windows PC rust cheats for the menu and two add-ons',
     description:
-      'Rust cheats for Windows PC—compare the loader, HWID spoofer, and unban tool. Monthly and lifetime USD plans with ESP, aimbot, and weapon menu groups.',
+      'A rust cheats menu for Windows PC: aim, visuals, weapons, misc, and config. The hardware tool and the appeal workspace each check out on their own.',
   },
   '/products/': {
-    title: 'Product Catalog: Loader, Spoofer, and Unban Tool',
+    title: 'Windows catalog for the loader, hardware tool, and appeals',
     description:
-      'Compare plans for the Rust menu, HWID spoofer, and unban tool on Windows PC. Monthly and lifetime USD options, each with its own checkout.',
+      'Three Windows products, each with its own checkout. The menu and the appeal workspace are $35 or $150. The hardware tool is $50 or $150. Compare the three.',
   },
   '/product/rust-cheat/': {
-    title: 'Rust Cheat Loader for Windows PC',
+    title: 'Windows rust cheat loader from the portal after checkout',
     description:
-      'Rust cheat loader for Windows PC with modular tools, portal delivery, and $35 monthly or $150 lifetime USD plans.',
+      'A rust cheat loader for Windows PC with the menu groups listed on this page. $35 for 30 days or $150 lifetime, delivered from the portal after you check out.',
   },
   '/product/spoofer/': {
-    title: 'Rust HWID Spoofer: Windows PC Hardware ID Workflow',
+    title: 'Windows rust hwid ban bypass when new accounts fail here',
     description:
-      'Rust HWID spoofer and spoofer rust workflow for hardware flags on Windows PC. Monthly $50 or lifetime $150 USD, separate from the cheat loader.',
+      'A rust hwid ban bypass for a PC that fails new accounts while another machine still works. $50 monthly or $150 lifetime, sold apart from the loader.',
   },
   '/product/ugc/': {
-    title: 'Rust Unban Tool: Account Appeal Workspace',
+    title: 'Windows rust account recovery templates and follow-up',
     description:
-      'Rust unban tool organizes account appeals and recovery steps for Rust on Windows PC. Monthly $35 or lifetime $150 USD.',
+      'A rust account recovery workspace for appeal templates, evidence lists, and follow-up. $35 for 30 days or $150 lifetime. Restoration is not promised.',
   },
   '/blog/': {
-    title: 'Rust Guides: Setup, EAC Notes, ESP and Product Help',
+    title: 'Blog: setup guides, status colors, and penalty notes',
     description:
-      'Rust guides on loader setup, EasyAnti-Cheat patch days, HWID spoofer checks, ESP tuning, and product pricing for Windows PC customers before checkout.',
+      'Guides on Windows requirements, the portal file, status colors, hardware flags, and what a penalty can still do after you launch. Read one note first.',
   },
   '/forum/': {
-    title: 'Community Forum: Loader, Spoofer and Unban Tool Help',
+    title: 'Forum threads on the loader, hardware flags, and tickets',
     description:
-      'Community threads on the Windows loader, HWID spoofer, unban tool, and plan pricing. Marked developer replies on setup, EAC updates, and checkout issues.',
+      'Questions about a stuck loader, status colors, Secure Boot, a missing key email, configs, Discord tickets, and HVCI. Developer replies are marked on the thread.',
   },
   '/faq/': {
-    title: 'FAQ: Rust Plans, Setup and EAC Risk Before You Buy',
+    title: 'FAQ on plans, Windows switches, penalties, and delivery',
     description:
-      'FAQ answers on checkout, EasyAnti-Cheat updates, Windows requirements, hardware flags, and how the loader, spoofer and unban tool differ.',
+      'Prices, what each product covers, Windows switches that stay on, and the difference between a PC flag and an account restriction. Read this before checkout.',
   },
   '/support/': {
-    title: 'Support: Loader and Checkout Help',
+    title: 'Support for the order email, loader text, and Discord help',
     description:
-      'Support for the Windows loader, HWID spoofer, and unban tool on cheatrust.org. Use Discord with your order details and loader text.',
+      'Discord help for the Windows loader, the hardware tool, and the appeal workspace on cheatsforrust.net. Send the order email and the exact loader line.',
   },
   '/about/': {
-    title: 'About Our Rust Store: Checkout, Delivery and Ban Risk',
+    title: 'About this Windows store: products, delivery, and risk',
     description:
-      'What this Rust store sells, how checkout and portal delivery work, and the ban risk that stays on you when you use these tools on Windows PC.',
+      'Three Windows products, portal delivery, and the penalty risk that stays with you. Lifetime on one key does not unlock the other two. Read status before launch.',
   },
   '/privacy/': {
-    title: 'Privacy Policy: Analytics, Cookies and Checkout Data',
+    title: 'Privacy notes on analytics, cookies, and card data storage',
     description:
-      'How cheatrust.org handles analytics and cookies. Payment card numbers stay on the checkout provider, not on this site.',
+      'How cheatsforrust.net uses analytics and cookies. Card numbers stay on the checkout provider. This site does not store them. Questions go through support.',
   },
   '/terms/': {
-    title: 'Terms of Use: Licenses, Refunds and Acceptable Use',
+    title: 'Terms for licenses, final sales, and how each key is used',
     description:
-      'License terms, acceptable use, and the no-refund rule for the loader, HWID spoofer, and unban tool sold through cheatrust.org on Windows PC.',
+      'Personal-use licenses, the no-refund rule, and acceptable use for the loader, hardware tool, and appeal workspace sold on cheatsforrust.net.',
   },
   '/status/': {
-    title: 'Rust Loader Status: Green, Red and Blue Build Notes',
+    title: 'Status check before every launch: green, red, or blue',
     description:
-      'Green means the Rust loader build is updated and can be used. Red means do not use it. Blue means developers are still updating it.',
+      'Read the current build color before every launch: green, red, or blue, plus the last checked date, anti-cheat notes, and the latest game update on this page.',
+  },
+  '/features/': {
+    title: 'Cheat menu features for Rust: visuals, aim, and weapons',
+    description:
+      'Every menu line in the visuals, world, aim, weapon, misc, and config groups, with the short note that ships beside each name. Names match the loader.',
   },
 };
 

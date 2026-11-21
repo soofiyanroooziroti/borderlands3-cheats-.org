@@ -47,6 +47,7 @@ const NAV_PATHS = [
   '/forum/',
   '/faq/',
   '/support/',
+  '/status/',
 ] as const;
 
 function attachNav(navRaw: NavLink[] | undefined, locale: Locale): NavLink[] {

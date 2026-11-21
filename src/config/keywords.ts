@@ -2,9 +2,10 @@
 export const PAGE_KEYWORDS: Record<string, string | string[] | null> = {
   '/': 'rust cheats',
   '/products/': null,
-  '/product/rust-cheat/': 'rust cheat',
-  '/product/spoofer/': ['rust hwid spoofer', 'spoofer rust'],
-  '/product/ugc/': 'rust unban tool',
+  '/product/rust-cheat/': 'rust cheat loader',
+  '/product/spoofer/': 'rust hwid ban bypass',
+  '/product/ugc/': 'rust account recovery',
+  '/features/': null,
   '/blog/': null,
   '/forum/': null,
   '/faq/': null,
@@ -19,14 +20,15 @@ export const PAGE_KEYWORDS: Record<string, string | string[] | null> = {
 export const NOINDEX_CANNIBALISM_SKIP = new Set(['/status/', '/404/']);
 
 export const PRODUCT_H1: Record<string, string> = {
-  'rust-cheat': 'Rust cheat for Windows PC',
-  spoofer: 'Rust HWID spoofer for Windows PC',
-  ugc: 'Rust unban tool for Windows PC',
+  'rust-cheat': 'Windows rust cheat loader',
+  spoofer: 'Windows rust hwid ban bypass',
+  ugc: 'Windows rust account recovery',
 };
 
 export const PRODUCT_PAGE_KEYWORDS: Record<string, string> = {
-  spoofer: 'rust hwid spoofer',
-  ugc: 'rust unban tool',
+  'rust-cheat': 'rust cheat loader',
+  spoofer: 'rust hwid ban bypass',
+  ugc: 'rust account recovery',
 };
 
 export function primaryKeywords(): string[] {

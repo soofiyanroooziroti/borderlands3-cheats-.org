@@ -1,0 +1,54 @@
+---
+import { getLocaleFromAstro, getTranslations } from '../i18n';
+import { cheatsContent } from '../data/product-catalog-en';
+import { RUST_MENU_CATEGORIES } from '../data/rust-menu-categories';
+import Icon from './icons/Icon.astro';
+import { Card, CardContent } from '@/components/starwind/card';
+
+const locale = getLocaleFromAstro(Astro);
+const t = getTranslations(locale);
+const copy = (t.products as { showcasePreview?: Record<string, string> }).showcasePreview ?? {};
+
+const menuShot = cheatsContent.images[0]!;
+const featuresHref = t.nav[2]?.href ?? '/product/rust-cheat/#features';
+const tabLabels = RUST_MENU_CATEGORIES.map((cat) => cat.title);
+---
+
+<aside class="products-showcase-preview" aria-label={copy.keyFeatures ?? 'Key features'}>
+  <Card class="products-showcase-preview__card flex h-full flex-col overflow-visible border-border/80 bg-card py-0 shadow-sm">
+    <CardContent class="flex h-full min-h-0 flex-1 flex-col gap-4 p-4 md:p-5">
+      <figure class="products-showcase-preview__figure m-0 flex min-h-0 flex-1 flex-col">
+        <div class="products-showcase-preview__image-wrap">
+          <img
+            src={menuShot.src}
+            alt={menuShot.alt}
+            width="1330"
+            height="840"
+            class="products-showcase-preview__image"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <figcaption class="products-showcase-preview__caption">{copy.cheatMenuCaption ?? 'Cheat menu'}</figcaption>
+      </figure>
+
+      <div class="products-showcase-preview__features">
+        <p class="products-showcase-preview__features-label">{copy.keyFeatures ?? 'Key features'}</p>
+        <ul class="products-showcase-preview__chips" role="list">
+          {tabLabels.map((label) => (
+            <li class="products-showcase-preview__chip">
+              <Icon name="check" size={12} class="shrink-0 text-primary" aria-hidden="true" />
+              <span>{label}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <p class="products-showcase-preview__link-wrap m-0 mt-auto pt-1">
+        <a href={featuresHref} class="products-showcase-preview__link">
+          {copy.seeAllFeatures ?? 'See all features'}
+        </a>
+      </p>
+    </CardContent>
+  </Card>
+</aside>

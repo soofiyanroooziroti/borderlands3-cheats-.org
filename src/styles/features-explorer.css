@@ -1,0 +1,217 @@
+/* Cheat menu features explorer — filter tabs + category blocks */
+
+.features-explorer__tabs-wrap {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.features-explorer__tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  min-width: min-content;
+  padding-bottom: 0.15rem;
+}
+
+.features-explorer__tab {
+  flex: 0 0 auto;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklch, var(--border) 88%, transparent);
+  background: color-mix(in oklch, var(--card) 94%, var(--background));
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.features-explorer__tab:hover {
+  border-color: color-mix(in oklch, var(--primary) 35%, var(--border));
+  color: var(--foreground);
+}
+
+.features-explorer__tab.is-active {
+  border-color: color-mix(in oklch, var(--primary) 55%, var(--border));
+  background: color-mix(in oklch, var(--primary) 14%, var(--card));
+  color: var(--foreground);
+  box-shadow: 0 0 0 1px color-mix(in oklch, var(--primary) 25%, transparent);
+}
+
+.features-explorer__category {
+  padding-block: 1.5rem;
+}
+
+.features-explorer__category + .features-explorer__category {
+  border-top: 1px solid color-mix(in oklch, var(--border) 85%, transparent);
+}
+
+.features-explorer__category[hidden],
+.features-explorer__category.is-filtered-out {
+  display: none;
+}
+
+.features-explorer__category-layout {
+  display: grid;
+  gap: 1.25rem 1.75rem;
+}
+
+@media (min-width: 1024px) {
+  .features-explorer__category-layout {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.35fr);
+    align-items: start;
+  }
+}
+
+.features-explorer__category-intro {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.features-cat-icon {
+  display: inline-flex;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  color: #fff;
+}
+
+.features-cat-icon--visuals {
+  background: linear-gradient(
+    145deg,
+    color-mix(in oklch, var(--primary) 88%, white 8%),
+    color-mix(in oklch, var(--primary) 62%, black 6%)
+  );
+}
+
+.features-cat-icon--world {
+  background: linear-gradient(
+    145deg,
+    color-mix(in oklch, #5b7cfa 75%, var(--primary) 25%),
+    color-mix(in oklch, #3d4f9a 70%, black 8%)
+  );
+}
+
+.features-cat-icon--aimbot {
+  background: linear-gradient(
+    145deg,
+    color-mix(in oklch, var(--primary) 72%, #9b6dff 28%),
+    color-mix(in oklch, var(--primary) 50%, #2b1560 50%)
+  );
+}
+
+.features-cat-icon--weapon {
+  background: linear-gradient(
+    145deg,
+    color-mix(in oklch, #2bb9a8 55%, var(--primary) 18%),
+    color-mix(in oklch, #157a70 65%, black 10%)
+  );
+}
+
+.features-cat-icon--misc {
+  background: linear-gradient(
+    145deg,
+    color-mix(in oklch, #6d7ce8 50%, var(--primary) 35%),
+    color-mix(in oklch, #3c448a 65%, black 8%)
+  );
+}
+
+.features-cat-icon--config {
+  background: linear-gradient(
+    145deg,
+    color-mix(in oklch, #4ea8d8 40%, var(--primary) 25%),
+    color-mix(in oklch, #2a5f7a 62%, black 10%)
+  );
+}
+
+.features-explorer__category-title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.features-explorer__category-subtitle {
+  margin: 0.2rem 0 0;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--primary) 75%, var(--foreground));
+}
+
+.features-explorer__category-desc {
+  margin: 0.55rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--muted-foreground);
+}
+
+.features-explorer__chip-grid {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .features-explorer__chip-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .features-explorer__chip-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.features-explorer__chip {
+  display: flex;
+  gap: 0.45rem;
+  align-items: flex-start;
+  padding: 0.55rem 0.65rem;
+  border-radius: var(--radius-md);
+  border: 1px solid color-mix(in oklch, var(--border) 90%, transparent);
+  background: color-mix(in oklch, var(--card) 96%, var(--background));
+  cursor: default;
+  user-select: none;
+}
+
+.features-explorer__chip-icon {
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+  color: color-mix(in oklch, var(--primary) 80%, var(--foreground));
+}
+
+.features-explorer__chip-text {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.features-explorer__chip-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--foreground);
+}
+
+.features-explorer__chip-note {
+  font-size: 0.6875rem;
+  line-height: 1.35;
+  color: var(--muted-foreground);
+}

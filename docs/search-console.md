@@ -1,11 +1,11 @@
-# Search Console workflow (cheatrust.org)
+# Search Console workflow (cheatsforrust.net)
 
 You verify the domain at your DNS provider—no HTML meta tags in the repo.
 
 ## Setup (once)
 
-1. Open [Google Search Console](https://search.google.com/search-console) and add the **domain** property for `cheatrust.org` if it is not already there.
-2. Under **Sitemaps**, submit: `https://cheatrust.org/sitemap.xml`
+1. Open [Google Search Console](https://search.google.com/search-console) and add the **domain** property for `cheatsforrust.net` if it is not already there.
+2. Under **Sitemaps**, submit: `https://cheatsforrust.net/sitemap.xml`
 3. Repeat in [Bing Webmaster Tools](https://www.bing.com/webmasters) if you use Bing.
 
 ## Monthly tune (15 minutes)

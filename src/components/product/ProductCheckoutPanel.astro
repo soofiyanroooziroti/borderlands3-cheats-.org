@@ -3,16 +3,11 @@ import { getLocaleFromAstro, getTranslations } from '../../i18n';
 const locale = getLocaleFromAstro(Astro);
 const t = getTranslations(locale);
 import type { ProductPage } from '../../data/products';
-import {
-  checkoutUrlWithPlan,
-  formatPlanPrice,
-  getProductPlans,
-} from '../../data/productPricing';
+import { formatPlanPrice, getProductPlans } from '../../data/productPricing';
 import Icon from '../icons/Icon.astro';
 import ProductIconWell from './ProductIconWell.astro';
 import { Button } from '@/components/starwind/button';
 import { CHECKOUT_LINK_REL } from '../../config/checkout';
-import { RadioGroup, RadioGroupItem } from '@/components/starwind/radio-group';
 import { ROUTES, getLocalizedPath } from '../../utils/path';
 
 interface Props {
@@ -21,12 +16,7 @@ interface Props {
 
 const { product } = Astro.props;
 const plans = getProductPlans(product.slug);
-const defaultPlan = plans[0]!;
-const isSinglePlan = plans.length === 1;
-const monthlyPlan = plans.find((p) => p.id === 'mon');
 const lifetimePlan = plans.find((p) => p.id === 'lifetime');
-const lifetimeSaveUsd =
-  monthlyPlan && lifetimePlan ? monthlyPlan.priceUsd * 12 - lifetimePlan.priceUsd : 0;
 
 const isUgc = product.slug === 'ugc';
 const isRustCheat = product.slug === 'rust-cheat';
@@ -35,24 +25,15 @@ const statusHref = getLocalizedPath(ROUTES.status, locale);
 const ugcModuleChips = ['Unban tool', 'Appeals & recovery', 'Windows 10/11'];
 const rustModuleChips = ['ESP', 'Aimbot', 'Weapon', 'Misc', 'Config', 'Windows 10/11'];
 
-function checkoutDisplayPriceNote(planId: string): string {
-  return planId === 'lifetime' ? 'USD · Lifetime' : 'USD · 30 days';
-}
-
-const checkoutPlans = plans.map((plan) => ({
-  ...plan,
-  priceNote: checkoutDisplayPriceNote(plan.id),
-}));
-
-const defaultPriceNote = checkoutDisplayPriceNote(defaultPlan.id);
+const planHint =
+  t.pricing.checkoutPlanHint ??
+  'Want a different plan? Choose it on the next page. You confirm your plan and total at checkout.';
+const recommendedLabel = t.pricing.recommended ?? 'Recommended';
 ---
 
 <aside
   class="product-checkout text-left lg:sticky lg:top-24"
   aria-labelledby={`checkout-${product.slug}`}
-  data-product-checkout
-  data-buy-url={product.buyUrl}
-  data-plans={JSON.stringify(checkoutPlans)}
 >
   <div
     class:list={[
@@ -65,7 +46,7 @@ const defaultPriceNote = checkoutDisplayPriceNote(defaultPlan.id);
       <div class="min-w-0 text-left">
         <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">{t.pricing.checkout}</p>
         <h2 id={`checkout-${product.slug}`} class="text-base font-semibold leading-snug">
-          {isSinglePlan ? t.pricing.purchaseOption : t.pricing.selectSubscription}
+          {t.pricing.ourPlans ?? 'Our plans'}
         </h2>
       </div>
     </div>
@@ -110,58 +91,50 @@ const defaultPriceNote = checkoutDisplayPriceNote(defaultPlan.id);
         )
       }
 
-      <RadioGroup
-        defaultValue={defaultPlan.id}
-        name={`plan-${product.slug}`}
-        legend={isSinglePlan ? t.pricing.purchaseOption : t.pricing.selectSubscription}
-        class:list={['flex flex-col gap-2', isFillCard && 'min-h-0 flex-1']}
-      >
+      <div class:list={['flex flex-col gap-2', isFillCard && 'min-h-0 flex-1']}>
         {
           plans.map((plan) => (
-            <label class="product-checkout__plan flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-border bg-background p-3.5 transition-[border-color,box-shadow,transform,background] duration-200 ease-out has-data-checked:border-primary has-data-checked:bg-primary/10 hover:scale-[1.015]">
+            <div
+              class:list={[
+                'product-checkout__plan flex items-center justify-between gap-3 rounded-xl border p-3.5',
+                plan.id === 'mon'
+                  ? 'product-checkout__plan--recommended border-primary bg-primary/10'
+                  : 'border-border bg-background',
+              ]}
+            >
               <span class="flex min-w-0 flex-col gap-1">
                 <span class="flex flex-wrap items-center gap-2">
-                  <span class="flex items-center gap-3">
-                    <RadioGroupItem value={plan.id} variant="primary" />
-                    <span class="text-sm font-medium">{plan.label}</span>
-                  </span>
+                  <span class="text-sm font-medium">{plan.label}</span>
+                  {plan.id === 'mon' && (
+                    <span class="product-checkout__recommended">{recommendedLabel}</span>
+                  )}
                   {plan.id === 'lifetime' && (
                     <span class="product-checkout__best-value">{t.pricing.bestValue}</span>
                   )}
                 </span>
-                {plan.id === 'lifetime' && lifetimeSaveUsd > 0 && (
-                  <span class="product-checkout__save pl-8">
-                    {(t.pricing.saveAmount ?? 'Save ${amount}').replace('{amount}', String(lifetimeSaveUsd))}
+                {plan.id === 'lifetime' && (
+                  <span class="product-checkout__save">
+                    {t.pricing.saveAmount ?? 'Pay once, use forever'}
                   </span>
                 )}
               </span>
               <span class="shrink-0 text-sm font-semibold tabular-nums text-foreground">
                 {formatPlanPrice(plan.priceUsd)}
               </span>
-            </label>
+            </div>
           ))
         }
-      </RadioGroup>
+      </div>
 
       {
         isFillCard ? (
-          <div class="product-checkout__footer mt-auto space-y-4 border-t border-border pt-4">
-            <div class="flex items-end justify-between gap-3">
-              <span class="text-xs font-medium uppercase tracking-wider text-muted-foreground">{t.pricing.total}</span>
-              <p class="text-right font-[family-name:var(--font-heading)] text-2xl font-bold leading-none text-primary">
-                <span class="product-checkout__total" data-checkout-total>{formatPlanPrice(defaultPlan.priceUsd)}</span>
-                <span class="product-checkout__total-note block text-sm font-medium text-muted-foreground" data-checkout-note>
-                  {defaultPriceNote}
-                </span>
-              </p>
-            </div>
+          <div class="product-checkout__footer mt-auto space-y-3 border-t border-border pt-4">
             <Button
               as="a"
-              href={checkoutUrlWithPlan(product.buyUrl, defaultPlan.id)}
+              href={product.buyUrl}
               variant="primary"
               size="lg"
               class="product-checkout__buy group/buy w-full rounded-xl"
-              data-checkout-buy
               rel={CHECKOUT_LINK_REL}
               data-astro-reload
               data-astro-prefetch="false"
@@ -171,25 +144,18 @@ const defaultPriceNote = checkoutDisplayPriceNote(defaultPlan.id);
                 <Icon name="arrowRight" size={17} />
               </span>
             </Button>
+            <p class="product-checkout__plan-hint m-0 text-center text-xs leading-snug text-muted-foreground">
+              {planHint}
+            </p>
           </div>
         ) : (
-          <>
-            <div class="flex items-end justify-between gap-3 border-t border-border pt-4">
-              <span class="text-xs font-medium uppercase tracking-wider text-muted-foreground">{t.pricing.total}</span>
-              <p class="text-right font-[family-name:var(--font-heading)] text-2xl font-bold leading-none text-primary">
-                <span class="product-checkout__total" data-checkout-total>{formatPlanPrice(defaultPlan.priceUsd)}</span>
-                <span class="product-checkout__total-note block text-sm font-medium text-muted-foreground" data-checkout-note>
-                  {defaultPriceNote}
-                </span>
-              </p>
-            </div>
+          <div class="space-y-3 border-t border-border pt-4">
             <Button
               as="a"
-              href={checkoutUrlWithPlan(product.buyUrl, defaultPlan.id)}
+              href={product.buyUrl}
               variant="primary"
               size="lg"
               class="product-checkout__buy group/buy w-full rounded-xl"
-              data-checkout-buy
               rel={CHECKOUT_LINK_REL}
               data-astro-reload
               data-astro-prefetch="false"
@@ -199,14 +165,12 @@ const defaultPriceNote = checkoutDisplayPriceNote(defaultPlan.id);
                 <Icon name="arrowRight" size={17} />
               </span>
             </Button>
-          </>
+            <p class="product-checkout__plan-hint m-0 text-center text-xs leading-snug text-muted-foreground">
+              {planHint}
+            </p>
+          </div>
         )
       }
     </div>
   </div>
 </aside>
-
-<script>
-  import { setupProductCheckoutPanels } from '../../scripts/product-checkout.ts';
-  setupProductCheckoutPanels();
-</script>

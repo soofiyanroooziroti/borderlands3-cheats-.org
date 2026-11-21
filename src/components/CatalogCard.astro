@@ -2,7 +2,7 @@
 import type { IconName } from './icons/types';
 import Icon from './icons/Icon.astro';
 import SlideRevealButton from './SlideRevealButton.astro';
-import { getLocaleFromAstro, getTranslations } from '../i18n';
+import { getLocaleFromAstro, getTranslations, localePath } from '../i18n';
 import { Badge } from '@/components/starwind/badge';
 import { Button } from '@/components/starwind/button';
 import {
@@ -12,12 +12,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/starwind/card';
-import {
-  checkoutUrlWithPlan,
-  formatPlanPrice,
-  getDefaultPlan,
-  getProductPlans,
-} from '../data/productPricing';
+import { formatPlanPrice, getProductPlans } from '../data/productPricing';
+import { status, statusBadgeLabel } from '../data/status';
 
 interface Props {
   label: string;
@@ -34,6 +30,7 @@ interface Props {
   viewLabel?: string;
   maxFeatures?: number;
   featured?: boolean;
+  showLabelChip?: boolean;
   class?: string;
 }
 
@@ -57,27 +54,37 @@ const {
   viewLabel = catalog.viewDetails ?? 'View details',
   maxFeatures = 3,
   featured = false,
+  showLabelChip = false,
   class: className,
 } = Astro.props;
 
 const displayFeatures = features.slice(0, maxFeatures);
 const extraCount = more > 0 ? more : Math.max(0, features.length - displayFeatures.length);
 const plans = getProductPlans(productSlug);
-const defaultPlan = getDefaultPlan(productSlug);
-const buyHref = checkoutUrlWithPlan(buyUrl, defaultPlan.id);
-const monthlyPlan = plans.find((p) => p.id === 'mon');
+const monthlyPlan = plans.find((p) => p.id === 'mon') ?? plans[0]!;
 const lifetimePlan = plans.find((p) => p.id === 'lifetime');
-const lifetimeSaveUsd =
-  monthlyPlan && lifetimePlan ? monthlyPlan.priceUsd * 12 - lifetimePlan.priceUsd : 0;
-const plansJson = JSON.stringify(
-  plans.map((p) => ({ id: p.id, label: p.label, priceUsd: p.priceUsd, priceNote: p.priceNote })),
-);
+const lifetimeLine = lifetimePlan
+  ? (catalog.orLifetime ?? 'or {amount} lifetime').replace('{amount}', formatPlanPrice(lifetimePlan.priceUsd))
+  : '';
 
 const statusBadgeIcon = (text: string): IconName => {
   if (/limited/i.test(text)) return 'alert';
   if (/private/i.test(label)) return 'shieldCheck';
   return 'circleCheck';
 };
+
+const isLiveStatus = Boolean(badge && /^active$/i.test(badge));
+const liveStatusLabel = isLiveStatus ? statusBadgeLabel(status.state) : badge;
+const statusHref = localePath('/status/', locale);
+const liveTone = isLiveStatus
+  ? status.state === 'red'
+    ? 'error'
+    : status.state === 'blue'
+      ? 'info'
+      : 'success'
+  : /limited/i.test(badge ?? '')
+    ? 'warning'
+    : 'success';
 ---
 
 <Card
@@ -86,9 +93,6 @@ const statusBadgeIcon = (text: string): IconName => {
     featured ? 'catalog-card--featured' : 'catalog-card--secondary',
     className,
   ]}
-  data-catalog-card
-  data-buy-url={buyUrl}
-  data-plans={plansJson}
 >
   {
     featured && (
@@ -108,21 +112,34 @@ const statusBadgeIcon = (text: string): IconName => {
       <a href={href} class="hover:text-primary">{title}</a>
     </CardTitle>
     <div class="catalog-card__badges flex flex-wrap items-center gap-1">
-      <Badge tone="primary" appearance="outline" size="sm" class="catalog-card__badge gap-1">
-        <Icon name={icon} size={12} class="shrink-0" />
-        {label}
-      </Badge>
+      {
+        showLabelChip && (
+          <Badge tone="primary" appearance="outline" size="sm" class="catalog-card__badge gap-1">
+            <Icon name={icon} size={12} class="shrink-0" />
+            {label}
+          </Badge>
+        )
+      }
       {
         badge && (
-          <Badge
-            tone={/limited/i.test(badge) ? 'warning' : 'success'}
-            appearance="soft"
-            size="sm"
-            class="catalog-card__badge gap-1"
-          >
-            <Icon name={statusBadgeIcon(badge)} size={12} class="shrink-0" />
-            {badge}
-          </Badge>
+          isLiveStatus ? (
+            <a href={statusHref} class="catalog-card__status-link">
+              <Badge tone={liveTone} appearance="soft" size="sm" class="catalog-card__badge gap-1">
+                <span class:list={['catalog-card__status-dot', `catalog-card__status-dot--${status.state}`]} aria-hidden="true" />
+                {liveStatusLabel}
+              </Badge>
+            </a>
+          ) : (
+            <Badge
+              tone={/limited/i.test(badge) ? 'warning' : 'success'}
+              appearance="soft"
+              size="sm"
+              class="catalog-card__badge gap-1"
+            >
+              <Icon name={statusBadgeIcon(badge)} size={12} class="shrink-0" />
+              {badge}
+            </Badge>
+          )
         )
       }
       {variant === 'popular' && !featured && (
@@ -150,49 +167,19 @@ const statusBadgeIcon = (text: string): IconName => {
     </ul>
 
     <div class="catalog-card__commerce mt-auto">
-      <p
-        class:list={['catalog-card__price-line', featured && 'catalog-card__price-line--featured']}
-        data-catalog-price-line
-      >
-        {formatPlanPrice(defaultPlan.priceUsd)}
-        {defaultPlan.id === 'mon'
-          ? (pricing.monthlySuffix ?? catalog.monthlySuffix ?? ' monthly')
-          : (pricing.lifetimeSuffix ?? catalog.lifetimeSuffix ?? ' lifetime')}
+      <p class:list={['catalog-card__price-line', featured && 'catalog-card__price-line--featured']}>
+        {formatPlanPrice(monthlyPlan.priceUsd)}
+        {pricing.monthlySuffix ?? catalog.monthlySuffix ?? ' monthly'}
       </p>
-
-      <div class="catalog-card__plan-toggle" role="group" aria-label={catalog.selectPlanAria ?? pricing.selectPlanAria ?? 'Select plan length'}>
-        {
-          plans.map((plan) => (
-            <button
-              type="button"
-              class:list={['catalog-card__plan-btn', plan.id === defaultPlan.id && 'is-active']}
-              data-catalog-plan={plan.id}
-              aria-pressed={plan.id === defaultPlan.id ? 'true' : 'false'}
-            >
-              <span>{plan.id === 'mon' ? (pricing.oneMonth ?? '1 Month') : (pricing.lifetime ?? 'Lifetime')}</span>
-              {lifetimeSaveUsd > 0 && (
-                <span
-                  class:list={[
-                    'catalog-card__save',
-                    plan.id === 'mon' && 'catalog-card__save--reserve',
-                  ]}
-                  aria-hidden={plan.id === 'mon' ? 'true' : undefined}
-                >
-                  {(pricing.saveAmount ?? catalog.saveAmount ?? 'Save ${amount}').replace(
-                    '{amount}',
-                    String(lifetimeSaveUsd),
-                  )}
-                </span>
-              )}
-            </button>
-          ))
-        }
-      </div>
+      {lifetimeLine && <p class="catalog-card__price-alt">{lifetimeLine}</p>}
 
       <SlideRevealButton
-        href={buyHref}
+        href={buyUrl}
         block
-        class:list={['catalog-card__buy slide-reveal-btn rounded-lg', featured && 'catalog-card__buy--featured slide-reveal-btn--emphasis']}
+        class:list={[
+          'catalog-card__buy slide-reveal-btn rounded-lg',
+          featured && 'catalog-card__buy--featured slide-reveal-btn--emphasis',
+        ]}
       >
         {buyLabel}
       </SlideRevealButton>
@@ -206,3 +193,30 @@ const statusBadgeIcon = (text: string): IconName => {
     </Button>
   </CardFooter>
 </Card>
+
+<style>
+  .catalog-card__status-link {
+    display: inline-flex;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .catalog-card__status-dot {
+    width: 0.45rem;
+    height: 0.45rem;
+    flex-shrink: 0;
+    border-radius: 999px;
+  }
+
+  .catalog-card__status-dot--green {
+    background: #22c55e;
+  }
+
+  .catalog-card__status-dot--blue {
+    background: #3b82f6;
+  }
+
+  .catalog-card__status-dot--red {
+    background: #ef4444;
+  }
+</style>

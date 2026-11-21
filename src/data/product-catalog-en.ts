@@ -88,22 +88,22 @@ export const acquisitionSteps: AcquisitionStep[] = [
   {
     num: '01',
     title: 'Check status',
-    desc: 'Confirm modules are online on cheatrust.org before you buy—especially after a Rust or EasyAnti-Cheat update.',
+    desc: 'Read cheatsforrust.net and confirm the modules are listed before you pay, especially after a Rust or EasyAnti-Cheat update.',
   },
   {
     num: '02',
     title: 'Pick a plan',
-    desc: 'Choose monthly or lifetime—same USD pricing on every product in the lineup.',
+    desc: 'Pick 30 days or lifetime. The dollar amount depends on which product you opened, not a shared price for all three.',
   },
   {
     num: '03',
-    title: 'Secure checkout',
-    desc: 'Complete checkout on the portal. Your license unlocks with instant delivery.',
+    title: 'Pay on the portal',
+    desc: 'Finish payment on the portal. The key is delivered right away.',
   },
   {
     num: '04',
     title: 'Install & verify',
-    desc: 'Follow the setup guide, load a conservative preset, and test on a low-stakes server before main play.',
+    desc: 'Follow the setup notes, load a modest preset, and try a quiet server before a main session.',
   },
 ];
 
@@ -141,9 +141,9 @@ export const utilitySlides = {
 export const cheatsContent = {
   images: rustCheatGallery('visuals', 'world', 'aim', 'weapon', 'misc'),
   goodToKnow:
-    'Rust and EasyAnti-Cheat (EAC) update often. Confirm availability on cheatrust.org before you launch. Overlay behavior may differ in menus or spectator views after patches.',
+    'Rust and EasyAnti-Cheat change often. Read cheatsforrust.net before you launch. After a patch, overlays can look different in menus or while you are spectating.',
   limitations:
-    'Third-party software can violate game terms and lead to bans. You use this software at your own risk. Compatibility can change after game, EAC, or Windows updates without notice.',
+    'Third-party software can break the game rules and lead to penalties. You accept that risk. A game, EasyAnti-Cheat, or Windows update can change whether the build still runs, without a separate notice.',
   systemRequirements: [
     { icon: 'reqWindows', text: 'Windows 10/11' },
     { icon: 'reqCpu', text: 'Intel/AMD' },
@@ -154,22 +154,22 @@ export const cheatsContent = {
   ] as SystemRequirement[],
   featureGroups: RUST_CHEAT_FEATURE_GROUPS,
   overview: {
-    title: 'Built for Rust on Windows PC',
+    title: 'Windows rust cheat loader',
     paragraphs: [
-      'Rust cheat loader ships Visual ESP, weapon, aimbot, misc, and config modules listed on this page for vanilla and modded servers. Updates ship while your key is active, with Discord help for setup.',
-      'Always check availability on cheatrust.org before you launch, especially after an EasyAnti-Cheat (EAC) or Rust client patch.',
+      'This rust cheat loader lists Visual ESP, weapon, aim, misc, and config groups on this page for vanilla and modded servers. Updates continue while the key is active. Discord can help with setup.',
+      'Read cheatsforrust.net before you launch, especially after an EasyAnti-Cheat or Rust client patch.',
     ],
   },
   body: [
-    { type: 'h2', text: 'Modules included' },
+    { type: 'h2', text: 'What the menu groups are' },
     {
       type: 'p',
-      text: 'Visual ESP Features (two groups), Weapon Options, Aimbot Options, Misc Options, and Config Options. The full list with a short note on each menu line is in the feature section on this page.',
+      text: 'Visual ESP Features, Visual ESP Features 2, Weapon Options, Aimbot Options, Misc Options, and Config Options. Each line in the feature section has the menu name and a short note.',
     },
-    { type: 'h2', text: 'Plans' },
+    { type: 'h2', text: 'What you pay' },
     {
       type: 'p',
-      text: 'Monthly $35 USD (P30D) or lifetime $150 USD (P99Y). Instant digital delivery worldwide after checkout.',
+      text: '$35 USD for 30 days (P30D) or $150 USD lifetime (P99Y). Delivery is digital and immediate after checkout, worldwide.',
     },
   ] as Block[],
 };
@@ -177,9 +177,9 @@ export const cheatsContent = {
 export const spooferContent = {
   images: [...utilitySlides.spoofer],
   goodToKnow:
-    'HWID tools change how your PC fingerprint appears—they do not remove account bans by themselves. Follow portal guides before launching Rust again.',
+    'The hardware tool changes identifiers the PC reports. It does not lift an account penalty by itself. Follow the portal steps before you open Rust again.',
   limitations:
-    'Spoofing carries technical risk and may violate game terms. Results vary by ban type and driver setup. Use only on systems you own.',
+    'Changing hardware identifiers has technical risk and can conflict with game rules. Results depend on the penalty type and the drivers. Use it only on a PC you own.',
   systemRequirements: [
     { icon: 'reqWindows', text: 'Windows 10 or 11 64-bit with administrator rights.' },
     { icon: 'reqRestorePoint', text: 'Create a restore point before running hardware tools.' },
@@ -188,29 +188,29 @@ export const spooferContent = {
   fullFeatures: SPOOFER_FEATURE_GROUPS.flatMap((group) => group.items.map((item) => item.name)),
   featureGroups: SPOOFER_FEATURE_GROUPS,
   overview: {
-    title: 'Rust HWID spoofer workflow',
+    title: 'Windows rust hwid ban bypass',
     paragraphs: [
-      'Rust HWID spoofer focuses on hardware profile rotation when you need a clean machine context before relaunching Rust after a hardware flag.',
-      'Monthly and lifetime USD plans use the same checkout flow as the rest of the lineup.',
+      'This rust hwid ban bypass rotates the hardware profile when a machine flag is why you need a different PC context before you open Rust again.',
+      'Thirty days and lifetime use the same portal checkout as the other products. The price on this card is its own.',
     ],
   },
   body: [
-    { type: 'h2', text: 'When to use it' },
+    { type: 'h2', text: 'When this key matches the problem' },
     {
       type: 'p',
-      text: 'Use when fresh accounts fail on one PC but work elsewhere—not for account-only bans. Pair with conservative cheat presets after verification.',
+      text: 'Use it when new accounts fail on one PC and work on another. It is the wrong key for an account-only penalty. After the checks pass, start the menu on a modest preset.',
     },
-    { type: 'h2', text: 'Plans' },
-    { type: 'p', text: 'Monthly $50 USD (P30D) or lifetime $150 USD (P99Y).' },
+    { type: 'h2', text: 'What you pay' },
+    { type: 'p', text: '$50 USD for 30 days (P30D) or $150 USD lifetime (P99Y).' },
   ] as Block[],
 };
 
 export const ugcContent = {
   images: [...utilitySlides.ugc],
   goodToKnow:
-    'Gather order details, account facts, and restriction screenshots before opening a ticket. The rust unban tool structures appeals—it does not bypass platform review.',
+    'Collect the order details, account facts, and screenshots of the restriction before you open a ticket. This workspace organizes the appeal. It does not skip the platform review.',
   limitations:
-    'The rust unban tool does not guarantee account restoration. Results vary by case type and platform policy.',
+    'The workspace does not promise the account will be restored. Outcomes depend on the case and on platform policy.',
   systemRequirements: [
     { icon: 'reqWindows', text: 'Windows 10 or 11 (64-bit).' },
     { icon: 'reqWifi', text: 'Internet access for workflow sync and updates.' },
@@ -226,24 +226,24 @@ export const ugcContent = {
     'Monthly and lifetime USD plans',
   ],
   overview: {
-    title: 'Rust unban tool workspace',
+    title: 'Windows rust account recovery',
     paragraphs: [
-      'Rust unban tool helps organize ban appeals and recovery cases with templates, evidence lists, and follow-up reminders.',
-      'Instant digital delivery after secure checkout, with Discord support for setup questions.',
+      'This rust account recovery workspace organizes appeals: templates, evidence lists, and reminders to follow up.',
+      'Delivery is digital and immediate after checkout. Discord can answer setup questions.',
     ],
   },
   body: [
-    { type: 'h2', text: 'Rust unban appeals' },
+    { type: 'h2', text: 'How a case is laid out' },
     {
       type: 'p',
-      text: 'Build custom rust unban appeal paths, automate dispute steps, and track case status when Rust accounts are locked or restricted.',
+      text: 'Build a custom appeal path, repeat the routine steps, and track status when a Rust account is locked or restricted.',
     },
-    { type: 'h2', text: 'Rust unban evidence' },
+    { type: 'h2', text: 'What goes in the packet' },
     {
       type: 'p',
-      text: 'Use checklists so each rust unban packet includes screenshots, timestamps, and the policy section you are citing.',
+      text: 'Checklists keep screenshots, timestamps, and the policy section you are citing inside each appeal packet.',
     },
-    { type: 'h2', text: 'Plans' },
-    { type: 'p', text: 'Monthly $35 USD (P30D) or lifetime $150 USD (P99Y).' },
+    { type: 'h2', text: 'What you pay' },
+    { type: 'p', text: '$35 USD for 30 days (P30D) or $150 USD lifetime (P99Y).' },
   ] as Block[],
 };

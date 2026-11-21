@@ -2,7 +2,5 @@ User-agent: *
 Allow: /
 
 Disallow: /go/
-Disallow: /cheats/
-Disallow: /contact/
 
-Sitemap: https://cheatrust.org/sitemap.xml
+Sitemap: https://cheatsforrust.net/sitemap.xml

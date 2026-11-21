@@ -40,15 +40,18 @@ export const blogTagIcons: Record<string, IconName> = {
 };
 
 export const heroStatusPills: { icon: IconName; label: string }[] = [
-  { icon: 'softAim', label: 'Aimbot' },
-  { icon: 'espActive', label: 'Player ESP' },
-  { icon: 'lootEsp', label: 'Loot filter' },
-  { icon: 'skeletonEsp', label: 'Weapon options' },
+  { icon: 'featureAimbot', label: 'Aimbot' },
+  { icon: 'featureEsp', label: 'Box ESP' },
+  { icon: 'skeletonEsp', label: 'Skeleton ESP' },
+  { icon: 'espActive', label: 'Name ESP' },
+  { icon: 'noRecoil', label: 'No Recoil' },
+  { icon: 'featureNoRecoil', label: 'No Spread' },
+  { icon: 'streamProof', label: 'No Sway' },
+  { icon: 'softAim', label: 'FOV Circle' },
+  { icon: 'boneSelect', label: 'Bone select' },
   { icon: 'seasonBuild', label: 'Camera FOV' },
   { icon: 'instantDelivery', label: 'Config save' },
-  { icon: 'support247', label: 'HWID spoofer' },
   { icon: 'shieldCheck', label: 'EAC status' },
-  { icon: 'boneSelect', label: 'Bone select' },
   { icon: 'liveStatus', label: 'Check after a patch' },
 ];
 

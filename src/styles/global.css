@@ -331,10 +331,21 @@ html.dark a.nav-link[data-nav-link]:hover .icon-app {
 
 .hero-status-marquee-track {
   animation: hero-status-marquee 55s linear infinite;
+  will-change: transform;
 }
 
 .hero-status-marquee:hover .hero-status-marquee-track {
   animation-play-state: paused;
+}
+
+.hero-marquee-chip {
+  pointer-events: none;
+  cursor: default;
+}
+
+.hero-marquee-chip:hover {
+  border-color: color-mix(in oklch, var(--border) 88%, transparent);
+  background: transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {

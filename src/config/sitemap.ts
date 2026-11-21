@@ -89,17 +89,19 @@ export function sitemapSerialize(item: SitemapItem): SitemapItem | undefined {
     return item;
   }
 
+  if (path.startsWith('/status/')) {
+    item.priority = 0.6;
+    item.changefreq = 'weekly';
+    return item;
+  }
+
   if (
     path === '/about/' ||
     path === '/support/' ||
     path === '/privacy/' ||
     path === '/terms/' ||
-    path === '/faq/' ||
-    path.startsWith('/status/')
+    path === '/faq/'
   ) {
-    if (path.startsWith('/status/')) {
-      return undefined;
-    }
     item.priority = 0.5;
     item.changefreq = 'yearly';
     return item;

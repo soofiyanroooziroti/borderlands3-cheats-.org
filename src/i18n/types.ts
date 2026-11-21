@@ -101,12 +101,12 @@ export interface Translations {
   site: SiteConfig;
   nav: NavLink[];
   headerNavLabels: Record<
-    'home' | 'products' | 'features' | 'blog' | 'forum' | 'faq' | 'support',
+    'home' | 'products' | 'features' | 'blog' | 'forum' | 'faq' | 'support' | 'status',
     string
   >;
   navMore: string;
   navShort: Record<
-    'home' | 'products' | 'features' | 'blog' | 'forum' | 'faq' | 'support',
+    'home' | 'products' | 'features' | 'blog' | 'forum' | 'faq' | 'support' | 'status',
     string
   >;
   hero: {

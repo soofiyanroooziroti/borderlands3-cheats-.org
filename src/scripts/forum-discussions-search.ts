@@ -1,4 +1,4 @@
-/** Forum index “Search discussions” field — focus-safe wiring + query matching. */
+/** Forum index “Search discussions” field — focus wiring + query matching. */
 
 function stripDiacritics(value: string): string {
   try {

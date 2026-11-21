@@ -1,0 +1,111 @@
+---
+import '../styles/features-explorer.css';
+import { RUST_MENU_CATEGORIES, rustMenuFeatureTotal } from '../data/rust-menu-categories';
+import SectionHeader from './SectionHeader.astro';
+import Icon from './icons/Icon.astro';
+import SlideRevealButton from './SlideRevealButton.astro';
+import { checkoutPath } from '../config/checkout';
+import { getLocaleFromAstro, getTranslations } from '../i18n';
+
+interface Props {
+  showSectionHeader?: boolean;
+  sectionId?: string;
+  class?: string;
+}
+
+const locale = getLocaleFromAstro(Astro);
+const t = getTranslations(locale);
+const s = t.features;
+const total = rustMenuFeatureTotal();
+const buyHref = checkoutPath('rustCheat');
+const { showSectionHeader = true, sectionId = 'features', class: className } = Astro.props;
+---
+
+<section
+  id={sectionId}
+  class:list={['features-explorer border-y border-border bg-muted/20 py-12 md:py-16', className]}
+  aria-labelledby={`${sectionId}-title`}
+  data-features-explorer
+>
+  <div class="mx-auto max-w-6xl px-5">
+    {
+      showSectionHeader && (
+        <SectionHeader
+          eyebrow={s.eyebrow}
+          title={s.title}
+          desc={s.subtitle}
+          titleId={`${sectionId}-title`}
+          heading={sectionId === 'features-page' ? 'h1' : 'h2'}
+        />
+      )
+    }
+
+    <div class="features-explorer__tabs-wrap mt-8 md:mt-10" role="tablist" aria-label="Filter feature categories">
+      <div class="features-explorer__tabs">
+        <button
+          type="button"
+          class="features-explorer__tab is-active"
+          role="tab"
+          aria-selected="true"
+          data-feature-filter="all"
+        >
+          All {total}
+        </button>
+        {
+          RUST_MENU_CATEGORIES.map((cat) => (
+            <button
+              type="button"
+              class="features-explorer__tab"
+              role="tab"
+              aria-selected="false"
+              data-feature-filter={cat.id}
+            >
+              {cat.title} {cat.items.length}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="features-explorer__panels mt-8">
+      {
+        RUST_MENU_CATEGORIES.map((cat) => (
+            <article class="features-explorer__category" data-feature-category={cat.id}>
+              <div class="features-explorer__category-layout">
+                <div class="features-explorer__category-intro">
+                  <span class:list={['features-cat-icon', cat.toneClass]} aria-hidden="true">
+                    <Icon name={cat.icon} size={22} />
+                  </span>
+                  <div class="features-explorer__category-copy">
+                    <h3 class="features-explorer__category-title">{cat.title}</h3>
+                    <p class="features-explorer__category-subtitle">{cat.subtitle}</p>
+                    <p class="features-explorer__category-desc">{cat.description}</p>
+                  </div>
+                </div>
+                <ul class="features-explorer__chip-grid" role="list">
+                  {cat.items.map((item) => (
+                    <li class="features-explorer__chip">
+                      <Icon name="check" size={14} class="features-explorer__chip-icon" aria-hidden="true" />
+                      <span class="features-explorer__chip-text">
+                        <span class="features-explorer__chip-name">{item.name}</span>
+                        {item.desc && <span class="features-explorer__chip-note">{item.desc}</span>}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+        ))
+      }
+    </div>
+
+    <div class="features-explorer__cta mt-10 flex justify-center sm:justify-start">
+      <SlideRevealButton href={buyHref}>Buy now</SlideRevealButton>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { setupFeaturesExplorer } from '../scripts/features-filter.ts';
+  setupFeaturesExplorer();
+</script>

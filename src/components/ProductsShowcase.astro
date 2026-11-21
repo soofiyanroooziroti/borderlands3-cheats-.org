@@ -1,0 +1,90 @@
+---
+import type { ProductPage } from '../data/products';
+import { cheatTierIcons, productCategoryIcons } from '../data/sectionIcons';
+import CatalogCard from './CatalogCard.astro';
+import AddonProductCard from './AddonProductCard.astro';
+import ProductShowcasePreview from './ProductShowcasePreview.astro';
+import { productPath } from '../utils/path';
+
+interface Props {
+  products: ProductPage[];
+  class?: string;
+}
+
+const { products, class: className } = Astro.props;
+
+const mainProduct = products.find((p) => p.slug === 'rust-cheat');
+const addonProducts = products.filter((p) => p.slug === 'spoofer' || p.slug === 'ugc');
+
+const addonDisplayTitle: Record<string, string> = {
+  spoofer: 'Rust HWID spoofer',
+  ugc: 'Rust unban tool',
+};
+
+function cardIcon(product: ProductPage) {
+  if (product.kind === 'tier') {
+    return cheatTierIcons[product.name] ?? 'crosshair';
+  }
+  return productCategoryIcons[product.category ?? ''] ?? 'package';
+}
+
+function cardLabel(product: ProductPage) {
+  if (product.kind === 'tier') {
+    return product.tier ?? product.name;
+  }
+  return product.category ?? 'Utility';
+}
+---
+
+<div class:list={['products-showcase', className]}>
+  {
+    mainProduct && (
+      <div class="products-showcase__featured-row">
+        <div class="products-showcase__featured-col products-showcase__featured-col--card">
+          <CatalogCard
+            class="catalog-card--products-section catalog-card--showcase-main"
+            label={cardLabel(mainProduct)}
+            title={mainProduct.title}
+            href={productPath(mainProduct.slug)}
+            buyUrl={mainProduct.buyUrl}
+            productSlug={mainProduct.slug}
+            features={mainProduct.features}
+            more={mainProduct.more}
+            icon={cardIcon(mainProduct)}
+            badge={mainProduct.badge}
+            variant={mainProduct.variant}
+            featured
+            showLabelChip
+            viewLabel="View details"
+            maxFeatures={3}
+          />
+        </div>
+        <div class="products-showcase__featured-col products-showcase__featured-col--preview">
+          <ProductShowcasePreview />
+        </div>
+      </div>
+    )
+  }
+
+  {
+    addonProducts.length > 0 && (
+      <div class="products-showcase__addons">
+        <header class="products-showcase__addons-head">
+          <h2 class="products-showcase__addons-title">Add-ons</h2>
+          <p class="products-showcase__addons-desc">Optional extras for your account and hardware.</p>
+        </header>
+        <div class="products-showcase__addons-grid">
+          {addonProducts.map((product) => (
+            <AddonProductCard
+              title={addonDisplayTitle[product.slug] ?? product.title}
+              desc={product.subtitle ?? product.desc}
+              href={productPath(product.slug)}
+              buyUrl={product.buyUrl}
+              productSlug={product.slug}
+            />
+          ))}
+        </div>
+      </div>
+    )
+  }
+</div>

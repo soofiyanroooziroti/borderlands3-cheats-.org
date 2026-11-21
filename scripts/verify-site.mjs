@@ -11,7 +11,7 @@ import {
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = resolveDistDir();
-const SITE = 'https://cheatrust.org';
+const SITE = 'https://cheatsforrust.net';
 const errors = [];
 const reports = [];
 
@@ -121,8 +121,8 @@ function checkRobots() {
   }
   const text = fs.readFileSync(robotsPath, 'utf8');
   if (!/Disallow:\s*\/go\//i.test(text)) fail('robots.txt missing Disallow: /go/');
-  if (!/Sitemap:\s*https:\/\/cheatrust\.org\/sitemap/i.test(text)) {
-    fail('robots.txt missing sitemap URL for cheatrust.org');
+  if (!/Sitemap:\s*https:\/\/cheatsforrust\.net\/sitemap/i.test(text)) {
+    fail('robots.txt missing sitemap URL for cheatsforrust.net');
   }
 }
 

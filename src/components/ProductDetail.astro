@@ -13,6 +13,7 @@ import ProductCheckoutPanel from './product/ProductCheckoutPanel.astro';
 import ProductHighlightsSection from './product/ProductHighlightsSection.astro';
 import ProductRequirementsSection from './product/ProductRequirementsSection.astro';
 import ProductFeaturesSection from './product/ProductFeaturesSection.astro';
+import CheatMenuFeaturesSection from './CheatMenuFeaturesSection.astro';
 import ProductDescriptionSection from './product/ProductDescriptionSection.astro';
 import ProductExperienceSection from './product/ProductExperienceSection.astro';
 import ProductRelatedGuidesSection from './product/ProductRelatedGuidesSection.astro';
@@ -69,11 +70,17 @@ const showDescToggle = false;
   showToggle={showDescToggle}
 />
 
-<ProductFeaturesSection
-  features={product.fullFeatures}
-  productName={product.name}
-  featureGroups={product.featureGroups}
-/>
+{
+  product.slug === 'rust-cheat' ? (
+    <CheatMenuFeaturesSection showSectionHeader sectionId="features" />
+  ) : (
+    <ProductFeaturesSection
+      features={product.fullFeatures}
+      productName={product.name}
+      featureGroups={product.featureGroups}
+    />
+  )
+}
 
 <ProductExperienceSection
   images={product.images}

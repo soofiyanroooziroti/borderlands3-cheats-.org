@@ -1,0 +1,30 @@
+---
+import { getLocaleFromAstro, getTranslations } from '../../i18n';
+const locale = getLocaleFromAstro(Astro);
+const t = getTranslations(locale);
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CheatMenuFeaturesSection from '../../components/CheatMenuFeaturesSection.astro';
+import { resolvePageSeo } from '../../config/seo';
+import { breadcrumbSchema } from '../../utils/schema';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const seo = resolvePageSeo('/features/');
+const breadcrumbs = [
+  { name: t.breadcrumbs.home, path: '/' },
+  { name: t.features.eyebrow, path: '/features/' },
+];
+---
+
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  jsonLd={[breadcrumbSchema(breadcrumbs)]}
+>
+  <div class="py-6 md:py-8">
+    <div class="mx-auto max-w-6xl px-5">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+  </div>
+
+  <CheatMenuFeaturesSection showSectionHeader sectionId="features-page" class="border-t-0" />
+</BaseLayout>

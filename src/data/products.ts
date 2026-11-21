@@ -26,15 +26,15 @@ export type {
 
 export const productRelatedBlogSlugs: Record<string, string[]> = {
   'rust-cheat': [
-    'cheap-rust-cheats',
-    'best-rust-cheats-reddit',
-    'best-rust-aimbot',
-    'rust-aimbot',
-    'rust-esp',
-    'rust-cheat-features',
+    'rust-cheats-requirements',
+    'how-to-use-rust-cheats',
+    'rust-cheat-loader-setup',
+    'rust-wallhack',
+    'rust-legit-cheating-settings',
+    'rust-cheats-price',
   ],
-  spoofer: ['spoofer-rust'],
-  ugc: ['rust-ban-types'],
+  spoofer: ['rust-hwid-ban'],
+  ugc: ['rust-eac-ban'],
 };
 
 const productBase = PRODUCT_CATALOG;

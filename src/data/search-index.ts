@@ -143,7 +143,7 @@ export function buildSearchIndex(locale: Locale = defaultLocale): SearchIndexEnt
     }
   }
 
-  const plansUrl = localePath('/blog/rust-cheat-pricing/', locale);
+  const plansUrl = localePath('/blog/rust-cheats-price/', locale);
   const plansSeo = resolvePageSeo('/blog/rust-cheat-pricing/', locale);
   entries.push({
     title: 'Plans — $35 monthly & $150 lifetime',

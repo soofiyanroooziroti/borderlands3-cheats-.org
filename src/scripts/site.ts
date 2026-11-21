@@ -297,7 +297,6 @@ function bootSite() {
   initThemeMetaColor();
   initDeferredSiteSearch();
   scheduleSearchQueryHighlight();
-  void import('./catalog-card.ts').then((m) => m.setupCatalogCards());
   scheduleDeferredClient();
   document.addEventListener('astro:page-load', onAstroPageLoad);
 }

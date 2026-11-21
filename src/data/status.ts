@@ -17,8 +17,32 @@ export interface StatusUpdateEntry {
 }
 
 /** Current store state. Green = updated and usable. */
-export const STATUS_TONE: StatusTone = 'green';
-export const STATUS_LABEL = 'Updated';
+export const status: { state: StatusTone; checkedDate: string } = {
+  state: 'green',
+  checkedDate: '21 Nov 2026',
+};
+
+export const STATUS_TONE: StatusTone = status.state;
+
+const STATUS_PAGE_LABEL: Record<StatusTone, string> = {
+  green: 'Rust Cheats: Active',
+  blue: 'Updating',
+  red: 'Not updated',
+};
+
+const STATUS_BADGE_LABEL: Record<StatusTone, string> = {
+  green: 'Active',
+  blue: 'Updating',
+  red: 'Not updated',
+};
+
+export function statusPageLabel(state: StatusTone = status.state): string {
+  return STATUS_PAGE_LABEL[state];
+}
+
+export function statusBadgeLabel(state: StatusTone = status.state): string {
+  return STATUS_BADGE_LABEL[state];
+}
 
 export const STATUS_LEGEND: StatusLegendItem[] = [
   { tone: 'green', label: 'Green', meaning: 'Updated. You can use it.' },
@@ -29,45 +53,44 @@ export const STATUS_LEGEND: StatusLegendItem[] = [
 /** Newest first. */
 export const STATUS_RECENT_UPDATES: StatusUpdateEntry[] = [
   {
-    title: 'Scripting ban wave',
+    title: 'Scripting bans',
     when: '5 Nov 2026',
-    summary:
-      'With the November 2026 patch, Facepunch banned more than 3,000 accounts tied to public and private third-party scripting providers.',
+    summary: 'Coverage of the November 2026 update reports more than 3,000 scripting bans.',
   },
   {
     title: 'Secure Boot and TPM 2.0',
-    when: 'Feb–Mar 2026',
+    when: 'Feb-Mar 2026',
     summary:
-      'Facepunch let server owners require Secure Boot and TPM 2.0 through Easy Anti-Cheat. The check targets kernel-level tools and makes hardware-ban evasion harder. Player reaction is mixed: some want the extra bar, others say older PCs get hit while some providers still adapt.',
+      'Facepunch announced in February 2026 that from March, server owners can opt in to only allow players with Secure Boot and TPM 2.0 enabled, through Easy Anti-Cheat. Facepunch has said it plans to make this mandatory later, with the timeline shared in its monthly devblog.',
   },
   {
     title: 'EAC enforcement',
     when: 'Ongoing',
     summary:
-      'Facepunch Support says EAC bans for third-party software, injected code, aimbots, and ESP stay permanent and are often delayed so detection timing stays unclear. New accounts used to dodge an active ban are treated as ban evasion.',
+      "Facepunch's January 2026 devblog says Easy Anti-Cheat has stepped up efforts against recoil cheats (scripting). Bans can be permanent: Facepunch reported 296,000+ permanent bans in 2025.",
   },
 ];
 
 export const STATUS_GAME_NOTES: StatusUpdateEntry[] = [
   {
-    title: 'System and platform',
+    title: 'Progression',
     when: '5 Nov 2026',
-    summary:
-      'Printed and Polished dropped Intel Mac support (Apple Silicon only), removed the option to turn volumetric clouds off after optimizing them, and turned multithreaded player update jobs on by default.',
+    summary: 'Blueprints are reworked into three forms: fragments, pages and books.',
   },
   {
-    title: 'Combat and monuments',
+    title: 'Weapons and controls',
     when: '5 Nov 2026',
-    summary:
-      'Military Tunnels entrance blockers now need explosives. Handmade SMG damage went from 20 to 21. Sprinting costs 10% more calories and hydration.',
+    summary: 'New Uzi 9mm. Native gamepad support added.',
   },
   {
-    title: 'Loot and vehicles',
+    title: 'Servers and performance',
     when: '5 Nov 2026',
     summary:
-      'Loot panels close when you walk out of range. Diving propulsion vehicles accelerate faster and burn less fuel. PT boat turret handling was improved.',
+      'Busy servers restart in about 2 minutes instead of 10. Facepunch also shipped a large batch of performance work. The livestock system was reworked.',
   },
 ];
+
+export const STATUS_NEXT_UPDATE = 'Next monthly update: expected 3 Dec 2026.';
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 

@@ -2,7 +2,6 @@
 import { getLocaleFromAstro, getTranslations } from '../i18n';
 const locale = getLocaleFromAstro(Astro);
 const t = getTranslations(locale);
-import { ROUTES } from '../utils/path';
 import { heroSlides } from '../data/products';
 import { compatibilityIcons, heroStatIcons, heroStatusPills } from '../data/sectionIcons';
 import ImageSlider from './ImageSlider.astro';
@@ -12,6 +11,7 @@ import { Button } from '@/components/starwind/button';
 import { Badge } from '@/components/starwind/badge';
 
 const h = t.hero;
+const featuresNavHref = t.nav[2]?.href ?? '/product/rust-cheat/#features';
 
 const heroMarqueePills = [
   ...heroStatusPills,
@@ -47,8 +47,7 @@ const heroMarqueePills = [
         <div class="flex flex-wrap justify-start gap-3 sm:gap-4">
           <Button
             as="a"
-            href={ROUTES.products}
-            data-scroll-target="products"
+            href={featuresNavHref}
             variant="primary"
             size="lg"
             class="rounded-xl"
@@ -62,12 +61,10 @@ const heroMarqueePills = [
             variant="secondary"
             size="lg"
             class="rounded-xl"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
             data-astro-reload
             data-astro-prefetch="false"
           >
-            <Icon name="messageCircle" size={18} />
+            <Icon name="arrowRight" size={18} />
             {h.ctaDiscord}
           </Button>
         </div>
@@ -99,7 +96,7 @@ const heroMarqueePills = [
       <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-background to-transparent" aria-hidden="true" />
       <div class="hero-status-marquee-track flex w-max gap-2">
         {[...heroMarqueePills, ...heroMarqueePills].map((pill, i) => (
-          <Badge variant="outline" class="group/badge shrink-0 gap-1 py-0.5 pl-1.5 pr-2.5 text-xs whitespace-nowrap">
+          <Badge variant="outline" class="hero-marquee-chip shrink-0 gap-1 py-0.5 pl-1.5 pr-2.5 text-xs whitespace-nowrap">
             <Icon name={pill.icon} size={13} />
             {pill.label}
           </Badge>

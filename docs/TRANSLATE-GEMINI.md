@@ -1,4 +1,4 @@
-# Rust site — Gemini translate (cheatrust.org)
+# Rust site — Gemini translate (cheatsforrust.net)
 
 Primary game keyword (EN): **Rust Cheats**
 
@@ -6,14 +6,14 @@ Primary game keyword (EN): **Rust Cheats**
 
 | Locale | URL prefix | Example home |
 |--------|------------|--------------|
-| `en` | *(none)* | `https://cheatrust.org/` |
-| `fr` | `/fr/` | `https://cheatrust.org/fr/` |
-| `tr` | `/tr/` | `https://cheatrust.org/tr/` |
-| `pt-br` | `/pt-br/` | `https://cheatrust.org/pt-br/` |
-| `es` | `/es/` | `https://cheatrust.org/es/` |
-| `de` | `/de/` | `https://cheatrust.org/de/` |
-| `pl` | `/pl/` | `https://cheatrust.org/pl/` |
-| `th` | `/th/` | `https://cheatrust.org/th/` |
+| `en` | *(none)* | `https://cheatsforrust.net/` |
+| `fr` | `/fr/` | `https://cheatsforrust.net/fr/` |
+| `tr` | `/tr/` | `https://cheatsforrust.net/tr/` |
+| `pt-br` | `/pt-br/` | `https://cheatsforrust.net/pt-br/` |
+| `es` | `/es/` | `https://cheatsforrust.net/es/` |
+| `de` | `/de/` | `https://cheatsforrust.net/de/` |
+| `pl` | `/pl/` | `https://cheatsforrust.net/pl/` |
+| `th` | `/th/` | `https://cheatsforrust.net/th/` |
 
 Keep `scripts/locale-ship.mjs` in sync with `src/i18n/config.ts`.
 
