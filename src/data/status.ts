@@ -26,8 +26,8 @@ export const STATUS_TONE: StatusTone = status.state;
 
 const STATUS_PAGE_LABEL: Record<StatusTone, string> = {
   green: 'Rust Cheats: Active',
-  blue: 'Updating',
-  red: 'Not updated',
+  blue: 'Rust Cheats: Updating',
+  red: 'Rust Cheats: Not updated',
 };
 
 const STATUS_BADGE_LABEL: Record<StatusTone, string> = {
