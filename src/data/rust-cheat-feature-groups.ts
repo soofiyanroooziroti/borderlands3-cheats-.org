@@ -29,7 +29,7 @@ const notes: Record<string, string> = {
   'Full bright': 'Brightens dark areas for readability',
   'Custom crosshair': 'Draws a center crosshair overlay',
   'Stream-proof overlay': 'Hides overlay from common capture tools',
-  'Custom menu key': 'Opens the loader menu',
+  'Custom menu key': 'Opens the menu',
   'Custom panic key': 'Closes the menu and overlays quickly',
   'Config system (save / load)': 'Stores and reloads your preset',
   'Cloud DMA needed': 'Notes whether cloud DMA is required for this build',

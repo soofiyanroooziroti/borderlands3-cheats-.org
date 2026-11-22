@@ -13,6 +13,7 @@ import {
 import { getLocaleFromPath, localePath, stripLocaleFromPath } from './routing';
 import type { NavLink, Translations } from './types';
 import { getBlogLocalesForSlug } from '../data/blog/loader';
+import { rustMenuFeatureTotal } from '../data/rust-menu-categories';
 
 export { getLocaleFromPath, localePath, stripLocaleFromPath } from './routing';
 
@@ -124,11 +125,23 @@ function applySupportChannelUrls(merged: Translations): void {
   }
 }
 
+function applyToggleCountCopy(merged: Translations): void {
+  const count = String(rustMenuFeatureTotal());
+  const inject = (value?: string) =>
+    value?.includes('__TOGGLE_COUNT__') ? value.replaceAll('__TOGGLE_COUNT__', count) : value;
+  merged.hero.subtitle = inject(merged.hero.subtitle) ?? merged.hero.subtitle;
+  const featuresDesc = merged.exploreSection?.cards?.features?.desc;
+  if (featuresDesc) {
+    merged.exploreSection.cards.features.desc = inject(featuresDesc) ?? featuresDesc;
+  }
+}
+
 function hydrate(locale: Locale, localeRaw?: Record<string, unknown>): Translations {
   const base = structuredClone(enSource) as Translations;
   let merged = deepMerge(base, localeRaw ?? {}) as Translations;
   merged.nav = attachNav(merged.nav as NavLink[], locale);
   applySupportChannelUrls(merged);
+  applyToggleCountCopy(merged);
   return localizeTranslationHrefs(merged, locale);
 }
 

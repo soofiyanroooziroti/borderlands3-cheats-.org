@@ -36,7 +36,7 @@ export function buildRssFeed(): string {
   <channel>
     <title>Borderlands 3 Cheats guides</title>
     <link>${SITE_ORIGIN}/blog/</link>
-    <description>Windows loader notes, menu groups, hardware flags, and appeal steps from borderlands3cheats.org.</description>
+    <description>Windows menu notes, menu groups, hardware flags, and appeal steps from borderlands3cheats.org.</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${feedUrl}" rel="self" type="application/rss+xml" />

@@ -56,7 +56,7 @@ export const STATUS_LEGEND: StatusLegendItem[] = [
   { tone: 'blue', label: 'Blue', meaning: 'Updating. Developers are working. It is not ready yet.' },
 ];
 
-/** Confirm these before you launch Borderlands 3 with the loader. */
+/** Confirm these before you launch Borderlands 3 with the menu. */
 export const STATUS_BEFORE_LAUNCH: string[] = [
   'HVCI on',
   'Core isolation on',

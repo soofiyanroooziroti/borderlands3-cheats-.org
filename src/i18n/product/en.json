@@ -55,7 +55,7 @@
       "Brightens dark areas for readability",
       "Draws a center crosshair overlay",
       "Hides overlay from common capture tools",
-      "Opens the loader menu",
+      "Opens the menu",
       "Closes the menu and overlays quickly",
       "Stores and reloads your preset",
       "Notes whether cloud DMA is required for this build"
@@ -88,9 +88,9 @@
       }
     ],
     "overview": {
-      "title": "Windows Borderlands 3 cheat loader",
+      "title": "Windows Borderlands 3 cheat menu",
       "paragraphs": [
-        "This Borderlands 3 cheat loader lists Soft Aim, Enemy / Mob, Loot, Radar, and Misc for Steam and the official client. Updates continue while the key is active. Discord can help with setup.",
+        "This Borderlands 3 cheat menu lists Soft Aim, Enemy / Mob, Loot, Radar, and Misc for Steam and the official client. Updates continue while the key is active. Discord can help with setup.",
         "Read borderlands3cheats.org before you launch, especially after a client patch."
       ]
     },

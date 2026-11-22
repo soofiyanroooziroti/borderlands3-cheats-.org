@@ -32,7 +32,7 @@ export const PAGE_KEYWORDS: Record<string, string | string[] | null> = {
 export const NOINDEX_CANNIBALISM_SKIP = new Set(['/status/', '/404/']);
 
 export const PRODUCT_H1: Record<string, string> = {
-  'borderlands-3-cheat': 'Borderlands 3 cheat loader for Windows PC',
+  'borderlands-3-cheat': 'Borderlands 3 cheat menu for Windows PC',
   spoofer: 'Borderlands 3 hwid spoofer for Windows PC',
   ugc: 'Borderlands 3 unban tool for Windows PC',
 };

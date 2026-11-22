@@ -52,7 +52,7 @@ export const en: Translations = {
     titleLine1: 'Borderlands 3 Cheats',
     titleLine2: 'Borderlands 3 Cheats',
     subtitle:
-      'Borderlands 3 cheats for Windows PC on Steam and the official client—Soft Aim, Enemy / Mob, Loot, Radar, and Misc with 32 loader toggles, plus Discord support.',
+      'Borderlands 3 cheats for Windows PC on Steam and the official client—Soft Aim, Enemy / Mob, Loot, Radar, and Misc with __TOGGLE_COUNT__ toggles, plus Discord support.',
     ctaPrimary: 'View features',
     ctaDiscord: 'Buy now',
     modesLabel: 'Modes',
@@ -167,16 +167,16 @@ export const en: Translations = {
     otherLabel: 'Typical provider',
     rows: [
       {
-        title: 'Patch-day loader updates',
-        desc: 'Check borderlands3cheats.org after a Borderlands 3 or  update before you open the loader.',
+        title: 'Patch-day Menu updates',
+        desc: 'Check borderlands3cheats.org after a Borderlands 3 or  update before you open the menu.',
       },
       {
         title: 'Separate aim sliders',
         desc: 'Aim smooth, FOV, and bone choice are separate sliders. Change one at a time and save the config.',
       },
       {
-        title: 'Loader and config help',
-        desc: 'Setup questions cover the Windows loader, saved configs, and which product matches a hardware flag versus an account case.',
+        title: 'Menu and config help',
+        desc: 'Setup questions cover the Windows menu, saved configs, and which product matches a hardware flag versus an account case.',
       },
       {
         title: 'Separate product checkouts',
@@ -214,7 +214,7 @@ export const en: Translations = {
     titleLead: 'From checkout to ranked queue in just',
     titleHighlight: 'three simple steps',
     intro:
-      'Getting started is checkout, the portal loader, then a saved config. Check the site after an  update before you launch Borderlands 3.',
+      'Getting started is checkout, the portal menu file, then a saved config. Check the site after an  update before you launch Borderlands 3.',
     ctaPrimary: 'View features',
     ctaSecondary: 'Setup FAQ',
     ctaPrimaryHref: productBase,
@@ -231,13 +231,13 @@ export const en: Translations = {
     steps: [
       {
         step: 'Step 1',
-        title: 'Unlock portal & download loader',
-        desc: 'Complete checkout, open your operator dashboard, and pull the latest patch loader build for Windows.',
+        title: 'Unlock portal & download the menu build',
+        desc: 'Complete checkout, open your operator dashboard, and pull the latest patch menu build build for Windows.',
       },
       {
         step: 'Step 2',
         title: 'Launch & configure modules',
-        desc: 'Run the loader, then tune aimbot, ESP, weapon options, and misc options one slider at a time.',
+        desc: 'Run the menu, then tune aimbot, ESP, weapon options, and misc options one slider at a time.',
       },
       {
         step: 'Step 3',
@@ -362,7 +362,7 @@ export const en: Translations = {
       },
       {
         num: '03',
-        phase: 'Loader',
+        phase: 'Menu',
         title: 'Launch & configure',
         desc: 'Download from the portal. Leave HVCI, core isolation, TPM, and secure boot on.',
       },
@@ -421,7 +421,7 @@ export const en: Translations = {
     ticketItems: [
       { title: 'Order email', desc: 'The address used at checkout on borderlands3cheats.org.' },
       { title: 'Platform', desc: 'Windows 10 or 11, and whether HVCI, core isolation, TPM, and secure boot are on.' },
-      { title: 'Error detail', desc: 'The exact loader message, not a paraphrase.' },
+      { title: 'Error detail', desc: 'The exact menu message, not a paraphrase.' },
     ],
   },
   faq: {
@@ -437,7 +437,7 @@ export const en: Translations = {
       {
         num: '02',
         q: 'What happens after I buy?',
-        a: 'Checkout opens the portal with the loader. Save a config after you tune aim and visuals. Leave HVCI, core isolation, TPM, and secure boot on.',
+        a: 'Checkout opens the portal with the menu. Save a config after you tune aim and visuals. Leave HVCI, core isolation, TPM, and secure boot on.',
       },
       {
         num: '03',
@@ -489,7 +489,7 @@ export const en: Translations = {
           paragraphs: [
             'borderlands3cheats.org is a Windows PC store for Borderlands 3 Cheats, an HWID spoofer, and UGC account recovery. The cheat is one product: aimbot, ESP, weapon options, misc options, and config options. It is not a ladder of Lite, Pro, and Elite tiers, and it is not a DMA card.',
             'Checkout is $35 for 30 days or $150 lifetime on each product. Those prices match across the three cards. A lifetime key on the cheat does not include the spoofer or the recovery workspace. Starting on a month does not promise a credit toward lifetime.',
-            'Product names on this site identify what we sell. They are not a claim that the game publisher endorses the software. Delivery is a portal download for Windows 10 or 11. You keep HVCI, core isolation, TPM, and secure boot on, then open the loader only when the site still matches the current client.',
+            'Product names on this site identify what we sell. They are not a claim that the game publisher endorses the software. Delivery is a portal download for Windows 10 or 11. You keep HVCI, core isolation, TPM, and secure boot on, then open the menu only when the site still matches the current client.',
           ],
         },
         {
@@ -497,14 +497,14 @@ export const en: Translations = {
           paragraphs: [
             'The [Borderlands 3 Cheats](/product/borderlands-3-cheat/) page lists the menu names and the Windows requirements: Windows 10 or 11, Intel or AMD, with HVCI, core isolation, TPM, and secure boot left on. The [products page](/products/) is where you compare the cheat, the [HWID Spoofer](/product/spoofer/), and [UGC Account recovery](/product/ugc/).',
             'Guides on the [blog](/blog/) explain aim FOV versus camera FOV, how loot filters work, and why a hardware flag is a different buy from an account appeal. The [forum](/forum/) is for those same questions, with developer replies marked on the thread. Read the [terms](/terms/) before checkout. Sales are final, including bans.',
-            ' can still act on an account. Nothing here is a guarantee that a session stays clean after the next patch. Check this site after a client update before you open the loader. If the page is not current for that build, leave the software closed.',
-            'Status notes on the homepage describe whether the published build still matches the client. They are not a promise that  will ignore the software. If you are unsure, leave the loader closed and read the matching guide on the blog before you queue again.',
+            ' can still act on an account. Nothing here is a guarantee that a session stays clean after the next patch. Check this site after a client update before you open the menu. If the page is not current for that build, leave the software closed.',
+            'Status notes on the homepage describe whether the published build still matches the client. They are not a promise that  will ignore the software. If you are unsure, leave the menu closed and read the matching guide on the blog before you queue again.',
           ],
         },
         {
           heading: 'Support',
           paragraphs: [
-            'Loader errors, a key that will not move, and checkout questions go through the [support page](/support/). Include the order email, Windows version, and the exact loader text. Do not turn HVCI, core isolation, TPM, or secure boot off because a chat message from another game said to.',
+            'Menu errors, a key that will not move, and checkout questions go through the [support page](/support/). Include the order email, Windows version, and the exact menu text. Do not turn HVCI, core isolation, TPM, or secure boot off because a chat message from another game said to.',
           ],
         },
       ],
@@ -554,7 +554,7 @@ export const en: Translations = {
         {
           heading: 'What you purchase',
           paragraphs: [
-            'We sell Borderlands 3 Cheats, an HWID spoofer, and UGC account recovery. Each product is its own license: $35 for 30 days or $150 lifetime, delivered through a portal and loader for Windows PC.',
+            'We sell Borderlands 3 Cheats, an HWID spoofer, and UGC account recovery. Each product is its own license: $35 for 30 days or $150 lifetime, delivered through a portal and menu for Windows PC.',
             'Feature lists on each product page describe what is included at the time of purchase. Modules can change when Borderlands 3 or  updates. A lifetime cheat key does not include the spoofer or UGC.',
           ],
         },
@@ -562,20 +562,20 @@ export const en: Translations = {
           heading: 'Checkout and delivery',
           paragraphs: [
             'Payment and license delivery run on external checkout pages. borderlands3cheats.org does not process or store payment card numbers.',
-            'After purchase, use the portal from your order to download the current loader before you launch Borderlands 3. Leave HVCI, core isolation, TPM, and secure boot on.',
+            'After purchase, use the portal from your order to download the current menu build before you launch Borderlands 3. Leave HVCI, core isolation, TPM, and secure boot on.',
           ],
         },
         {
           heading: 'License use',
           paragraphs: [
-            'Licenses are for your personal use only. Do not share loader files, portal logins, or license keys. A hardware-ID problem is a separate HWID Spoofer purchase.',
+            'Licenses are for your personal use only. Do not share menu files, portal logins, or license keys. A hardware-ID problem is a separate HWID Spoofer purchase.',
           ],
         },
         {
           heading: 'Refunds and purchases',
           paragraphs: [
             'All sales are final once checkout completes. We do not refund change-of-mind purchases, account bans,  penalties, or issues caused by ignoring the setup notes or launching while the site is not current for that patch.',
-            'If the product does not work as described on a supported setup—Windows 10 or 11 with HVCI, core isolation, TPM, and secure boot on, and the current loader from the portal—contact us through the Support page. Include your order email, Windows version, and the exact loader text.',
+            'If the product does not work as described on a supported setup—Windows 10 or 11 with HVCI, core isolation, TPM, and secure boot on, and the current menu build from the portal—contact us through the Support page. Include your order email, Windows version, and the exact menu text.',
             'We may, at our discretion, offer a fix, replacement access, or partial/full refund when we confirm a fault on our side. We are not obligated to approve every request.',
           ],
         },
@@ -595,7 +595,7 @@ export const en: Translations = {
         {
           heading: 'Support',
           paragraphs: [
-            'For terms, billing, or loader questions, use the buttons on the Support page. See also our Privacy Policy for how we handle site data.',
+            'For terms, billing, or menu questions, use the buttons on the Support page. See also our Privacy Policy for how we handle site data.',
           ],
         },
       ],
@@ -603,7 +603,7 @@ export const en: Translations = {
     support: {
       title: 'Borderlands 3 Cheats support',
       description:
-        'Loader, HWID spoofer, UGC, and checkout help for borderlands3cheats.org.',
+        'Menu, HWID spoofer, UGC, and checkout help for borderlands3cheats.org.',
     },
   },
   ui: {

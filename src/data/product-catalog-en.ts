@@ -89,9 +89,9 @@ export const cheatsContent = {
   ] as SystemRequirement[],
   featureGroups: RUST_CHEAT_FEATURE_GROUPS,
   overview: {
-    title: 'Windows Borderlands 3 cheat loader',
+    title: 'Windows Borderlands 3 cheat menu',
     paragraphs: [
-      'This Borderlands 3 cheat loader lists Soft Aim, Enemy / Mob, Loot, Radar, and Misc on this page for Steam and the official client. Updates continue while the key is active. Discord can help with setup.',
+      'This Borderlands 3 cheat menu lists Soft Aim, Enemy / Mob, Loot, Radar, and Misc on this page for Steam and the official client. Updates continue while the key is active. Discord can help with setup.',
       'Read borderlands3cheats.org before you launch, especially after a Borderlands 3 client patch.',
     ],
   },
