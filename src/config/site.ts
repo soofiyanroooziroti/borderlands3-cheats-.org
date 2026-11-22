@@ -1,4 +1,4 @@
-export const SITE_DOMAIN = 'cheatsforrust.net';
+export const SITE_DOMAIN = 'borderlands3cheats.org';
 export const SITE_URL = `https://${SITE_DOMAIN}`;
 /** Pricing catalog (product list). */
 export const PRODUCT_CATALOG = '/products/';
@@ -6,6 +6,6 @@ export const PRODUCT_CATALOG = '/products/';
 export const PRODUCT_ITEM_BASE = '/product/';
 /** @deprecated Use PRODUCT_CATALOG */
 export const PRODUCT_BASE = PRODUCT_CATALOG;
-export const TITLE_PREFIX = 'Rust Cheats';
+export const TITLE_PREFIX = 'Borderlands 3 Cheats';
 export const SUPPORT_EMAIL = '';
 export const DISCORD_INVITE_URL = 'https://discord.com/invite/2gMnnaPWq';

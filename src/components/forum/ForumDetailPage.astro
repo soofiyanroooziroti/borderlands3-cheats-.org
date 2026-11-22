@@ -10,6 +10,7 @@ import Icon from '../icons/Icon.astro';
 import { forumCategoryFilterKey } from '../../data/forum';
 import { getForumCategoryLabel, getForumPostForLocale, getForumPostsForLocale } from '../../data/forum-i18n';
 import { getForumUi } from '../../utils/forum-ui';
+import { forumGuideTitle } from '../../utils/forum-guide';
 import ForumCommentTree from './ForumCommentTree.astro';
 
 interface Props {
@@ -39,6 +40,7 @@ const relatedPosts = [
   ...allPosts.filter((item) => item.slug !== post.slug && item.category === post.category),
   ...allPosts.filter((item) => item.slug !== post.slug && item.category !== post.category),
 ].slice(0, 3);
+const guideTitle = forumGuideTitle(post.sourcePath, post.sourceTitle, locale);
 ---
 
 <BaseLayout title={post.title} description={post.description} jsonLd={[
@@ -74,10 +76,10 @@ const relatedPosts = [
               <h1>{post.title}</h1>
               {post.flair && <span class={`forum-flair tone-${post.categoryTone}`}>{post.flair}</span>}
               <div class="forum-detail-copy">{post.body.map((paragraph) => <p>{paragraph}</p>)}</div>
-              {post.sourceTitle && post.sourcePath && (
+              {guideTitle && post.sourcePath && (
                 <p class="forum-source forum-source--detail">
                   {forumUi.basedOn}{' '}
-                  <a href={getLocalizedPath(post.sourcePath, locale)}>{post.sourceTitle}</a>
+                  <a href={getLocalizedPath(post.sourcePath, locale)}>{guideTitle}</a>
                 </p>
               )}
               <div class="forum-post-actions forum-post-actions--detail">

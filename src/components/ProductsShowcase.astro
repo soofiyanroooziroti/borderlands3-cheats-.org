@@ -13,12 +13,12 @@ interface Props {
 
 const { products, class: className } = Astro.props;
 
-const mainProduct = products.find((p) => p.slug === 'rust-cheat');
+const mainProduct = products.find((p) => p.slug === 'borderlands-3-cheat');
 const addonProducts = products.filter((p) => p.slug === 'spoofer' || p.slug === 'ugc');
 
 const addonDisplayTitle: Record<string, string> = {
-  spoofer: 'Rust HWID spoofer',
-  ugc: 'Rust unban tool',
+  spoofer: 'Borderlands 3 HWID spoofer',
+  ugc: 'Borderlands 3 unban tool',
 };
 
 function cardIcon(product: ProductPage) {

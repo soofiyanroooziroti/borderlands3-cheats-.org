@@ -3,11 +3,11 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const logoPath = path.join(root, 'public', 'logo.png');
+const logoPath = path.join(root, 'public', 'images', 'logo.svg');
 
 if (!fs.existsSync(logoPath)) {
-  console.error('Missing public/logo.png — add the site logo there.');
+  console.error('Missing public/images/logo.svg — add the site logo there.');
   process.exit(1);
 }
 
-console.log('Brand asset is public/logo.png (navbar, favicon, manifest, schema).');
+console.log('Brand asset is public/images/logo.svg; favicons live in public/.');

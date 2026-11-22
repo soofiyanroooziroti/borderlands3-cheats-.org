@@ -4,15 +4,15 @@ import { PRODUCT_BASE } from '../config/site';
 import { productPath } from '../utils/path-core';
 
 const productBase = PRODUCT_BASE;
-const rustCheatFeaturesHref = `${productPath('rust-cheat')}#features`;
+const rustCheatFeaturesHref = `${productPath('borderlands-3-cheat')}#features`;
 
 export const en: Translations = {
   site: {
-    name: 'Rust Cheats',
-    domain: 'cheatsforrust.net',
-    title: 'Rust Cheats',
+    name: 'Borderlands 3 Cheats',
+    domain: 'borderlands3cheats.org',
+    title: 'Borderlands 3 Cheats',
     description:
-      'Rust Cheats for Windows PC with aimbot, player ESP, and loot filters. Compare the cheat, HWID spoofer, and UGC recovery on cheatsforrust.net.',
+      'Borderlands 3 Cheats for Windows PC with aimbot, player ESP, and loot filters. Compare the cheat, HWID spoofer, and UGC recovery on borderlands3cheats.org.',
     discord: PRIMARY_CHECKOUT_PATH,
   },
   nav: [
@@ -47,27 +47,27 @@ export const en: Translations = {
     status: 'Status',
   },
   hero: {
-    status: 'Rust — modules online',
+    status: 'Borderlands 3 — modules online',
     eyebrow: 'Windows PC',
-    titleLine1: 'Rust Cheats',
-    titleLine2: 'Rust Cheats',
+    titleLine1: 'Borderlands 3 Cheats',
+    titleLine2: 'Borderlands 3 Cheats',
     subtitle:
-      'Rust cheats for Windows PC with aimbot, ESP, no recoil, no spread and 110+ more features, plus Discord support.',
+      'Borderlands 3 cheats for Windows PC on Steam and the official client—Soft Aim, Enemy / Mob, Loot, Radar, and Misc with 32 loader toggles, plus Discord support.',
     ctaPrimary: 'View features',
     ctaDiscord: 'Buy now',
     modesLabel: 'Modes',
     modes: ['Operations', 'Warfare', 'Extraction', 'Ranked'],
     metrics: [
-      { label: 'Anti-cheat', strong: 'EAC' },
+      { label: 'Client', strong: '' },
       { label: 'Platform', strong: 'Windows PC' },
       { label: 'Plans', strong: '$35 / $150' },
-      { label: 'Support', strong: '24/7' },
+      { label: 'Support', strong: 'Discord' },
     ],
   },
   features: {
     eyebrow: 'Features',
     title: 'Everything you need in one package',
-    subtitle: 'Aimbot, player ESP, weapon options, misc options, and config options for Rust on Windows PC.',
+    subtitle: 'Aimbot, player ESP, weapon options, misc options, and config options for Borderlands 3 on Windows PC.',
     items: [
       {
         title: 'Aimbot',
@@ -128,7 +128,7 @@ export const en: Translations = {
         title: 'Config',
         subtitle: 'Save the layout you tested.',
         desc: 'Store aimbot, ESP, weapon options, misc options, and config options instead of retuning after every launch.',
-        bullets: ['Save and load configs', 'One slider change at a time', 'Reload after an EAC patch'],
+        bullets: ['Save and load configs', 'One slider change at a time', 'Reload after an  patch'],
         tags: ['config', 'presets', 'save'],
         bento: 'sm:col-span-2 lg:col-span-4 lg:row-span-2 lg:col-start-9 lg:row-start-4',
       },
@@ -162,13 +162,13 @@ export const en: Translations = {
     eyebrow: 'Why us',
     title: 'Read the build note, then pick one key',
     subtitle:
-      'One cheat product, one HWID spoofer, and one UGC recovery workspace. Prices stay $35 monthly or $150 lifetime, and a ban is still possible under EasyAnti-Cheat.',
-    usLabel: 'Rust Cheats',
+      'One cheat product, one HWID spoofer, and one UGC recovery workspace. Prices stay $35 monthly or $150 lifetime, and a ban is still possible under .',
+    usLabel: 'Borderlands 3 Cheats',
     otherLabel: 'Typical provider',
     rows: [
       {
         title: 'Patch-day loader updates',
-        desc: 'Check cheatsforrust.net after a Rust or EAC update before you open the loader.',
+        desc: 'Check borderlands3cheats.org after a Borderlands 3 or  update before you open the loader.',
       },
       {
         title: 'Separate aim sliders',
@@ -193,9 +193,9 @@ export const en: Translations = {
     ],
     metrics: [
       {
-        value: 'EAC',
+        value: '',
         title: 'Check after a patch',
-        desc: 'Recheck the site after a Rust or EasyAnti-Cheat update before you launch.',
+        desc: 'Recheck the site after a Borderlands 3 or  update before you launch.',
       },
       {
         value: '2',
@@ -205,7 +205,7 @@ export const en: Translations = {
       {
         value: '3',
         title: 'Separate products',
-        desc: 'Rust Cheats, the HWID spoofer, and UGC recovery. Each one is its own key.',
+        desc: 'Borderlands 3 Cheats, the HWID spoofer, and UGC recovery. Each one is its own key.',
       },
     ],
   },
@@ -214,17 +214,17 @@ export const en: Translations = {
     titleLead: 'From checkout to ranked queue in just',
     titleHighlight: 'three simple steps',
     intro:
-      'Getting started is checkout, the portal loader, then a saved config. Check the site after an EasyAnti-Cheat update before you launch Rust.',
+      'Getting started is checkout, the portal loader, then a saved config. Check the site after an  update before you launch Borderlands 3.',
     ctaPrimary: 'View features',
     ctaSecondary: 'Setup FAQ',
     ctaPrimaryHref: productBase,
     ctaSecondaryHref: '/faq/',
     statusStrip: {
-      aceStatusCta: 'Check EAC status',
+      aceStatusCta: 'Check  status',
       aceStatusHref: '/status/',
       perks: [
-        { icon: 'instantDelivery', label: 'Instant delivery' },
-        { icon: 'support247', label: '24/7 support' },
+        { icon: 'instantDelivery', label: 'Digital delivery' },
+        { icon: 'support247', label: 'Discord support' },
         { icon: 'refresh', label: 'Lifetime updates' },
       ],
     },
@@ -242,38 +242,36 @@ export const en: Translations = {
       {
         step: 'Step 3',
         title: 'Check status, then launch',
-        desc: 'Confirm the site is current for this client, then open Rust with the config you saved.',
+        desc: 'Confirm the site is current for this client, then open Borderlands 3 with the config you saved.',
       },
     ],
   },
   compatibility: {
     eyebrow: 'Platform support',
     title: 'Runs on your rig.',
-    subtitle: 'Check the site after a Rust or EAC update before you launch.',
+    subtitle: 'Check the site after a Borderlands 3 or  update before you launch.',
     items: ['Windows 10 & 11', 'Intel or AMD', 'HVCI on', 'Core isolation on', 'TPM on', 'Secure boot on'],
   },
   cheats: {
     eyebrow: 'Game cheat',
-    title: 'Rust Cheats',
-    subtitle: 'Aimbot, player ESP, weapon options, and misc options for Windows PC.',
+    title: 'Borderlands 3 Cheats',
+    subtitle: 'Soft Aim, Enemy / Mob, Loot, Radar, and Misc for Steam and the official client.',
     viewAll: 'View details',
     explore: 'Explore',
     items: [
       {
         badge: 'Active',
         tier: 'Full suite',
-        name: 'Rust',
-        title: 'Rust Cheats',
-        desc: 'Rust Cheats for operations and extraction—aimbot, player ESP, weapon options, and misc options.',
+        name: 'Borderlands 3',
+        title: 'Borderlands 3 Cheats',
+        desc: 'Windows menu with Soft Aim, Enemy / Mob, Loot, Radar, and Misc for Steam and the official client.',
         features: [
-          'Aimbot · FOV · smooth · bones',
-          'Player ESP · box · health',
-          'Loot name · rarity · price',
-          'Weapon options · recoil · spread',
-          'Misc options and config save',
+          'Soft aim · FOV · smoothing · bones',
+          'Enemy ESP · health bar · distance',
+          'Loot rarity ESP · drop filters',
         ],
-        more: 45,
-        href: '/product/rust-cheat/',
+        more: 29,
+        href: '/product/borderlands-3-cheat/',
         variant: 'popular',
       },
     ],
@@ -281,7 +279,7 @@ export const en: Translations = {
   products: {
     eyebrow: 'Products',
     title: 'Products & pricing',
-    subtitle: 'Rust Cheats, HWID spoofer, and UGC Account recovery—same USD plans on Windows PC.',
+    subtitle: 'Borderlands 3 Cheats, HWID spoofer, and UGC Account recovery—same USD plans on Windows PC.',
     viewAll: 'View details',
     get: 'Buy now',
     explore: 'Explore',
@@ -311,7 +309,7 @@ export const en: Translations = {
   blog: {
     eyebrow: 'Blog',
     title: 'Guides and updates',
-    subtitle: 'Setup notes, aimbot and ESP guides, loot explainers, and pricing answers for Rust on Windows PC.',
+    subtitle: 'Setup notes, aimbot and ESP guides, loot explainers, and pricing answers for Borderlands 3 on Windows PC.',
     latestTitle: 'Rust guides for aim, ESP, loot and setup',
     latestSubtitle: 'Filter by topic or sort to find setup guides, feature deep-dives, and patch-day notes.',
     filterAll: 'All articles',
@@ -353,14 +351,14 @@ export const en: Translations = {
       {
         num: '01',
         phase: 'Before purchase',
-        title: 'Check EAC status',
-        desc: 'Read cheatsforrust.net after a client or EasyAnti-Cheat update before you buy or launch.',
+        title: 'Check  status',
+        desc: 'Read borderlands3cheats.org after a client or  update before you buy or launch.',
       },
       {
         num: '02',
         phase: 'Checkout',
         title: 'Choose the product',
-        desc: 'Rust Cheats, HWID Spoofer, or UGC. Monthly is $35. Lifetime is $150. They are separate keys.',
+        desc: 'Borderlands 3 Cheats, HWID Spoofer, or UGC. Monthly is $35. Lifetime is $150. They are separate keys.',
       },
       {
         num: '03',
@@ -378,16 +376,16 @@ export const en: Translations = {
   },
   fieldNotes: {
     eyebrow: 'Field notes',
-    title: 'Built for Rust on Windows PC.',
+    title: 'Built for Borderlands 3 on Windows PC.',
     items: [
-      { num: '01', title: 'Patch-day check', desc: 'Read the site after an EAC or client update. A banner from yesterday is not a current build.' },
+      { num: '01', title: 'Patch-day check', desc: 'Read the site after an  or client update. A banner from yesterday is not a current build.' },
       { num: '02', title: 'One slider at a time', desc: 'Change FOV, smooth, or distance alone so you know which setting caused the pull or the clutter.' },
       { num: '03', title: 'Separate products', desc: 'The cheat, the HWID spoofer, and UGC recovery are three checkouts. Lifetime on one does not unlock the others.' },
     ],
   },
   support: {
     eyebrow: 'Support',
-    title: 'Rust support',
+    title: 'Borderlands 3 Cheats support',
     subtitle: 'Let us know how we can help.',
     channels: [
       {
@@ -413,15 +411,15 @@ export const en: Translations = {
       },
       {
         icon: 'clock',
-        title: 'Live operators',
-        desc: 'Discord engineers on shift 24/7.',
+        title: 'Discord support',
+        desc: 'Support is available on Discord.',
         linkLabel: 'Open contact page',
         href: '/support/',
       },
     ],
     ticketTitle: 'Include in your ticket',
     ticketItems: [
-      { title: 'Order email', desc: 'The address used at checkout on cheatsforrust.net.' },
+      { title: 'Order email', desc: 'The address used at checkout on borderlands3cheats.org.' },
       { title: 'Platform', desc: 'Windows 10 or 11, and whether HVCI, core isolation, TPM, and secure boot are on.' },
       { title: 'Error detail', desc: 'The exact loader message, not a paraphrase.' },
     ],
@@ -433,8 +431,8 @@ export const en: Translations = {
     items: [
       {
         num: '01',
-        q: 'Where do I check if Rust Cheats are online?',
-        a: 'Read cheatsforrust.net after a Rust or EasyAnti-Cheat update. A banner from yesterday is not a current build.',
+        q: 'Where do I check if Borderlands 3 Cheats are online?',
+        a: 'Read borderlands3cheats.org after a Borderlands 3 or  update. A banner from yesterday is not a current build.',
       },
       {
         num: '02',
@@ -443,8 +441,8 @@ export const en: Translations = {
       },
       {
         num: '03',
-        q: 'Can I get banned using Rust Cheats?',
-        a: 'Yes. EasyAnti-Cheat can act on the account. Nothing on this site is a guarantee that a session stays clean.',
+        q: 'Can I get banned using Borderlands 3 Cheats?',
+        a: 'Yes.  can act on the account. Nothing on this site is a guarantee that a session stays clean.',
       },
       {
         num: '04',
@@ -459,16 +457,16 @@ export const en: Translations = {
       {
         num: '06',
         q: 'Where are products and utilities listed?',
-        a: 'Rust Cheats, HWID Spoofer, and UGC Account recovery are on the products page. Each one is $35 monthly or $150 lifetime.',
+        a: 'Borderlands 3 Cheats, HWID Spoofer, and UGC Account recovery are on the products page. Each one is $35 monthly or $150 lifetime.',
       },
     ],
   },
   footer: {
-    tagline: 'Rust Cheats, HWID spoofer, and UGC recovery for Windows PC. cheatsforrust.net',
+    tagline: 'Borderlands 3 Cheats, HWID spoofer, and UGC recovery for Windows PC. borderlands3cheats.org',
     explore: 'Explore',
     exploreLinks: [
       { href: '/', label: 'Feature overview', ariaLabel: 'Features', scrollTarget: 'features' },
-      { href: '/product/rust-cheat/', label: 'Rust Cheats', ariaLabel: 'Rust Cheats' },
+      { href: '/product/borderlands-3-cheat/', label: 'Borderlands 3 Cheats', ariaLabel: 'Borderlands 3 Cheats' },
       { href: '/products/', label: 'All products', ariaLabel: 'Products' },
       { href: '/blog/', label: 'Read patch guides', ariaLabel: 'Blog' },
       { href: '/faq/', label: 'Pre-purchase FAQ', ariaLabel: 'FAQ' },
@@ -482,14 +480,14 @@ export const en: Translations = {
   },
   legalPages: {
     about: {
-      title: 'About this Rust store',
+      title: 'About this Borderlands 3 store',
       description:
-        'cheatsforrust.net sells Rust Cheats, an HWID spoofer, and UGC account recovery for Windows PC, with setup notes and honest ban risk.',
+        'borderlands3cheats.org sells Borderlands 3 Cheats, an HWID spoofer, and UGC account recovery for Windows PC, with setup notes and honest ban risk.',
       sections: [
         {
           heading: 'Who we are',
           paragraphs: [
-            'cheatsforrust.net is a Windows PC store for Rust Cheats, an HWID spoofer, and UGC account recovery. The cheat is one product: aimbot, ESP, weapon options, misc options, and config options. It is not a ladder of Lite, Pro, and Elite tiers, and it is not a DMA card.',
+            'borderlands3cheats.org is a Windows PC store for Borderlands 3 Cheats, an HWID spoofer, and UGC account recovery. The cheat is one product: aimbot, ESP, weapon options, misc options, and config options. It is not a ladder of Lite, Pro, and Elite tiers, and it is not a DMA card.',
             'Checkout is $35 for 30 days or $150 lifetime on each product. Those prices match across the three cards. A lifetime key on the cheat does not include the spoofer or the recovery workspace. Starting on a month does not promise a credit toward lifetime.',
             'Product names on this site identify what we sell. They are not a claim that the game publisher endorses the software. Delivery is a portal download for Windows 10 or 11. You keep HVCI, core isolation, TPM, and secure boot on, then open the loader only when the site still matches the current client.',
           ],
@@ -497,10 +495,10 @@ export const en: Translations = {
         {
           heading: 'What we publish',
           paragraphs: [
-            'The [Rust Cheats](/product/rust-cheat/) page lists the menu names and the Windows requirements: Windows 10 or 11, Intel or AMD, with HVCI, core isolation, TPM, and secure boot left on. The [products page](/products/) is where you compare the cheat, the [HWID Spoofer](/product/spoofer/), and [UGC Account recovery](/product/ugc/).',
+            'The [Borderlands 3 Cheats](/product/borderlands-3-cheat/) page lists the menu names and the Windows requirements: Windows 10 or 11, Intel or AMD, with HVCI, core isolation, TPM, and secure boot left on. The [products page](/products/) is where you compare the cheat, the [HWID Spoofer](/product/spoofer/), and [UGC Account recovery](/product/ugc/).',
             'Guides on the [blog](/blog/) explain aim FOV versus camera FOV, how loot filters work, and why a hardware flag is a different buy from an account appeal. The [forum](/forum/) is for those same questions, with developer replies marked on the thread. Read the [terms](/terms/) before checkout. Sales are final, including bans.',
-            'EasyAnti-Cheat can still act on an account. Nothing here is a guarantee that a session stays clean after the next patch. Check this site after a client update before you open the loader. If the page is not current for that build, leave the software closed.',
-            'Status notes on the homepage describe whether the published build still matches the client. They are not a promise that EasyAnti-Cheat will ignore the software. If you are unsure, leave the loader closed and read the matching guide on the blog before you queue again.',
+            ' can still act on an account. Nothing here is a guarantee that a session stays clean after the next patch. Check this site after a client update before you open the loader. If the page is not current for that build, leave the software closed.',
+            'Status notes on the homepage describe whether the published build still matches the client. They are not a promise that  will ignore the software. If you are unsure, leave the loader closed and read the matching guide on the blog before you queue again.',
           ],
         },
         {
@@ -514,12 +512,12 @@ export const en: Translations = {
     privacy: {
       title: 'Privacy Policy',
       description:
-        'How cheatsforrust.net handles analytics, cookies, and contact data.',
+        'How borderlands3cheats.org handles analytics, cookies, and contact data.',
       sections: [
         {
           heading: 'Information we collect',
           paragraphs: [
-            'We may collect standard web analytics such as page views, device type, browser, and approximate region through Google Analytics when enabled. Checkout and license delivery happen on external checkout pages. We do not store payment card data on cheatsforrust.net.',
+            'We may collect standard web analytics such as page views, device type, browser, and approximate region through Google Analytics when enabled. Checkout and license delivery happen on external checkout pages. We do not store payment card data on borderlands3cheats.org.',
           ],
         },
         {
@@ -545,26 +543,26 @@ export const en: Translations = {
     terms: {
       title: 'Terms & Conditions',
       description:
-        'Purchase, license, refund, and use terms for products sold on cheatsforrust.net.',
+        'Purchase, license, refund, and use terms for products sold on borderlands3cheats.org.',
       sections: [
         {
           heading: 'Agreement',
           paragraphs: [
-            'Last updated: October 2026. By using cheatsforrust.net or completing checkout for any product listed here, you agree to these Terms & Conditions and our Privacy Policy.',
+            'Last updated: October 2026. By using borderlands3cheats.org or completing checkout for any product listed here, you agree to these Terms & Conditions and our Privacy Policy.',
           ],
         },
         {
           heading: 'What you purchase',
           paragraphs: [
-            'We sell Rust Cheats, an HWID spoofer, and UGC account recovery. Each product is its own license: $35 for 30 days or $150 lifetime, delivered through a portal and loader for Windows PC.',
-            'Feature lists on each product page describe what is included at the time of purchase. Modules can change when Rust or EasyAnti-Cheat updates. A lifetime cheat key does not include the spoofer or UGC.',
+            'We sell Borderlands 3 Cheats, an HWID spoofer, and UGC account recovery. Each product is its own license: $35 for 30 days or $150 lifetime, delivered through a portal and loader for Windows PC.',
+            'Feature lists on each product page describe what is included at the time of purchase. Modules can change when Borderlands 3 or  updates. A lifetime cheat key does not include the spoofer or UGC.',
           ],
         },
         {
           heading: 'Checkout and delivery',
           paragraphs: [
-            'Payment and license delivery run on external checkout pages. cheatsforrust.net does not process or store payment card numbers.',
-            'After purchase, use the portal from your order to download the current loader before you launch Rust. Leave HVCI, core isolation, TPM, and secure boot on.',
+            'Payment and license delivery run on external checkout pages. borderlands3cheats.org does not process or store payment card numbers.',
+            'After purchase, use the portal from your order to download the current loader before you launch Borderlands 3. Leave HVCI, core isolation, TPM, and secure boot on.',
           ],
         },
         {
@@ -576,7 +574,7 @@ export const en: Translations = {
         {
           heading: 'Refunds and purchases',
           paragraphs: [
-            'All sales are final once checkout completes. We do not refund change-of-mind purchases, account bans, EasyAnti-Cheat penalties, or issues caused by ignoring the setup notes or launching while the site is not current for that patch.',
+            'All sales are final once checkout completes. We do not refund change-of-mind purchases, account bans,  penalties, or issues caused by ignoring the setup notes or launching while the site is not current for that patch.',
             'If the product does not work as described on a supported setup—Windows 10 or 11 with HVCI, core isolation, TPM, and secure boot on, and the current loader from the portal—contact us through the Support page. Include your order email, Windows version, and the exact loader text.',
             'We may, at our discretion, offer a fix, replacement access, or partial/full refund when we confirm a fault on our side. We are not obligated to approve every request.',
           ],
@@ -584,7 +582,7 @@ export const en: Translations = {
         {
           heading: 'Availability and risk',
           paragraphs: [
-            'Third-party tools for Rust can conflict with game updates and EasyAnti-Cheat. You use this software at your own risk, including possible account action.',
+            'Third-party tools for Borderlands 3 can conflict with game updates and . You use this software at your own risk, including possible account action.',
             'Check the homepage status banner before every session. Do not queue ranked while modules are offline or misaligned after a patch.',
           ],
         },
@@ -603,18 +601,18 @@ export const en: Translations = {
       ],
     },
     support: {
-      title: 'Rust support',
+      title: 'Borderlands 3 Cheats support',
       description:
-        'Loader, HWID spoofer, UGC, and checkout help for cheatsforrust.net.',
+        'Loader, HWID spoofer, UGC, and checkout help for borderlands3cheats.org.',
     },
   },
   ui: {
     skipLink: 'Skip to main content',
     browseCheats: 'Buy now',
     browseCheatsMobile: 'Buy now',
-    homeAria: 'Rust Cheats home',
+    homeAria: 'Borderlands 3 Cheats home',
     checkoutAria: 'Buy now',
-    discordAria: 'Buy Rust Cheats',
+    discordAria: 'Buy Borderlands 3 Cheats',
     menuOpen: 'Open menu',
     menuClose: 'Close menu',
     themeLight: 'Switch to light mode',

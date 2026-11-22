@@ -12,13 +12,13 @@ import ExploreSection from '../components/ExploreSection.astro';
 import ContentSections from '../components/ContentSections.astro';
 import { resolvePageSeo } from '../config/seo';
 import { faqPageSchema, organizationSchema, websiteSchema } from '../utils/schema';
-import { getLandingFaqs } from '../data/faq';
+import { getLandingFaqs } from '../data/faq-locale';
 import { heroSlides } from '../data/products';
 import { getHomeOgImage } from '../data/site-images';
 import { heroLcpPreload } from '../utils/responsiveImage';
 
 const seo = resolvePageSeo('/');
-const homeFaqs = getLandingFaqs();
+const homeFaqs = getLandingFaqs(locale);
 const homeOg = getHomeOgImage();
 const heroLcp = heroLcpPreload(heroSlides[0]!.src);
 ---

@@ -13,7 +13,7 @@ export interface SiteImageEntry {
 
 const manifest = manifestJson as SiteImageEntry[];
 
-const GALLERY_SLOTS = ['gallery-1', 'gallery-2', 'gallery-3', 'gallery-4', 'gallery-5'] as const;
+const GALLERY_SLOTS = ['gallery-1', 'gallery-2', 'gallery-3', 'gallery-4'] as const;
 
 function entryBySlot(slot: string): SiteImageEntry | undefined {
   return manifest.find((e) => e.slot === slot);

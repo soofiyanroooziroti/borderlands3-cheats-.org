@@ -21,7 +21,7 @@ const ALLOWED_PREFIXES = [
   '/terms/',
   '/status/',
   '/products/',
-  '/go/',
+  '/product/',
   'https://',
   'http://',
   'mailto:',
@@ -31,7 +31,8 @@ const ALLOWED_PREFIXES = [
 const BAD_PATTERNS = [
   { re: /href=["']\/contact\/?["']/gi, msg: 'legacy /contact/' },
   { re: /href=["']\/cheats\//gi, msg: 'legacy /cheats/' },
-  { re: /aion2-hack|dota-2|cs2-faceit/i, msg: 'wrong product/site link' },
+  { re: /aion2-hack|dota-2|cs2-faceit|cheatsforrust/i, msg: 'wrong product/site link' },
+  { re: /href=["']\/go\//gi, msg: 'legacy /go/ href' },
   { re: /href=["']\s*["']/g, msg: 'empty href' },
 ];
 
@@ -45,7 +46,7 @@ function checkText(file, text) {
   let m;
   while ((m = hrefRe.exec(text))) {
     const href = m[1];
-    if (href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('/go/')) continue;
+    if (href.startsWith('http') || href.startsWith('mailto:')) continue;
     if (href.startsWith('#')) continue;
     const pathOnly = href.split('#')[0];
     if (!pathOnly.startsWith('/')) {

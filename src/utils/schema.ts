@@ -45,7 +45,7 @@ export function organizationSchema() {
     '@type': 'Organization',
     name: t.site.name,
     url: `${SITE_ORIGIN}/`,
-    logo: `${SITE_ORIGIN}/logo.png`,
+    logo: `${SITE_ORIGIN}/images/logo.svg`,
     hasMerchantReturnPolicy: merchantReturnPolicySchema(),
     ...(sameAs.length > 0 ? { sameAs } : {}),
     contactPoint: [
@@ -271,7 +271,7 @@ export function productSchema(input: {
   sku?: string;
   productSlug?: string;
 }) {
-  const plans = getProductPlans(input.productSlug ?? input.sku ?? 'rust-cheat');
+  const plans = getProductPlans(input.productSlug ?? input.sku ?? 'borderlands-3-cheat');
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -345,7 +345,7 @@ export function articleSchema(input: {
       name: t.site.name,
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_ORIGIN}/logo.png`,
+        url: `${SITE_ORIGIN}/images/logo.svg`,
       },
     },
     mainEntityOfPage: {

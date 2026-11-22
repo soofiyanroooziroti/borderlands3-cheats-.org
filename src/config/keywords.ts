@@ -1,12 +1,24 @@
-/** Primary keyword per core URL (null = no dedicated keyword). Value may be an array when multiple phrases belong to one page. */
+/** Primary keyword per core URL (null = no dedicated keyword). */
 export const PAGE_KEYWORDS: Record<string, string | string[] | null> = {
-  '/': 'rust cheats',
+  '/': ['borderlands 3 cheats', 'bl3 cheats'],
   '/products/': null,
-  '/product/rust-cheat/': 'rust cheat loader',
-  '/product/spoofer/': 'rust hwid ban bypass',
-  '/product/ugc/': 'rust account recovery',
+  '/product/borderlands-3-cheat/': ['borderlands 3 cheat', 'bl3 cheat'],
+  '/product/spoofer/': ['borderlands 3 hwid spoofer', 'bl3 hwid spoofer'],
+  '/product/ugc/': ['borderlands 3 unban tool', 'bl3 unban tool'],
   '/features/': null,
   '/blog/': null,
+  '/blog/borderlands-3-cheat-engine/': 'borderlands 3 cheat engine',
+  '/blog/borderlands-3-cheat-table/': 'borderlands 3 cheat table',
+  '/blog/borderlands-3-cheat-codes/': 'borderlands 3 cheat codes',
+  '/blog/borderlands-3-mods-vs-cheat-menu/': 'borderlands 3 mods',
+  '/blog/borderlands-3-mayhem-mode-farming/': 'borderlands 3 mayhem mode',
+  '/blog/borderlands-3-aimbot/': 'borderlands 3 aimbot',
+  '/blog/borderlands-3-esp/': 'borderlands 3 esp',
+  '/blog/borderlands-3-loot-esp/': 'borderlands 3 loot esp',
+  '/blog/borderlands-3-cheats-requirements/': 'borderlands 3 cheat requirements',
+  '/blog/borderlands-3-cheat-ban-risks/': 'borderlands 3 cheat ban risks',
+  '/blog/borderlands-3-cheats-price/': 'borderlands 3 cheat price',
+  '/blog/borderlands-3-hacks/': 'borderlands 3 hacks',
   '/forum/': null,
   '/faq/': null,
   '/support/': null,
@@ -20,15 +32,15 @@ export const PAGE_KEYWORDS: Record<string, string | string[] | null> = {
 export const NOINDEX_CANNIBALISM_SKIP = new Set(['/status/', '/404/']);
 
 export const PRODUCT_H1: Record<string, string> = {
-  'rust-cheat': 'Windows rust cheat loader',
-  spoofer: 'Windows rust hwid ban bypass',
-  ugc: 'Windows rust account recovery',
+  'borderlands-3-cheat': 'Borderlands 3 cheat loader for Windows PC',
+  spoofer: 'Borderlands 3 hwid spoofer for Windows PC',
+  ugc: 'Borderlands 3 unban tool for Windows PC',
 };
 
 export const PRODUCT_PAGE_KEYWORDS: Record<string, string> = {
-  'rust-cheat': 'rust cheat loader',
-  spoofer: 'rust hwid ban bypass',
-  ugc: 'rust account recovery',
+  'borderlands-3-cheat': 'borderlands 3 cheat',
+  spoofer: 'borderlands 3 hwid spoofer',
+  ugc: 'borderlands 3 unban tool',
 };
 
 export function primaryKeywords(): string[] {

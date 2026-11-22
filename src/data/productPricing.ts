@@ -18,7 +18,8 @@ const spooferPlans: ProductPlan[] = [
 ];
 
 const plansBySlug: Record<string, ProductPlan[]> = {
-  'rust-cheat': cheatPlans,
+  'borderlands-3-cheat': cheatPlans,
+  'borderlands-3-cheat': cheatPlans,
   spoofer: spooferPlans,
   'hwid-spoofer': spooferPlans,
   ugc: cheatPlans,
@@ -39,7 +40,7 @@ export function formatPlanPrice(usd: number): string {
   return `$${usd}`;
 }
 
-/** Plan is chosen on Zadeyo checkout — internal /go/ path only. */
+/** Plan is chosen on Zadeyo checkout — affiliate URL only. */
 export function checkoutUrlWithPlan(baseUrl: string, _planId: ProductPlanId): string {
   return baseUrl;
 }

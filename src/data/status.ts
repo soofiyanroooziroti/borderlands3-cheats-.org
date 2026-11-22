@@ -1,5 +1,5 @@
 /** ISO date (YYYY-MM-DD) — edit when you publish a status refresh. */
-export const STATUS_LAST_UPDATED = '2026-11-10';
+export const STATUS_LAST_UPDATED = '2026-11-23';
 
 export type StatusTone = 'green' | 'red' | 'blue';
 
@@ -11,23 +11,29 @@ export interface StatusLegendItem {
 
 export interface StatusUpdateEntry {
   title: string;
-  /** Display range or date, e.g. 5 Nov 2026 */
+  /** Display range or date, e.g. 8 Aug 2024 */
   when: string;
   summary: string;
+}
+
+export interface StatusLogEntry {
+  date: string;
+  state: StatusTone;
+  note: string;
 }
 
 /** Current store state. Green = updated and usable. */
 export const status: { state: StatusTone; checkedDate: string } = {
   state: 'green',
-  checkedDate: '21 Nov 2026',
+  checkedDate: '23 Nov 2026',
 };
 
 export const STATUS_TONE: StatusTone = status.state;
 
 const STATUS_PAGE_LABEL: Record<StatusTone, string> = {
-  green: 'Rust Cheats: Active',
-  blue: 'Rust Cheats: Updating',
-  red: 'Rust Cheats: Not updated',
+  green: 'Borderlands 3 Cheats: Active',
+  blue: 'Borderlands 3 Cheats: Updating',
+  red: 'Borderlands 3 Cheats: Not updated',
 };
 
 const STATUS_BADGE_LABEL: Record<StatusTone, string> = {
@@ -50,47 +56,46 @@ export const STATUS_LEGEND: StatusLegendItem[] = [
   { tone: 'blue', label: 'Blue', meaning: 'Updating. Developers are working. It is not ready yet.' },
 ];
 
-/** Newest first. */
-export const STATUS_RECENT_UPDATES: StatusUpdateEntry[] = [
-  {
-    title: 'Scripting bans',
-    when: '5 Nov 2026',
-    summary: 'Coverage of the November 2026 update reports more than 3,000 scripting bans.',
-  },
-  {
-    title: 'Secure Boot and TPM 2.0',
-    when: 'Feb-Mar 2026',
-    summary:
-      'Facepunch announced in February 2026 that from March, server owners can opt in to only allow players with Secure Boot and TPM 2.0 enabled, through Easy Anti-Cheat. Facepunch has said it plans to make this mandatory later, with the timeline shared in its monthly devblog.',
-  },
-  {
-    title: 'EAC enforcement',
-    when: 'Ongoing',
-    summary:
-      "Facepunch's January 2026 devblog says Easy Anti-Cheat has stepped up efforts against recoil cheats (scripting). Bans can be permanent: Facepunch reported 296,000+ permanent bans in 2025.",
-  },
+/** Confirm these before you launch Borderlands 3 with the loader. */
+export const STATUS_BEFORE_LAUNCH: string[] = [
+  'HVCI on',
+  'Core isolation on',
+  'TPM on',
+  'Secure Boot on',
+  'Windows 10 or 11',
+  'Steam / official client',
+  'Cloud DMA needed',
 ];
+
+export const STATUS_GAME_NOTES_HEADING = 'Game notes, 8 Aug 2024 (latest update)';
 
 export const STATUS_GAME_NOTES: StatusUpdateEntry[] = [
   {
-    title: 'Progression',
-    when: '5 Nov 2026',
-    summary: 'Blueprints are reworked into three forms: fragments, pages and books.',
-  },
-  {
-    title: 'Weapons and controls',
-    when: '5 Nov 2026',
-    summary: 'New Uzi 9mm. Native gamepad support added.',
-  },
-  {
-    title: 'Servers and performance',
-    when: '5 Nov 2026',
+    title: 'Character creation',
+    when: '8 Aug 2024',
     summary:
-      'Busy servers restart in about 2 minutes instead of 10. Facepunch also shipped a large batch of performance work. The livestock system was reworked.',
+      'Players who have beaten the main story and own a max-level character can create new max-level characters from the main menu.',
+  },
+  {
+    title: 'Gear',
+    when: '8 Aug 2024',
+    summary:
+      'A new main menu setting auto-sells picked-up gear below a chosen rarity, and excludes cosmetics.',
+  },
+  {
+    title: 'Steam Deck',
+    when: '8 Aug 2024',
+    summary: 'In-game text sizes were increased for readability.',
   },
 ];
 
-export const STATUS_NEXT_UPDATE = 'Next monthly update: expected 3 Dec 2026.';
+export const STATUS_PREVIOUS_UPDATE =
+  'Previous update: 18 Jul 2024 (free cosmetics and Crazy Earl\'s Shop additions).';
+
+/** Newest first. */
+export const STATUS_LOG: StatusLogEntry[] = [
+  { date: '23 Nov 2026', state: 'green', note: 'Status checked.' },
+];
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 

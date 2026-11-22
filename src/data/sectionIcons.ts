@@ -1,12 +1,11 @@
 import type { IconName } from '../components/icons/types';
 
 export const featureIcons: Record<string, IconName> = {
-  'Visual ESP Features': 'featureEsp',
-  'Visual ESP Features 2': 'lootEsp',
-  'Weapon Options': 'toolkitWeapons',
-  'Aimbot Options': 'featureAimbot',
-  'Misc Options': 'toolkitMovement',
-  'Config Options': 'compareCloudBackup',
+  'Soft Aim': 'featureAimbot',
+  'Enemy / Mob': 'featureEsp',
+  Loot: 'lootEsp',
+  Radar: 'featureRadar',
+  Misc: 'toolkitMovement',
 };
 
 export const whyUsIcons: IconName[] = ['whyShield', 'whyUsers', 'whyMonitor', 'whyHeadphones'];
@@ -14,12 +13,11 @@ export const whyUsIcons: IconName[] = ['whyShield', 'whyUsers', 'whyMonitor', 'w
 export const setupStepIcons: IconName[] = ['acqPackage', 'acqSettings', 'acqCheck'];
 
 export const toolkitIcons: Record<string, IconName> = {
-  Combat: 'toolkitCombat',
-  Vision: 'toolkitVision',
+  'Soft Aim': 'toolkitCombat',
+  'Enemy / Mob': 'toolkitVision',
+  Loot: 'lootEsp',
   Radar: 'toolkitRadar',
-  Weapons: 'toolkitWeapons',
-  Movement: 'toolkitMovement',
-  Profiles: 'toolkitProfiles',
+  Misc: 'toolkitProfiles',
 };
 
 export const workflowIcons: IconName[] = [
@@ -40,19 +38,18 @@ export const blogTagIcons: Record<string, IconName> = {
 };
 
 export const heroStatusPills: { icon: IconName; label: string }[] = [
-  { icon: 'featureAimbot', label: 'Aimbot' },
-  { icon: 'featureEsp', label: 'Box ESP' },
-  { icon: 'skeletonEsp', label: 'Skeleton ESP' },
-  { icon: 'espActive', label: 'Name ESP' },
-  { icon: 'noRecoil', label: 'No Recoil' },
-  { icon: 'featureNoRecoil', label: 'No Spread' },
-  { icon: 'streamProof', label: 'No Sway' },
-  { icon: 'softAim', label: 'FOV Circle' },
+  { icon: 'softAim', label: 'Soft aim' },
+  { icon: 'featureAimbot', label: 'Aim FOV' },
   { icon: 'boneSelect', label: 'Bone select' },
-  { icon: 'seasonBuild', label: 'Camera FOV' },
+  { icon: 'featureEsp', label: 'Enemy ESP' },
+  { icon: 'lootEsp', label: 'Loot rarity' },
+  { icon: 'featureRadar', label: '2D radar' },
+  { icon: 'noRecoil', label: 'No recoil' },
+  { icon: 'featureNoRecoil', label: 'No spread' },
+  { icon: 'seasonBuild', label: 'Full bright' },
+  { icon: 'streamProof', label: 'Stream-proof' },
   { icon: 'instantDelivery', label: 'Config save' },
-  { icon: 'shieldCheck', label: 'EAC status' },
-  { icon: 'liveStatus', label: 'Check after a patch' },
+  { icon: 'shieldCheck', label: 'Visible check' },
 ];
 
 export const heroStatIcons: IconName[] = [
@@ -79,7 +76,6 @@ export const productCategoryIcons: Record<string, IconName> = {
 
 export const acquisitionStepIcons: IconName[] = ['acqPackage', 'acqSettings', 'acqZap', 'acqCheck'];
 
-/** After-purchase timeline on product detail — one distinct icon per step */
 export const productAcquisitionStepIcons: IconName[] = [
   'liveStatus',
   'acqPackage',
@@ -87,7 +83,6 @@ export const productAcquisitionStepIcons: IconName[] = [
   'acqCheck',
 ];
 
-/** Product detail requirement tiles — prefer compat-style icons where mapped */
 export const productRequirementIcons: Partial<Record<IconName, IconName>> = {
   reqWindows: 'compatWindows',
   reqSteam: 'compatSteam',
@@ -107,8 +102,8 @@ export function requirementDisplayIcon(icon: IconName): IconName {
 
 export const compatibilityIcons: IconName[] = [
   'compatWindows',
-  'compatPackage',
   'compatSteam',
+  'compatPackage',
   'compatMonitor',
   'compatRefresh',
   'compatWifi',

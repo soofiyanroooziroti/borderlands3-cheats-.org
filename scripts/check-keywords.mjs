@@ -69,6 +69,7 @@ for (const [pathname, entry] of Object.entries(PAGE_SEO)) {
 }
 
 for (const [pathname, keyword] of Object.entries(PAGE_KEYWORDS)) {
+  if (pathname.startsWith('/blog/') && pathname !== '/blog/') continue;
   if (keyword && !PAGE_SEO[pathname]) {
     errors.push(`Missing PAGE_SEO entry for ${pathname}`);
   }

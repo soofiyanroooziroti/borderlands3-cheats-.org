@@ -23,6 +23,7 @@ export function webpSrc(src: string, width: number): string {
 export function hasResponsiveWebpVariants(src: string): boolean {
   if (!RASTER_EXT.test(src)) return false;
   if (/\/images\/products\/[^/]+\.webp$/i.test(src)) return false;
+  if (/^\/images\/borderlands-3-esp-\d+\.webp$/i.test(src)) return false;
   if (/\/images\/placeholder(?:-\d+)?\.webp$/i.test(src)) return false;
   if (src.includes('/images/placeholder.png')) return false;
   return true;
@@ -48,6 +49,7 @@ const GAMEPLAY_INTRINSIC = { width: 960, height: 540 };
 
 export function intrinsicImageSize(src: string): { width: number; height: number } {
   if (src.includes('/images/gameplay/')) return GAMEPLAY_INTRINSIC;
+  if (/borderlands-3-esp-\d+\.webp/i.test(src)) return { width: 1280, height: 720 };
   return { width: 960, height: 540 };
 }
 

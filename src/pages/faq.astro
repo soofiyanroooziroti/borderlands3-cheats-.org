@@ -3,7 +3,7 @@ import { getLocaleFromAstro, getTranslations } from '../i18n';
 const locale = getLocaleFromAstro(Astro);
 const t = getTranslations(locale);
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getAllFaqs } from '../data/faq';
+import { getAllFaqs } from '../data/faq-locale';
 import { resolvePageSeo } from '../config/seo';
 import { breadcrumbSchema, faqPageSchema, webPageSchema } from '../utils/schema';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
@@ -16,7 +16,7 @@ const breadcrumbs = [
   { name: t.breadcrumbs.faq, path: '/faq/' },
 ];
 
-const faqs = getAllFaqs();
+const faqs = getAllFaqs(locale);
 ---
 
 <BaseLayout

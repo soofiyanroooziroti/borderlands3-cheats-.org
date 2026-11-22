@@ -16,16 +16,14 @@ export const LEGACY_PATH_MAP: Record<string, string> = {
   '/cheats/lite/': PRODUCT_CATALOG,
   '/cheats/pro': PRODUCT_CATALOG,
   '/cheats/pro/': PRODUCT_CATALOG,
-  '/cheats/elite': '/product/rust-cheat/',
-  '/cheats/elite/': '/product/rust-cheat/',
-  '/cheats/compare': '/blog/rust-cheats-price/',
-  '/cheats/compare/': '/blog/rust-cheats-price/',
+  '/cheats/elite': '/product/borderlands-3-cheat/',
+  '/cheats/elite/': '/product/borderlands-3-cheat/',
   '/contact': '/support/',
   '/contact/': '/support/',
 };
 
 export function normalizeInternalPath(href: string): string {
-  if (!href || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('/go/')) {
+  if (!href || href.startsWith('http') || href.startsWith('mailto:')) {
     return href;
   }
 

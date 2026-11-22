@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-Disallow: /go/
-
-Sitemap: https://cheatsforrust.net/sitemap.xml
+Sitemap: https://borderlands3cheats.org/sitemap.xml

@@ -1,7 +1,7 @@
 {
-  "name": "Rust Cheats",
-  "short_name": "Rust Cheats",
-  "description": "Rust Cheats, HWID spoofer, and rust unban tool for Windows PC.",
+  "name": "Borderlands 3 Cheats",
+  "short_name": "Borderlands 3 Cheats",
+  "description": "Borderlands 3 Cheats, HWID spoofer, and Borderlands 3 unban tool for Windows PC.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -10,13 +10,13 @@
   "lang": "en-US",
   "icons": [
     {
-      "src": "/logo.png",
+      "src": "/logo-512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "/logo.png",
-      "sizes": "192x192",
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
       "type": "image/png"
     }
   ]

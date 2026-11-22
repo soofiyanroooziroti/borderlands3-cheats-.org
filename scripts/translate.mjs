@@ -338,7 +338,7 @@ Rules:
 - Keep every JSON key unchanged (id, href, slug, domain, discord, icon, topic, bento, tags, etc.).
 - Translate human-readable string values only.
 - Keep every placeholder like [[T1]], [[T2]] exactly as-is (do not translate or remove them).
-- Keep brand "Cheats for Rust", domain cheatsforrust.net, USD prices, product slugs, and external URLs in English/Latin where shown.
+- Keep brand "Cheats for Borderlands 3", domain borderlands3cheats.org, USD prices, product slugs, and external URLs in English/Latin where shown.
 - Do not translate footer "More sites" link labels for Unturned, Aion 2, or CS2 — leave those product names as in English.
 - Never use the words "undetected" or "safe".
 - Write natural native copy for gamers; avoid word-for-word English calques.
@@ -353,11 +353,11 @@ function seoPrompt(locale, protectedText) {
 Translate this SEO JSON from English to ${LANG_NAME[locale]} (${locale}).
 
 Local keyword guidance (use naturally in titles/descriptions — do NOT keyword-stuff):
-- Home primary: ${hints.homePrimary ?? 'Rust Cheats'}
-- Cheats product: ${hints.cheatsProduct ?? 'Rust Cheats'}
-- HWID spoofer: ${hints.spoofer ?? 'Rust HWID spoofer'}
+- Home primary: ${hints.homePrimary ?? 'Borderlands 3 Cheats'}
+- Cheats product: ${hints.cheatsProduct ?? 'Borderlands 3 Cheats'}
+- HWID spoofer: ${hints.spoofer ?? 'Borderlands 3 HWID spoofer'}
 - UGC recovery: ${hints.ugc ?? 'UGC account recovery'}
-- Related terms natives search: ${hints.terms ?? 'aimbot, ESP, loot, spoofer, EAC'}
+- Related terms natives search: ${hints.terms ?? 'aimbot, ESP, loot, spoofer, '}
 
 Rules:
 - Return ONLY valid JSON, same structure and keys as input.
@@ -365,9 +365,9 @@ Rules:
 - One primary keyword focus per page path (mirror English intent, local wording).
 - Title ≤ 60 characters where possible; meta description ≤ 160 characters.
 - Keep paths as keys unchanged (/products/rust-cheats/, etc.).
-- Keep brand "Cheats for Rust", domain cheatsforrust.net, USD prices, and product slugs in English.
+- Keep brand "Cheats for Borderlands 3", domain borderlands3cheats.org, USD prices, and product slugs in English.
 - Never use the words "undetected" or "safe".
-- Rust, EAC, HWID, ESP, aimbot may stay Latin where gamers expect them.
+- Rust, , HWID, ESP, aimbot may stay Latin where gamers expect them.
 
 JSON to translate:
 ${protectedText}`;
@@ -382,7 +382,7 @@ Rules:
 - Translate all human-readable strings (overview, body, steps, goodToKnow, limitations, requirements, groupNames, descs, slides, features arrays).
 - Keep JSON keys unchanged (cheats, spoofer, ugc, steps, howToGet, etc.).
 - Keep placeholder {name} in howToGet exactly as-is.
-- Keep brand "Rust Cheats", domain cheatsforrust.net, USD prices, P30D, P99Y, Zadeyo, Discord, EAC, HWID, UGC, ESP, aimbot, FOV where gamers expect Latin.
+- Keep brand "Borderlands 3 Cheats", domain borderlands3cheats.org, USD prices, P30D, P99Y, Zadeyo, Discord, , HWID, UGC, ESP, aimbot, FOV where gamers expect Latin.
 - Feature option names like "FOV", "Smooth", "Skeleton" may stay English if that is standard in ${LANG_NAME[locale]} gaming UI; translate groupNames and all description sentences fully.
 - Never use the words "undetected" or "safe".
 
@@ -391,7 +391,7 @@ ${protectedText}`;
 }
 
 function forumJsonPrompt(locale, protectedText) {
-  return `You are a professional translator for a gaming software community forum (Rust on PC).
+  return `You are a professional translator for a gaming software community forum (Borderlands 3 on PC).
 Translate this forum JSON from English to ${LANG_NAME[locale]} (${locale}).
 
 Rules:
@@ -400,7 +400,7 @@ Rules:
 - Keep post slug keys unchanged (ace-status-before-launch, etc.).
 - Keep author names unchanged when present in source (forum handles stay as-is).
 - Keep every [[T#]] placeholder exactly as-is.
-- Keep brand "Cheats for Rust", domain cheatsforrust.net, and product paths in English/Latin where shown.
+- Keep brand "Cheats for Borderlands 3", domain borderlands3cheats.org, and product paths in English/Latin where shown.
 - Never use the words "undetected" or "safe".
 
 JSON to translate:

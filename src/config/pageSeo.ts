@@ -5,74 +5,74 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    title: 'Windows PC rust cheats for the menu and two add-ons',
+    title: 'Borderlands 3 Cheats for Windows PC Steam | BL3 cheats',
     description:
-      'A rust cheats menu for Windows PC: aim, visuals, weapons, misc, and config. The hardware tool and the appeal workspace each check out on their own.',
+      'Borderlands 3 cheats for Windows PC on Steam: menu, HWID spoofer, and unban workspace. BL3 cheats from $35 monthly or $150 lifetime, each on its own checkout.',
   },
   '/products/': {
-    title: 'Windows catalog for the loader, hardware tool, and appeals',
+    title: 'Windows Catalog: Loader, Spoofer, and Unban',
     description:
-      'Three Windows products, each with its own checkout. The menu and the appeal workspace are $35 or $150. The hardware tool is $50 or $150. Compare the three.',
+      'Three Windows PC checkouts on borderlands3cheats.org: the cheat menu, HWID spoofer, and unban workspace. Compare $35 and $150 plans before you pay.',
   },
-  '/product/rust-cheat/': {
-    title: 'Windows rust cheat loader from the portal after checkout',
+  '/product/borderlands-3-cheat/': {
+    title: 'Borderlands 3 Cheat Loader for Windows PC | BL3',
     description:
-      'A rust cheat loader for Windows PC with the menu groups listed on this page. $35 for 30 days or $150 lifetime, delivered from the portal after you check out.',
+      'Borderlands 3 cheat for Windows PC with the loader groups listed here. BL3 cheat access is $35 for 30 days or $150 lifetime from the portal after checkout.',
   },
   '/product/spoofer/': {
-    title: 'Windows rust hwid ban bypass when new accounts fail here',
+    title: 'Borderlands 3 HWID Spoofer for Windows PC Flags',
     description:
-      'A rust hwid ban bypass for a PC that fails new accounts while another machine still works. $50 monthly or $150 lifetime, sold apart from the loader.',
+      'Borderlands 3 hwid spoofer when new accounts fail on one PC but work elsewhere. BL3 hwid spoofer is $50 monthly or $150 lifetime, sold on its own.',
   },
   '/product/ugc/': {
-    title: 'Windows rust account recovery templates and follow-up',
+    title: 'Borderlands 3 Unban Tool for Account Appeals on PC',
     description:
-      'A rust account recovery workspace for appeal templates, evidence lists, and follow-up. $35 for 30 days or $150 lifetime. Restoration is not promised.',
+      'Borderlands 3 unban tool for templates, evidence lists, and follow-up. BL3 unban workspace is $35 monthly or $150 lifetime; restoration is not promised.',
   },
   '/blog/': {
-    title: 'Blog: setup guides, status colors, and penalty notes',
+    title: 'BL3 Windows Setup Guides, Status Colors, and Plans',
     description:
-      'Guides on Windows requirements, the portal file, status colors, hardware flags, and what a penalty can still do after you launch. Read one note first.',
+      'Published Windows PC guides on loader setup, status colors, hardware flags, and plan pricing when new Borderlands 3 guides are added to this archive.',
   },
   '/forum/': {
-    title: 'Forum threads on the loader, hardware flags, and tickets',
+    title: 'Borderlands 3 Forum: Menu, Status, and Setup',
     description:
-      'Questions about a stuck loader, status colors, Secure Boot, a missing key email, configs, Discord tickets, and HVCI. Developer replies are marked on the thread.',
+      'Borderlands 3 threads on a stuck menu, status colors, Secure Boot, a missing key email, configs, and HVCI. Developer replies are marked on the thread.',
   },
   '/faq/': {
-    title: 'FAQ on plans, Windows switches, penalties, and delivery',
+    title: 'Borderlands 3 FAQ: Plans, Menu, and Penalties',
     description:
-      'Prices, what each product covers, Windows switches that stay on, and the difference between a PC flag and an account restriction. Read this before checkout.',
+      'Borderlands 3 menu prices, soft aim and loot ESP setup, Windows switches that stay on, status colors, and PC flags versus account restrictions.',
   },
   '/support/': {
-    title: 'Support for the order email, loader text, and Discord help',
+    title: 'Support for the Order Email, Loader Text, and Discord',
     description:
-      'Discord help for the Windows loader, the hardware tool, and the appeal workspace on cheatsforrust.net. Send the order email and the exact loader line.',
+      'Discord help for the Windows loader, the hardware tool, and the appeal workspace on borderlands3cheats.org. Send the order email and the exact loader line.',
   },
   '/about/': {
-    title: 'About this Windows store: products, delivery, and risk',
+    title: 'About This Windows Store: Products, Delivery, and Risk',
     description:
       'Three Windows products, portal delivery, and the penalty risk that stays with you. Lifetime on one key does not unlock the other two. Read status before launch.',
   },
   '/privacy/': {
-    title: 'Privacy notes on analytics, cookies, and card data storage',
+    title: 'Privacy Notes on Analytics, Cookies, and Card Data',
     description:
-      'How cheatsforrust.net uses analytics and cookies. Card numbers stay on the checkout provider. This site does not store them. Questions go through support.',
+      'How borderlands3cheats.org uses analytics and cookies. Card numbers stay on the checkout provider. This site does not store them. Questions go through support.',
   },
   '/terms/': {
-    title: 'Terms for licenses, final sales, and how each key is used',
+    title: 'Terms for Licenses, Final Sales, and Each Key',
     description:
-      'Personal-use licenses, the no-refund rule, and acceptable use for the loader, hardware tool, and appeal workspace sold on cheatsforrust.net.',
+      'Personal-use licenses, the no-refund rule, and acceptable use for the loader, hardware tool, and appeal workspace sold on borderlands3cheats.org.',
   },
   '/status/': {
-    title: 'Status check before every launch: green, red, or blue',
+    title: 'Borderlands 3 Cheat Status: Green, Blue or Red Today',
     description:
-      'Read the current build color before every launch: green, red, or blue, plus the last checked date, anti-cheat notes, and the latest game update on this page.',
+      'Check the current Borderlands 3 cheat status: green, blue or red, the date it was last checked and the settings to confirm before you launch.',
   },
   '/features/': {
-    title: 'Cheat menu features for Rust: visuals, aim, and weapons',
+    title: 'Cheat Menu Feature Groups on Windows PC',
     description:
-      'Every menu line in the visuals, world, aim, weapon, misc, and config groups, with the short note that ships beside each name. Names match the loader.',
+      'Every menu line in Soft Aim, Enemy / Mob, Loot, Radar, and Misc, with the short note beside each loader name. Names match the portal build.',
   },
 };
 
@@ -83,6 +83,6 @@ export function normalizeSeoPath(pathname: string): string {
   return path;
 }
 
-export function getPageSeoEntry(pathname: string): PageSeoEntry | undefined {
+export function seoForPath(pathname: string): PageSeoEntry | undefined {
   return PAGE_SEO[normalizeSeoPath(pathname)];
 }

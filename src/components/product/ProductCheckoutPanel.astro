@@ -7,7 +7,6 @@ import { formatPlanPrice, getProductPlans } from '../../data/productPricing';
 import Icon from '../icons/Icon.astro';
 import ProductIconWell from './ProductIconWell.astro';
 import { Button } from '@/components/starwind/button';
-import { CHECKOUT_LINK_REL } from '../../config/checkout';
 import { ROUTES, getLocalizedPath } from '../../utils/path';
 
 interface Props {
@@ -19,11 +18,11 @@ const plans = getProductPlans(product.slug);
 const lifetimePlan = plans.find((p) => p.id === 'lifetime');
 
 const isUgc = product.slug === 'ugc';
-const isRustCheat = product.slug === 'rust-cheat';
+const isRustCheat = product.slug === 'borderlands-3-cheat';
 const isFillCard = isUgc || isRustCheat;
 const statusHref = getLocalizedPath(ROUTES.status, locale);
 const ugcModuleChips = ['Unban tool', 'Appeals & recovery', 'Windows 10/11'];
-const rustModuleChips = ['ESP', 'Aimbot', 'Weapon', 'Misc', 'Config', 'Windows 10/11'];
+const rustModuleChips = ['Soft Aim', 'Enemy / Mob', 'Loot', 'Radar', 'Misc', 'Steam client'];
 
 const planHint =
   t.pricing.checkoutPlanHint ??
@@ -135,7 +134,6 @@ const recommendedLabel = t.pricing.recommended ?? 'Recommended';
               variant="primary"
               size="lg"
               class="product-checkout__buy group/buy w-full rounded-xl"
-              rel={CHECKOUT_LINK_REL}
               data-astro-reload
               data-astro-prefetch="false"
             >
@@ -156,7 +154,6 @@ const recommendedLabel = t.pricing.recommended ?? 'Recommended';
               variant="primary"
               size="lg"
               class="product-checkout__buy group/buy w-full rounded-xl"
-              rel={CHECKOUT_LINK_REL}
               data-astro-reload
               data-astro-prefetch="false"
             >

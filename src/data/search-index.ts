@@ -5,12 +5,13 @@ import { siteFaqs } from './faq';
 import { getForumPostsForLocale } from './forum-i18n';
 import { getProductPages } from './products';
 import { getProductFromPrice } from './productPricing';
-import { STATUS_RECENT_UPDATES } from './status';
+import { STATUS_BEFORE_LAUNCH, STATUS_GAME_NOTES, STATUS_LOG } from './status';
 import { getTranslations, localePath } from '../i18n';
 import type { Locale } from '../i18n/locales';
 import type { Translations } from '../i18n/types';
 import { resolvePageSeo } from '../config/seo';
 import { ROUTES, getLocalizedPath, productPath } from '../utils/path';
+import { forumGuideTitle } from '../utils/forum-guide';
 
 export type SearchEntryType =
   | 'Page'
@@ -77,7 +78,7 @@ export function buildSearchIndex(locale: Locale = defaultLocale): SearchIndexEnt
   const blogPosts = getBlogPostsForLocale(locale);
   const productPages = getProductPages(locale);
   const entries: SearchIndexEntry[] = [];
-  const featuresUrl = `${productPath('rust-cheat', locale)}#features`;
+  const featuresUrl = `${productPath('borderlands-3-cheat', locale)}#features`;
 
   entries.push({
     title: t.site.title,
@@ -134,8 +135,8 @@ export function buildSearchIndex(locale: Locale = defaultLocale): SearchIndexEnt
         }
       }
       entries.push({
-        title: 'Rust cheat features',
-        description: 'Aimbot, ESP, weapon options, misc options, and config options on the cheat product page.',
+        title: 'Borderlands 3 cheat features',
+        description: 'Soft Aim, Enemy / Mob, Loot, Radar, and Misc on the Borderlands 3 cheat product page.',
         url: featuresUrl,
         type: 'Features',
         text: product.fullFeatures.join(' '),
@@ -143,21 +144,16 @@ export function buildSearchIndex(locale: Locale = defaultLocale): SearchIndexEnt
     }
   }
 
-  const plansUrl = localePath('/blog/rust-cheats-price/', locale);
-  const plansSeo = resolvePageSeo('/blog/rust-cheat-pricing/', locale);
+  const plansUrl = localePath('/faq/', locale);
+  const pricePost = blogPosts.find((post) => post.slug === 'borderlands-3-cheats-price');
   entries.push({
     title: 'Plans — $35 monthly & $150 lifetime',
-    description: 'Compare monthly and lifetime checkout: cheat and UGC $35, HWID spoofer $50, all $150 lifetime.',
+    description:
+      pricePost?.desc ??
+      'Compare 30 days and lifetime on the Borderlands 3 cheat menu.',
     url: plansUrl,
     type: 'Plans',
-    text: [
-      plansSeo.title,
-      plansSeo.description,
-      '$35 monthly',
-      '$150 lifetime',
-      '$35',
-      '$150',
-    ]
+    text: [pricePost?.title, pricePost?.desc, '$35 monthly', '$150 lifetime', '$35', '$150']
       .filter(Boolean)
       .join(' '),
   });
@@ -171,7 +167,9 @@ export function buildSearchIndex(locale: Locale = defaultLocale): SearchIndexEnt
     text: [
       statusSeo.title,
       statusSeo.description,
-      ...STATUS_RECENT_UPDATES.flatMap((entry) => [entry.title, entry.summary, entry.when]),
+      ...STATUS_BEFORE_LAUNCH,
+      ...STATUS_GAME_NOTES.flatMap((entry) => [entry.title, entry.summary]),
+      ...STATUS_LOG.flatMap((entry) => [entry.date, entry.state, entry.note]),
     ].join(' '),
   });
 
@@ -245,7 +243,15 @@ export function buildSearchIndex(locale: Locale = defaultLocale): SearchIndexEnt
         description: post.excerpt,
         url: localePath(`/forum/${post.slug}/`, locale),
         type: 'Forum',
-        text: [post.title, post.excerpt, post.category, ...post.body, post.sourceTitle ?? ''].filter(Boolean).join(' '),
+        text: [
+          post.title,
+          post.excerpt,
+          post.category,
+          ...post.body,
+          forumGuideTitle(post.sourcePath, post.sourceTitle, locale) ?? '',
+        ]
+          .filter(Boolean)
+          .join(' '),
       });
     }
   }

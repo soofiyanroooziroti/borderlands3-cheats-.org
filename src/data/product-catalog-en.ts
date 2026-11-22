@@ -3,92 +3,27 @@ import type { Block } from './product-locale-types';
 import { RUST_CHEAT_FEATURE_GROUPS } from './rust-cheat-feature-groups';
 import { SPOOFER_FEATURE_GROUPS } from './spoofer-feature-groups';
 
-const placeholder = '/images/placeholder.png';
-const RUST_CHEAT_GALLERY = '/images/products';
+const ESP_CAPTION = 'Enemy box ESP in Borderlands 3';
 
-const rustCheatGallerySlides = {
-  visuals: {
-    src: `${RUST_CHEAT_GALLERY}/zadeyo-rust-1-visuals.webp`,
-    alt: 'Rust Cheats loader – Visual ESP menu on Windows PC',
-    caption: 'Visual ESP',
-    captionDesc: 'Player, scientist, and world label toggles in the loader.',
-  },
-  world: {
-    src: `${RUST_CHEAT_GALLERY}/zadeyo-rust-2-world.webp`,
-    alt: 'Rust Cheats loader – world and resource ESP on Windows PC',
-    caption: 'World ESP',
-    captionDesc: 'Ores, collectables, traps, and vehicles in one overlay.',
-  },
-  aim: {
-    src: `${RUST_CHEAT_GALLERY}/zadeyo-rust-3-aimbot.webp`,
-    alt: 'Rust Cheats loader – aimbot options on Windows PC',
-    caption: 'Aimbot options',
-    captionDesc: 'FOV, smoothing, and target rules for PvP.',
-  },
-  weapon: {
-    src: `${RUST_CHEAT_GALLERY}/zadeyo-rust-4-weapon.webp`,
-    alt: 'Rust Cheats loader – weapon options on Windows PC',
-    caption: 'Weapon options',
-    captionDesc: 'Recoil, spread, sway, and bow helpers.',
-  },
-  misc: {
-    src: `${RUST_CHEAT_GALLERY}/zadeyo-rust-5-misc.webp`,
-    alt: 'Rust Cheats loader – misc and config options on Windows PC',
-    caption: 'Misc & config',
-    captionDesc: 'Movement, view, and config save/load rows.',
-  },
-} as const satisfies Record<string, ProductSlide>;
-
-function rustCheatGallery(...keys: (keyof typeof rustCheatGallerySlides)[]): ProductSlide[] {
-  return keys.map((k) => rustCheatGallerySlides[k]);
+function borderlandsEspSlides(): ProductSlide[] {
+  return ([1, 2, 3, 4] as const).map((n) => ({
+    src: `/images/borderlands-3-esp-${n}.webp`,
+    alt: `Borderlands 3 gameplay with enemy box ESP ${n}`,
+    caption: ESP_CAPTION,
+    captionDesc: '',
+    width: 1280,
+    height: 720,
+  }));
 }
 
-const slide = (alt: string, caption: string, captionDesc: string): ProductSlide => ({
-  src: placeholder,
-  alt,
-  caption,
-  captionDesc,
-});
-
-/** Home hero slider only — not the cheats product gallery. */
-export const cheatHomeHeroSlides: ProductSlide[] = [
-  slide(
-    'Rust Cheats – placeholder hero screenshot for the Windows PC loader',
-    'Loader preview',
-    'Screenshot slot for the Rust cheat menu.',
-  ),
-  slide(
-    'Rust Cheats – placeholder second hero slide for player overlays',
-    'Overlay preview',
-    'Screenshot slot for player awareness tools.',
-  ),
-  slide(
-    'Rust Cheats – placeholder third hero slide for base and world tools',
-    'World tools',
-    'Screenshot slot for resource and base helpers.',
-  ),
-  slide(
-    'Rust Cheats – placeholder fourth hero slide for config presets',
-    'Config save',
-    'Screenshot slot for saved presets.',
-  ),
-  slide(
-    'Rust Cheats – placeholder fifth hero slide for raid encounters',
-    'Raid read',
-    'Screenshot slot for close-range fights.',
-  ),
-  slide(
-    'Rust Cheats – placeholder sixth hero slide for long-range tuning',
-    'Range tuning',
-    'Screenshot slot for distance engagements.',
-  ),
-];
+/** Home hero slider captions — image paths come from images.json slots. */
+export const cheatHomeHeroSlides: ProductSlide[] = borderlandsEspSlides();
 
 export const acquisitionSteps: AcquisitionStep[] = [
   {
     num: '01',
     title: 'Check status',
-    desc: 'Read cheatsforrust.net and confirm the modules are listed before you pay, especially after a Rust or EasyAnti-Cheat update.',
+    desc: 'Read borderlands3cheats.org and confirm the modules are listed before you pay, especially after a Borderlands 3 client update.',
   },
   {
     num: '02',
@@ -131,7 +66,7 @@ export const utilitySlides = {
   ugc: [
     {
       src: '/images/products/ugc-account-recovery.webp',
-      alt: 'Rust unban tool workspace preview on Windows PC',
+      alt: 'Borderlands 3 unban tool workspace preview on Windows PC',
       caption: 'Account recovery',
       captionDesc: 'Templates, evidence lists, and follow-up in one workspace.',
     },
@@ -139,14 +74,14 @@ export const utilitySlides = {
 } as const;
 
 export const cheatsContent = {
-  images: rustCheatGallery('visuals', 'world', 'aim', 'weapon', 'misc'),
+  images: borderlandsEspSlides(),
   goodToKnow:
-    'Rust and EasyAnti-Cheat change often. Read cheatsforrust.net before you launch. After a patch, overlays can look different in menus or while you are spectating.',
+    'Borderlands 3 and  change often. Read borderlands3cheats.org before you launch. After a patch, overlays can look different in menus or while you are spectating.',
   limitations:
-    'Third-party software can break the game rules and lead to penalties. You accept that risk. A game, EasyAnti-Cheat, or Windows update can change whether the build still runs, without a separate notice.',
+    'Third-party software can break the game rules and lead to penalties. You accept that risk. A game or Windows update can change whether the build still runs, without a separate notice.',
   systemRequirements: [
     { icon: 'reqWindows', text: 'Windows 10/11' },
-    { icon: 'reqCpu', text: 'Intel/AMD' },
+    { icon: 'reqSteam', text: 'Steam / official client' },
     { icon: 'reqShieldGuide', text: 'HVCI ON' },
     { icon: 'reqSettings', text: 'CORE ISOLATION ON' },
     { icon: 'shieldCheck', text: 'TPM ON' },
@@ -154,22 +89,22 @@ export const cheatsContent = {
   ] as SystemRequirement[],
   featureGroups: RUST_CHEAT_FEATURE_GROUPS,
   overview: {
-    title: 'Windows rust cheat loader',
+    title: 'Windows Borderlands 3 cheat loader',
     paragraphs: [
-      'This rust cheat loader lists Visual ESP, weapon, aim, misc, and config groups on this page for vanilla and modded servers. Updates continue while the key is active. Discord can help with setup.',
-      'Read cheatsforrust.net before you launch, especially after an EasyAnti-Cheat or Rust client patch.',
+      'This Borderlands 3 cheat loader lists Soft Aim, Enemy / Mob, Loot, Radar, and Misc on this page for Steam and the official client. Updates continue while the key is active. Discord can help with setup.',
+      'Read borderlands3cheats.org before you launch, especially after a Borderlands 3 client patch.',
     ],
   },
   body: [
     { type: 'h2', text: 'What the menu groups are' },
     {
       type: 'p',
-      text: 'Visual ESP Features, Visual ESP Features 2, Weapon Options, Aimbot Options, Misc Options, and Config Options. Each line in the feature section has the menu name and a short note.',
+      text: 'Soft Aim, Enemy / Mob, Loot, Radar, and Misc. Each line in the feature section has the menu name and a short note.',
     },
     { type: 'h2', text: 'What you pay' },
     {
       type: 'p',
-      text: '$35 USD for 30 days (P30D) or $150 USD lifetime (P99Y). Delivery is digital and immediate after checkout, worldwide.',
+      text: '$35 USD for 30 days (P30D) or $150 USD lifetime (P99Y). Delivery is digital after checkout, worldwide.',
     },
   ] as Block[],
 };
@@ -177,7 +112,7 @@ export const cheatsContent = {
 export const spooferContent = {
   images: [...utilitySlides.spoofer],
   goodToKnow:
-    'The hardware tool changes identifiers the PC reports. It does not lift an account penalty by itself. Follow the portal steps before you open Rust again.',
+    'The hardware tool changes identifiers the PC reports. It does not lift an account penalty by itself. Follow the portal steps before you open Borderlands 3 again.',
   limitations:
     'Changing hardware identifiers has technical risk and can conflict with game rules. Results depend on the penalty type and the drivers. Use it only on a PC you own.',
   systemRequirements: [
@@ -188,9 +123,9 @@ export const spooferContent = {
   fullFeatures: SPOOFER_FEATURE_GROUPS.flatMap((group) => group.items.map((item) => item.name)),
   featureGroups: SPOOFER_FEATURE_GROUPS,
   overview: {
-    title: 'Windows rust hwid ban bypass',
+    title: 'Borderlands 3 hwid ban bypass',
     paragraphs: [
-      'This rust hwid ban bypass rotates the hardware profile when a machine flag is why you need a different PC context before you open Rust again.',
+      'This Borderlands 3 hwid ban bypass rotates the hardware profile when a machine flag is why you need a different PC context before you open Borderlands 3 again.',
       'Thirty days and lifetime use the same portal checkout as the other products. The price on this card is its own.',
     ],
   },
@@ -226,17 +161,17 @@ export const ugcContent = {
     'Monthly and lifetime USD plans',
   ],
   overview: {
-    title: 'Windows rust account recovery',
+    title: 'Windows Borderlands 3 account recovery',
     paragraphs: [
-      'This rust account recovery workspace organizes appeals: templates, evidence lists, and reminders to follow up.',
-      'Delivery is digital and immediate after checkout. Discord can answer setup questions.',
+      'This Borderlands 3 account recovery workspace organizes appeals: templates, evidence lists, and reminders to follow up.',
+      'Delivery is digital after checkout. Discord can answer setup questions.',
     ],
   },
   body: [
     { type: 'h2', text: 'How a case is laid out' },
     {
       type: 'p',
-      text: 'Build a custom appeal path, repeat the routine steps, and track status when a Rust account is locked or restricted.',
+      text: 'Build a custom appeal path, repeat the routine steps, and track status when a Borderlands 3 account is locked or restricted.',
     },
     { type: 'h2', text: 'What goes in the packet' },
     {

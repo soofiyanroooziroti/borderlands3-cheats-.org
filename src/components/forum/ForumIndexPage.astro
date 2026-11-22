@@ -12,6 +12,7 @@ import { forumCategories, forumCategoryFilterKey, forumLastReply } from '../../d
 import { getForumCategoryLabel, getForumPostsForLocale } from '../../data/forum-i18n';
 import { getBlogPostTimestamp } from '../../data/blog';
 import { getForumUi } from '../../utils/forum-ui';
+import { forumGuideTitle } from '../../utils/forum-guide';
 import { logoAltForPath } from '../../utils/logo-alt';
 import ForumDiscussionsSearch from './ForumDiscussionsSearch.astro';
 
@@ -45,7 +46,7 @@ const hasPosts = forumPosts.length > 0;
       <header class="forum-hero">
         <div class="forum-hero__lead">
           <span class="forum-community-avatar forum-community-avatar--brand">
-            <img src="/logo.png" alt={logoAltForPath(Astro.url.pathname)} width="34" height="34" class="rounded-md object-contain" />
+            <img src="/images/logo.svg" alt={logoAltForPath(Astro.url.pathname)} width="34" height="34" class="rounded-md object-contain" />
           </span>
           <div>
             <p class="section-header__eyebrow">{forumUi.eyebrow}</p>
@@ -116,7 +117,7 @@ const hasPosts = forumPosts.length > 0;
                       data-comments={post.commentsCount}
                       data-published={publishedTimestamp(post.date)}
                       data-order={index}
-                      data-forum-search-text={[post.title, post.excerpt, post.description, post.author, post.slug.replace(/-/g, ' '), getForumCategoryLabel(post.category, locale), post.flair, post.sourceTitle, ...post.body].filter(Boolean).join(' ')}
+                      data-forum-search-text={[post.title, post.excerpt, post.description, post.author, post.slug.replace(/-/g, ' '), getForumCategoryLabel(post.category, locale), post.flair, forumGuideTitle(post.sourcePath, post.sourceTitle, locale), ...post.body].filter(Boolean).join(' ')}
                     >
                       <a class="forum-row__thread" href={threadHref}>
                         <span class="forum-row__topic">{getForumCategoryLabel(post.category, locale)}</span>

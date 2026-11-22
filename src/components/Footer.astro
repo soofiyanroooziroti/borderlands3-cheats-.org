@@ -21,9 +21,9 @@ const resourceLinks = [
     ariaLabel: resourceMeta[0]?.ariaLabel ?? 'Blog',
   },
   {
-    href: localizedPath('/product/rust-cheat/', locale),
-    label: resourceMeta[1]?.label ?? 'Rust Cheats',
-    ariaLabel: resourceMeta[1]?.ariaLabel ?? 'Rust Cheats',
+    href: localizedPath('/product/borderlands-3-cheat/', locale),
+    label: resourceMeta[1]?.label ?? 'Borderlands 3 Cheats',
+    ariaLabel: resourceMeta[1]?.ariaLabel ?? 'Borderlands 3 Cheats',
   },
   {
     href: localizedPath(PRODUCT_BASE, locale),
@@ -54,7 +54,7 @@ const moreSiteLinks = footerSisterSites(SITE_DOMAIN);
         <a href={localizedPath('/', locale)} class="inline-flex items-center gap-2.5 font-[family-name:var(--font-heading)] text-lg font-bold" aria-label={t.ui.homeAria}>
           <span class="box-border flex size-9 shrink-0 items-center justify-center rounded-lg p-1">
             <img
-              src="/logo.png"
+              src="/images/logo.svg"
               alt={logoAlt}
               width="36"
               height="36"

@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
 export default defineConfig({
-  site: 'https://cheatsforrust.net',
+  site: 'https://borderlands3cheats.org',
   trailingSlash: 'always',
   i18n: {
     defaultLocale: 'en',
@@ -23,7 +23,7 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/404') && !page.includes('/go/'),
+      filter: (page) => !page.includes('/404'),
       serialize: sitemapSerialize,
     }),
   ],

@@ -3,21 +3,30 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { resolveDistDir } from './dist-dir.mjs';
 import { checkPlaybookPlaceholderCopy, printPlaybookQaChecklist } from './playbook-qa.mjs';
-import {
-  CHECKOUT_PATH_REDIRECTS,
-  CHECKOUT_URLS,
-  resolveCheckoutPathRedirect,
-} from '../src/config/checkout-redirects.mjs';
-
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = resolveDistDir();
-const SITE = 'https://cheatsforrust.net';
+const SITE = 'https://borderlands3cheats.org';
 const errors = [];
 const reports = [];
 
 const { PAGE_KEYWORDS, PRODUCT_PAGE_KEYWORDS } = await import(
   pathToFileURL(path.join(root, 'src/config/keywords.ts')).href,
 );
+
+const {
+  AFFILIATE_LINKS,
+  AFFILIATE_BORDERLANDS_3_CHEAT,
+  AFFILIATE_HWID_SPOOFER,
+  AFFILIATE_UGC,
+} = await import(pathToFileURL(path.join(root, 'src/config/affiliate-links.ts')).href);
+
+const CHECKOUT_URLS = {
+  borderlands3Cheat: AFFILIATE_BORDERLANDS_3_CHEAT,
+  hwidSpoofer: AFFILIATE_HWID_SPOOFER,
+  ugc: AFFILIATE_UGC,
+};
+
+const EXPECTED_AFFILIATE_HREFS = new Set(Object.values(CHECKOUT_URLS));
 
 /** @param {string} msg */
 function fail(msg) {
@@ -120,9 +129,9 @@ function checkRobots() {
     return;
   }
   const text = fs.readFileSync(robotsPath, 'utf8');
-  if (!/Disallow:\s*\/go\//i.test(text)) fail('robots.txt missing Disallow: /go/');
-  if (!/Sitemap:\s*https:\/\/cheatsforrust\.net\/sitemap/i.test(text)) {
-    fail('robots.txt missing sitemap URL for cheatsforrust.net');
+  if (/Disallow:\s*\/go\//i.test(text)) fail('robots.txt must not Disallow: /go/ (direct affiliate links only)');
+  if (!/Sitemap:\s*https:\/\/borderlands3cheats\.org\/sitemap/i.test(text)) {
+    fail('robots.txt missing sitemap URL for borderlands3cheats.org');
   }
 }
 
@@ -155,65 +164,36 @@ function checkSitemaps() {
   }
 }
 
-const CHECKOUT_BY_PATH = {
-  '/go/rust': CHECKOUT_URLS.rustCheat,
-  '/go/rust/': CHECKOUT_URLS.rustCheat,
-  '/go/hwid-spoofer': CHECKOUT_URLS.hwidSpoofer,
-  '/go/hwid-spoofer/': CHECKOUT_URLS.hwidSpoofer,
-  '/go/ugc': CHECKOUT_URLS.ugc,
-  '/go/ugc/': CHECKOUT_URLS.ugc,
-};
-
-const SPEC_KEY_TO_PATH = {
-  rustCheat: '/go/rust',
-  hwidSpoofer: '/go/hwid-spoofer',
-  ugc: '/go/ugc',
-};
-
 function checkCheckoutConfig() {
-  for (const [p, expected] of Object.entries(CHECKOUT_BY_PATH)) {
-    const fromMap = CHECKOUT_PATH_REDIRECTS.get(p);
-    if (fromMap !== expected) {
-      fail(`checkout-redirects.mjs ${p} ? ${fromMap} (expected ${expected})`);
-    }
-    const resolved = resolveCheckoutPathRedirect(p);
-    if (resolved !== expected) {
-      fail(`resolveCheckoutPathRedirect(${p}) ? ${resolved} (expected ${expected})`);
-    }
-  }
-
-  for (const [key, goPath] of Object.entries(SPEC_KEY_TO_PATH)) {
-    const expected = CHECKOUT_BY_PATH[`${goPath}/`] ?? CHECKOUT_BY_PATH[goPath];
-    if (!expected) fail(`Missing checkout mapping for spec key ${key}`);
-  }
-
   const redirectsPath = path.join(root, 'public', '_redirects');
-  const servePath = path.join(root, 'scripts', 'serve.mjs');
   const middlewarePath = path.join(root, 'src', 'middleware.ts');
-  for (const f of [redirectsPath, servePath, middlewarePath]) {
-    if (!fs.existsSync(f)) fail(`Missing checkout-related file: ${f}`);
-  }
-  const serveText = fs.readFileSync(servePath, 'utf8');
+  if (!fs.existsSync(redirectsPath)) fail('Missing public/_redirects');
+  if (!fs.existsSync(middlewarePath)) fail('Missing src/middleware.ts');
+
   const mwText = fs.readFileSync(middlewarePath, 'utf8');
+  if (mwText.includes('resolveCheckoutPathRedirect') || mwText.includes('checkout-redirects')) {
+    fail('middleware.ts must not handle /go/ checkout redirects');
+  }
+
   const redirectsText = fs.readFileSync(redirectsPath, 'utf8');
-  if (!serveText.includes('resolveCheckoutPathRedirect')) {
-    fail('serve.mjs does not use resolveCheckoutPathRedirect');
-  }
-  if (mwText.includes('prerender') && mwText.includes('/go/')) {
-    fail('middleware.ts must not prerender /go/ pages');
-  }
-  for (const [p, expected] of Object.entries(CHECKOUT_BY_PATH)) {
-    if (!redirectsText.includes(`${p} ${expected}`) && !redirectsText.includes(`${p} ${expected} 302`)) {
-      if (!redirectsText.includes(expected)) {
-        fail(`public/_redirects missing checkout redirect for ${p}`);
-      }
-    }
+  if (/\/go\//.test(redirectsText)) {
+    fail('public/_redirects must not contain /go/ rules');
   }
 
   const goDir = path.join(dist, 'go');
   if (fs.existsSync(goDir)) {
     for (const file of walkHtml(goDir)) {
       fail(`dist must not ship HTML under /go/ (use _redirects only): ${relFromDist(file)}`);
+    }
+  }
+
+  for (const file of htmlFiles) {
+    const rel = relFromDist(file);
+    for (const m of fs.readFileSync(file, 'utf8').matchAll(/\shref=["']([^"']+)["']/gi)) {
+      const href = m[1];
+      if (/^\/go\//.test(href.split('#')[0])) {
+        fail(`${rel}: built HTML still links to internal /go/ path: ${href}`);
+      }
     }
   }
 }
@@ -385,10 +365,7 @@ function isEnglishPath(pathname) {
 }
 
 function checkKeywords() {
-  const homeKwRaw = PAGE_KEYWORDS['/'];
-  const homeKw = (typeof homeKwRaw === 'string' ? homeKwRaw : homeKwRaw?.[0] ?? 'rust cheats').toLowerCase();
-  const siteTitleRe = new RegExp(`\\s*\\|\\s*${homeKw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'i');
-
+  const homeKw = 'borderlands 3 cheats';
   for (const file of htmlFiles) {
     if (isRedirectStubHtml(file)) continue;
     const html = fs.readFileSync(file, 'utf8');
@@ -396,7 +373,7 @@ function checkKeywords() {
     if (!isEnglishPath(pathname)) continue;
     const titleRaw = stripTags(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? '');
     const title = titleRaw.toLowerCase();
-    const titleWithoutSiteSuffix = title.replace(siteTitleRe, '').trim();
+    const titleWithoutSiteSuffix = title.replace(/\s*\|\s*borderlands 3 cheats\s*$/i, '').trim();
     const h1 = stripTags(html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? '').toLowerCase();
 
     const onHome = isHomePath(pathname);
@@ -406,23 +383,18 @@ function checkKeywords() {
         fail(`Home (en) missing "${homeKw}" in title and h1`);
       }
     } else if (!onHome && !pathname.includes('/status/')) {
-      const isBlogArticle = /^\/blog\/[^/]+\/$/.test(pathname);
-      if (!isBlogArticle && (h1.includes(homeKw) || titleWithoutSiteSuffix.includes(homeKw))) {
+      if (h1.includes(homeKw) || titleWithoutSiteSuffix.includes(homeKw)) {
         fail(`${relFromDist(file)}: "${homeKw}" in title/h1 outside home`);
       }
     }
 
-    const productMatch = pathname.match(/\/product\/([^/]+)\/$/);
+    const productMatch = pathname.match(/\/products\/([^/]+)\/$/);
     if (productMatch) {
       const slug = productMatch[1];
       const expected = PRODUCT_PAGE_KEYWORDS[slug];
       if (expected) {
-        const expectedList = Array.isArray(expected) ? expected : [expected];
-        const ok = expectedList.some(
-          (kw) => title.includes(kw.toLowerCase()) || h1.includes(kw.toLowerCase()),
-        );
-        if (!ok) {
-          fail(`${pathname}: product page missing keyword (${expectedList.join(' | ')}) in title/h1`);
+        if (!title.includes(expected) && !h1.includes(expected.toLowerCase())) {
+          fail(`${pathname}: product page missing keyword "${expected}" in title/h1`);
         }
       }
     }
@@ -444,14 +416,6 @@ function checkInternalLinks() {
       if (resolved.type !== 'internal') continue;
 
       const { pathname, anchor } = resolved;
-      if (pathname.startsWith('/go/')) {
-        const stub = pathnameToDistFile(pathname);
-        if (!fs.existsSync(stub) && !CHECKOUT_PATH_REDIRECTS.has(pathname.replace(/\/$/, ''))) {
-          /* /go/ may be middleware-only */
-        }
-        continue;
-      }
-
       let targetFile = pathnameToDistFile(pathname);
       if (pathname.endsWith('/404/')) {
         const loc = pathname.replace(/^\//, '').replace(/\/$/, '');
@@ -492,21 +456,27 @@ function checkBuyButtons() {
     for (const m of html.matchAll(/<a\b[^>]*data-checkout-buy[^>]*>/gi)) {
       const tag = m[0];
       const href = tag.match(/href=["']([^"']+)["']/i)?.[1];
-      if (!href?.includes('/go/') && !href?.includes('zadeyo.com')) {
-        fail(`${from}: Buy button (data-checkout-buy) not checkout hop: ${href}`);
+      if (!EXPECTED_AFFILIATE_HREFS.has(href)) {
+        fail(`${from}: Buy button (data-checkout-buy) not exact affiliate URL: ${href}`);
       }
       const rel = tag.match(/rel=["']([^"']+)["']/i)?.[1] ?? '';
       if (!/nofollow/.test(rel) || !/sponsored/.test(rel)) {
-        fail(`${from}: Buy button missing rel="nofollow sponsored"`);
+        if (relAttrs.includes('nofollow') || relAttrs.includes('sponsored')) {
+          fail(`${from}: Buy link must not use rel on direct affiliate checkout (user policy)`);
+        }
       }
     }
-    for (const m of html.matchAll(/<a\b[^>]*href=["'][^"']*\/go\/[^"']*["'][^>]*>/gi)) {
+    for (const m of html.matchAll(/<a\b[^>]*href=["']([^"']*zadeyo\.com\/go\/SOOFIYAN[^"']*)["'][^>]*>/gi)) {
       const tag = m[0];
+      const linkHref = m[1];
       if (tag.includes('data-checkout-buy')) continue;
+      if (!EXPECTED_AFFILIATE_HREFS.has(linkHref)) {
+        fail(`${from}: Zadeyo href is not an exact affiliate URL: ${linkHref}`);
+      }
       if (!/catalog-card|Buy now|buy now|Jetzt kaufen|Comprar/i.test(html.slice(m.index, m.index + 400))) continue;
       const rel = tag.match(/rel=["']([^"']+)["']/i)?.[1] ?? '';
-      if (!/nofollow/.test(rel) || !/sponsored/.test(rel)) {
-        fail(`${from}: Buy link to checkout missing nofollow sponsored`);
+      if (/nofollow|sponsored/.test(rel)) {
+        fail(`${from}: Buy link must not use rel on direct affiliate checkout (user policy)`);
       }
     }
   }

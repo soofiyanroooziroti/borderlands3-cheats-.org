@@ -20,7 +20,7 @@ export function stripLocaleFromPath(pathname: string): string {
 }
 
 export function localePath(path: string, locale: Locale): string {
-  if (path.startsWith('http') || path.startsWith('mailto:') || path.startsWith('/go/')) {
+  if (path.startsWith('http') || path.startsWith('mailto:')) {
     return path;
   }
   const hashIndex = path.indexOf('#');

@@ -3,10 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { resolvePageSeo } from '../../config/seo';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import {
+  STATUS_BEFORE_LAUNCH,
   STATUS_GAME_NOTES,
+  STATUS_GAME_NOTES_HEADING,
   STATUS_LEGEND,
-  STATUS_NEXT_UPDATE,
-  STATUS_RECENT_UPDATES,
+  STATUS_LOG,
+  STATUS_PREVIOUS_UPDATE,
   status,
   statusBadgeLabel,
   statusPageLabel,
@@ -53,8 +55,8 @@ function legendTooltip(tone: StatusTone): string {
       <Breadcrumbs items={breadcrumbs} />
 
       <header class="mt-8 space-y-4">
-        <p class="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">Rust Cheats</p>
-        <h1 id="status-page-title" class="text-3xl font-bold md:text-4xl">Status</h1>
+        <p class="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">Borderlands 3 Cheats</p>
+        <h1 id="status-page-title" class="text-3xl font-bold md:text-4xl">Borderlands 3 Cheat Status</h1>
         <div class="status-widget" role="status" aria-label={statusAria} data-state={status.state}>
           <div class="status-bar">
             {
@@ -107,16 +109,12 @@ function legendTooltip(tone: StatusTone): string {
       </ul>
 
       <section class="mt-12" aria-labelledby="status-ac-title">
-        <h2 id="status-ac-title" class="text-lg font-semibold">Latest anti-cheat notes</h2>
+        <h2 id="status-ac-title" class="text-lg font-semibold">Before you launch</h2>
         <ol class="status-notes mt-4" role="list">
           {
-            STATUS_RECENT_UPDATES.map((entry) => (
+            STATUS_BEFORE_LAUNCH.map((line) => (
               <li>
-                <p class="text-sm font-semibold text-foreground">
-                  {entry.title}
-                  <span class="font-normal text-muted-foreground"> · {entry.when}</span>
-                </p>
-                <p class="mt-1 text-sm leading-relaxed text-muted-foreground">{entry.summary}</p>
+                <p class="text-sm font-semibold text-foreground">{line}</p>
               </li>
             ))
           }
@@ -124,7 +122,7 @@ function legendTooltip(tone: StatusTone): string {
       </section>
 
       <section class="mt-10" aria-labelledby="status-game-title">
-        <h2 id="status-game-title" class="text-lg font-semibold">Game notes, 5 Nov 2026 (Printed and Polished update)</h2>
+        <h2 id="status-game-title" class="text-lg font-semibold">{STATUS_GAME_NOTES_HEADING}</h2>
         <ol class="status-notes mt-4" role="list">
           {
             STATUS_GAME_NOTES.map((entry) => (
@@ -135,7 +133,22 @@ function legendTooltip(tone: StatusTone): string {
             ))
           }
         </ol>
-        <p class="mt-4 text-sm leading-relaxed text-muted-foreground">{STATUS_NEXT_UPDATE}</p>
+        <p class="mt-4 text-sm leading-relaxed text-muted-foreground">{STATUS_PREVIOUS_UPDATE}</p>
+      </section>
+
+      <section class="mt-10" aria-labelledby="status-log-title">
+        <h2 id="status-log-title" class="text-lg font-semibold">Status log</h2>
+        <ol class="status-notes mt-4" role="list">
+          {
+            STATUS_LOG.map((entry) => (
+              <li>
+                <p class="text-sm font-semibold text-foreground">
+                  {entry.date} · {entry.state} · {entry.note}
+                </p>
+              </li>
+            ))
+          }
+        </ol>
       </section>
     </div>
   </section>

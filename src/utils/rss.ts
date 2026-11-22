@@ -34,9 +34,9 @@ export function buildRssFeed(): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Rust Cheats guides</title>
+    <title>Borderlands 3 Cheats guides</title>
     <link>${SITE_ORIGIN}/blog/</link>
-    <description>Windows loader notes, menu groups, hardware flags, and appeal steps from cheatsforrust.net.</description>
+    <description>Windows loader notes, menu groups, hardware flags, and appeal steps from borderlands3cheats.org.</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${feedUrl}" rel="self" type="application/rss+xml" />

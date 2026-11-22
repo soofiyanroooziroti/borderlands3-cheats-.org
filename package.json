@@ -1,5 +1,5 @@
 {
-  "name": "site",
+  "name": "borderlands3cheats",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -24,7 +24,7 @@
     "check:links": "node scripts/check-i18n-links.mjs",
     "verify": "node scripts/verify-site.mjs",
     "qa": "npm run build:i18n-test && npm run check:seo && npm run verify",
-    "deploy:cf": "wrangler pages deploy dist --project-name=cheatsforrust-net"
+    "deploy:cf": "wrangler pages deploy dist --project-name=borderlands3cheats"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

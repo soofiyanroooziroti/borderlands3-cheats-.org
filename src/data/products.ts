@@ -25,16 +25,9 @@ export type {
 } from './product-types';
 
 export const productRelatedBlogSlugs: Record<string, string[]> = {
-  'rust-cheat': [
-    'rust-cheats-requirements',
-    'how-to-use-rust-cheats',
-    'rust-cheat-loader-setup',
-    'rust-wallhack',
-    'rust-legit-cheating-settings',
-    'rust-cheats-price',
-  ],
-  spoofer: ['rust-hwid-ban'],
-  ugc: ['rust-eac-ban'],
+  'borderlands-3-cheat': [],
+  spoofer: [],
+  ugc: [],
 };
 
 const productBase = PRODUCT_CATALOG;
@@ -57,7 +50,7 @@ function acquisitionForUtility(productName: string): ProductAcquisition {
 
 function slugFromHref(href: string): string {
   const path = href.replace(/\/$/, '');
-  const segment = path.split('/').filter(Boolean).pop() ?? 'rust-cheat';
+  const segment = path.split('/').filter(Boolean).pop() ?? 'borderlands-3-cheat';
   return segment;
 }
 
@@ -185,7 +178,7 @@ export function getProductHub(locale: Locale = defaultLocale) {
     title: t.products.catalogHeading ?? t.products.title,
     subtitle: t.products.subtitle,
     description: t.products.subtitle,
-    buyUrl: checkoutPath('rustCheat'),
+    buyUrl: checkoutPath('borderlands3Cheat'),
   };
 }
 

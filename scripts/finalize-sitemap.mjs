@@ -37,7 +37,7 @@ function formatUrlset(xml) {
     .replace(/<\/priority>/g, '</priority>\n');
 }
 
-const CANONICAL_ORIGIN = 'https://cheatsforrust.net';
+const CANONICAL_ORIGIN = 'https://borderlands3cheats.org';
 
 function canonicalizeHosts(xml) {
   return xml

@@ -23,13 +23,13 @@ const extraStrings = {
     badgeProduct: 'PRODUCT',
     badgeActive: 'Active',
     cards: {
-      cheats: { title: 'Rust Cheats', desc: 'Aimbot, ESP, weapon options, and misc options for Windows PC.' },
+      cheats: { title: 'Borderlands 3 Cheats', desc: 'Aimbot, ESP, weapon options, and misc options for Windows PC.' },
       spoofer: { title: 'HWID Spoofer', desc: 'Hardware profile rotation after a machine flag.' },
       ugc: { title: 'UGC Account Recovery', desc: 'Appeal workspace for locked gaming accounts.' },
       plans: { title: 'Plans', desc: 'Compare 1 Month $35 and Lifetime $150.' },
       features: { title: 'Features', desc: 'Aimbot, ESP, weapon options, misc options, and config options.' },
       status: { title: 'Status', desc: 'Patch notes and portal update reminders.' },
-      faq: { title: 'FAQ', desc: 'Plans, setup, EAC risk, and products.' },
+      faq: { title: 'FAQ', desc: 'Plans, setup,  risk, and products.' },
       support: { title: 'Support', desc: 'Loader, checkout, and portal help.' },
       blog: { title: 'Blog', desc: 'Aim, ESP, loot, and patch-day guides.' },
       forum: { title: 'Forum', desc: 'Threads with marked developer replies.' },
@@ -57,7 +57,7 @@ const extraStrings = {
     title: 'Page not found',
     description:
       'That URL does not exist or may have moved. Head back to the homepage or browse the products.',
-    metaDescription: 'The page you requested could not be found on cheatsforrust.net.',
+    metaDescription: 'The page you requested could not be found on borderlands3cheats.org.',
     metaTitleSuffix: 'Page not found',
     backHome: 'Back to home',
     viewProducts: 'View products',
@@ -66,9 +66,9 @@ const extraStrings = {
   status: {
     eyebrow: 'Patch notes',
     title: 'Rust module status',
-    subtitle: 'Check after every EasyAnti-Cheat or client update before you launch.',
+    subtitle: 'Check after every  or client update before you launch.',
     breadcrumb: 'Status',
-    aceReminderLabel: 'EAC reminder',
+    aceReminderLabel: ' reminder',
     recentTitle: 'Recent updates',
     activeLinePrefix: 'Last checked',
     storeLineup: 'Store lineup',
@@ -151,10 +151,10 @@ const extraStrings = {
     eyebrow: 'Help center',
     title: 'FAQ for cheats, products & guides',
     subtitle:
-      'Plans, aim and ESP options, the HWID spoofer, UGC recovery, and what to check after an EAC update.',
-    schemaName: 'FAQ — Rust Cheats & Products',
+      'Plans, aim and ESP options, the HWID spoofer, UGC recovery, and what to check after an  update.',
+    schemaName: 'FAQ — Borderlands 3 Cheats & Products',
     schemaDescription:
-      'Answers about Rust Cheats, the HWID spoofer, UGC recovery, EAC risk, and checkout on cheatsforrust.net.',
+      'Answers about Borderlands 3 Cheats, the HWID spoofer, UGC recovery,  risk, and checkout on borderlands3cheats.org.',
   },
   siteFaqSection: {
     allTopicsEyebrow: 'All topics',
@@ -167,7 +167,7 @@ const extraStrings = {
   footer: {
     resourceLinks: [
       { label: 'Blog archive', ariaLabel: 'Blog' },
-      { label: 'Rust Cheats', ariaLabel: 'Rust Cheats' },
+      { label: 'Borderlands 3 Cheats', ariaLabel: 'Borderlands 3 Cheats' },
       { label: 'Products & utilities', ariaLabel: 'Products' },
     ],
   },
@@ -189,7 +189,7 @@ const extraStrings = {
     relatedGuides: 'Related guides',
     ourProducts: 'Our products',
     readingTools: 'Reading tools',
-    productCheats: 'Rust Cheats',
+    productCheats: 'Borderlands 3 Cheats',
     allProducts: 'All products',
     hwidSpoofer: 'HWID Spoofer',
     ugcRecovery: 'UGC Account recovery',

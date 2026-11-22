@@ -12,69 +12,58 @@ export interface RustMenuCategory {
   items: ProductFeatureEntry[];
 }
 
-const [visualsGroup, worldGroup, weaponGroup, aimbotGroup, miscGroup, configGroup] =
-  RUST_CHEAT_FEATURE_GROUPS;
+const [softAimGroup, enemyGroup, lootGroup, radarGroup, miscGroup] = RUST_CHEAT_FEATURE_GROUPS;
 
 export const RUST_MENU_CATEGORIES: RustMenuCategory[] = [
   {
-    id: 'visuals',
-    title: 'Visuals',
-    subtitle: 'Players & overlays',
+    id: 'soft-aim',
+    title: 'Soft Aim',
+    subtitle: 'FOV, smoothing, bones',
     description:
-      'Player, scientist, and animal markers with box, skeleton, name, health, and held-item lines. Color pickers and distance sliders control how much stays on screen during PvP.',
-    icon: 'eye',
-    toneClass: 'features-cat-icon--visuals',
-    items: visualsGroup?.items ?? [],
-  },
-  {
-    id: 'world',
-    title: 'World',
-    subtitle: 'Map & loot ESP',
-    description:
-      'Ores, collectables, traps, stashes, cupboards, dropped loot, and vehicles share the world side of the menu. Most rows ship with their own color and draw-range controls.',
-    icon: 'mapHack',
-    toneClass: 'features-cat-icon--world',
-    items: worldGroup?.items ?? [],
-  },
-  {
-    id: 'aimbot',
-    title: 'Aimbot',
-    subtitle: 'FOV & smoothing',
-    description:
-      'Aim assist toggle, FOV width, smoothing, bone selection, and aim key live in one group. The FOV circle shows the search cone while you tune pull speed.',
+      'Enable soft aim, set the aim key, then tune FOV, smoothing, and bone selection. Visible check, draw FOV, draw target line, max distance, and ignore teammates stay in this group.',
     icon: 'crosshair',
     toneClass: 'features-cat-icon--aimbot',
-    items: aimbotGroup?.items ?? [],
+    items: softAimGroup?.items ?? [],
   },
   {
-    id: 'weapon',
-    title: 'Weapon',
-    subtitle: 'Guns & melee',
+    id: 'enemy',
+    title: 'Enemy / Mob',
+    subtitle: 'ESP & health',
     description:
-      'Recoil, spread, sway, instant bow rows, peek binds, and rapid-fire helpers sit under weapon options. They do not replace aim assist sliders in the aimbot group.',
-    icon: 'target',
+      'Enemy ESP with health bars, elite and boss markers, weak-point highlights, and distance readouts for fights in Borderlands 3.',
+    icon: 'eye',
+    toneClass: 'features-cat-icon--visuals',
+    items: enemyGroup?.items ?? [],
+  },
+  {
+    id: 'loot',
+    title: 'Loot',
+    subtitle: 'Rarity & drops',
+    description:
+      'Loot rarity ESP, gear and weapon drop filters, chest and cache markers, and mission objective markers for farming routes.',
+    icon: 'mapHack',
+    toneClass: 'features-cat-icon--world',
+    items: lootGroup?.items ?? [],
+  },
+  {
+    id: 'radar',
+    title: 'Radar',
+    subtitle: '2D overview',
+    description:
+      '2D radar with player markers plus range and zoom controls. Radar sits apart from world ESP so you can run one without cluttering the other.',
+    icon: 'featureRadar',
     toneClass: 'features-cat-icon--weapon',
-    items: weaponGroup?.items ?? [],
+    items: radarGroup?.items ?? [],
   },
   {
     id: 'misc',
     title: 'Misc',
-    subtitle: 'Movement & view',
+    subtitle: 'Gun lines & keys',
     description:
-      'Movement aids, brightness, zoom, camera FOV, and flyhack-style toggles are optional misc lines. Keybind rows only run while you hold the bind.',
+      'No recoil, no spread, full bright, custom crosshair, stream-proof overlay, menu and panic keys, config save/load, and the cloud DMA note.',
     icon: 'layers',
     toneClass: 'features-cat-icon--misc',
     items: miscGroup?.items ?? [],
-  },
-  {
-    id: 'config',
-    title: 'Config',
-    subtitle: 'Overlay & performance',
-    description:
-      'Watermark, font and ESP size sliders, overlay width, and update or render FPS caps fine-tune how the menu draws. Save config work until combat groups feel stable.',
-    icon: 'settings',
-    toneClass: 'features-cat-icon--config',
-    items: configGroup?.items ?? [],
   },
 ];
 
